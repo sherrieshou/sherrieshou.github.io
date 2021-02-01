@@ -1,0 +1,25 @@
+html,body{
+    font-family: 'Big Shoulders Display', cursive;
+    background-color: white;
+    color: #000;
+}
+
+a{
+    list-style-type: none;
+  
+}
+
+img{
+size: 50px;
+}
+
+
+
+nav ul{
+    margin: 0;
+    padding: 0;
+}
+
+header, footer{
+    text-align: center;
+}
