@@ -1,0 +1,36 @@
+body{
+    font-family: Georgia;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+    text-align: justify;
+}
+
+.text1{
+    position: absolute;
+width: 188px;
+height: 794px;
+left: 292px;
+top: 170px;
+color: #E5E5E5;
+}
+.text1:hover{
+    transition-duration: 0.8s;
+    color: black;
+}
+
+.text2{
+    position: absolute;
+width: 752px;
+height: 176px;
+left: 563px;
+top: 400px;
+color: #E5E5E5;
+}
+.text2:hover{
+    transition-duration: 0.8s;
+    color: black;
+}

@@ -1,0 +1,33 @@
+.text{
+    position: absolute;
+width: 399px;
+height: 392px;
+left: 71px;
+top: 501px;
+font-family: Rockwell;
+font-style: normal;
+font-weight: normal;
+font-size: 24px;
+line-height: 10px;
+/* or 42% */
+color: #000000;
+}
+
+
+.text:hover{
+    transition-duration: 0.3s;
+    position: absolute;
+width: 1267px;
+height: 740px;
+left: 200px;
+top: 54px;
+font-family: Rockwell;
+font-style: normal;
+font-weight: normal;
+font-size: 24px;
+line-height: 29px;
+
+color: #000000;
+
+
+}

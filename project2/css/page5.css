@@ -1,0 +1,55 @@
+.text{
+    position: absolute;
+width: 675px;
+height: 74px;
+left: 473px;
+top: 335px;
+
+font-family: Georgia;
+font-style: normal;
+font-weight: normal;
+font-size: 36px;
+line-height: 36px;
+/* or 100% */
+
+
+color: #595A4E;
+}
+button{
+    background-color: white; 
+  border: none;
+    font-family: Georgia;
+font-style: normal;
+font-weight: normal;
+font-size: 36px;
+line-height: 36px;
+/* or 100% */
+color: #595A4E;
+}
+button:visited{
+    text-decoration: none;
+    border: none;
+}
+button:hover{
+    text-decoration: underline;
+}
+
+#hide{
+    position: absolute;
+width: 165px;
+height: 116px;
+left: 291px;
+top: 449px;
+
+font-family: Georgia;
+font-style: normal;
+font-weight: normal;
+font-size: 18px;
+line-height: 18px;
+/* or 100% */
+
+text-align: right;
+
+color: #595A4E;
+
+}

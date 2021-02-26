@@ -1,0 +1,39 @@
+.text{
+position: absolute;
+width: 626px;
+height: 204px;
+left: 548px;
+top: 316px;
+
+font-family: Georgia;
+font-style: normal;
+font-weight: normal;
+font-size: 24px;
+line-height: 36px;
+color: #6F6F6F;
+}
+
+#b1,#text2,#text3,#text4,#text5,#text6,#text7,#text8,#text9,#text10,#text11,#text12{
+background-color: white; 
+border: none;
+font-family: Georgia;
+font-style: normal;
+font-weight: normal;
+font-size: 28px;
+line-height: 36px;
+color: #6F6F6F;
+
+}
+
+#b1:hover,#text3:hover,#text6:hover,#text7:hover,#text10:hover,#text12:hover{
+color:black;
+}
+
+#text2:hover,#text4:hover, #text5:hover,#text11:hover{
+color:rgb(196, 196, 196);
+}
+
+#text8:hover,#text9:hover{
+color:#474b29;
+background-color: #898b73;
+}
