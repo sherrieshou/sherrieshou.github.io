@@ -31,7 +31,7 @@ body {
     text-decoration: none;
     background:white;
 
-    transition: background 1s ease;
+    transition: background 2s ease;
 
   }
 
@@ -39,3 +39,7 @@ body {
       background:rgb(96, 109, 81)  ;
   }
     
+
+
+
+  /*transition: right 5s ease;*/
