@@ -1,5 +1,4 @@
 
-
 .b1{
     margin: 50px;
     width: 221px;
@@ -92,8 +91,12 @@ animation-timing-function: ease-in-out;
 
 
 
-/*target only screens up to 1024px*/
-@media only screen and (max-width:1024px){
+
+
+
+
+
+@media screen and (max-width: 992px) {
     .b1{
         margin: 50px;
         width: 150px;
@@ -180,17 +183,18 @@ animation-timing-function: ease-in-out;
                     transform:rotate(180deg); }
     
     }
-
 }
 
 
 
 
 
-/*target only screens up to 375px*/
- 
 
-@media only screen and (max-width:375px){
+
+
+
+
+@media screen and (max-width: 600px) {
 
     .b1{
         margin: 50px;
@@ -280,4 +284,5 @@ animation-timing-function: ease-in-out;
                     transform:rotate(180deg); }
 
     }
+
 }

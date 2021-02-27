@@ -1,0 +1,41 @@
+body {
+    font-family: Georgia;
+
+  }
+
+  .container{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(3,minmax(150px,auto));
+    grid-column-gap: 10px;
+    grid-row-gap:10px;
+}
+
+.text{
+    font-size: 1rem;
+    justify-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-column-start:2;
+    grid-column-end:3;
+    grid-row-start:2;
+    grid-row-end: 3;
+}
+
+  .hl {
+    color: rgb(177, 177, 177);
+    flex: 1;
+    font-size: 2em;
+    line-height: 1.2;
+    text-decoration: none;
+    background:white;
+
+    transition: background 1s ease;
+
+  }
+
+ a:active{
+      background:rgb(96, 109, 81)  ;
+  }
+    
