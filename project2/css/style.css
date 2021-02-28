@@ -1,3 +1,113 @@
+@font-face {
+    font-family: 'Alegreya';
+    src: url('../p2-font/Alegreya-Regular.woff2') format('woff2'),
+        url('../p2-font/Alegreya-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Alegreya';
+    src: url('../p2-font/Alegreya-SemiBold.woff2') format('woff2'),
+        url('../p2-font/Alegreya-SemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Alegreya';
+    src: url('../p2-font/Alegreya-SemiBoldItalic.woff2') format('woff2'),
+        url('../p2-font/Alegreya-SemiBoldItalic.woff') format('woff');
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Alegreya';
+    src: url('../p2-font/Alegreya-ExtraBold.woff2') format('woff2'),
+        url('../p2-font/Alegreya-ExtraBold.woff') format('woff');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Alegreya';
+    src: url('../p2-font/Alegreya-BlackItalic.woff2') format('woff2'),
+        url('../p2-font/Alegreya-BlackItalic.woff') format('woff');
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Alegreya';
+    src: url('../p2-font/Alegreya-Black.woff2') format('woff2'),
+        url('../p2-font/Alegreya-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Alegreya';
+    src: url('../p2-font/Alegreya-ExtraBoldItalic.woff2') format('woff2'),
+        url('../p2-font/Alegreya-ExtraBoldItalic.woff') format('woff');
+    font-weight: 800;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Alegreya';
+    src: url('../p2-font/Alegreya-Bold.woff2') format('woff2'),
+        url('../p2-font/Alegreya-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Alegreya';
+    src: url('../p2-font/Alegreya-BoldItalic.woff2') format('woff2'),
+        url('../p2-font/Alegreya-BoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Alegreya';
+    src: url('../p2-font/Alegreya-Medium.woff2') format('woff2'),
+        url('../p2-font/Alegreya-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Alegreya';
+    src: url('../p2-font/Alegreya-MediumItalic.woff2') format('woff2'),
+        url('../p2-font/Alegreya-MediumItalic.woff') format('woff');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Alegreya';
+    src: url('../p2-font/Alegreya-Italic.woff2') format('woff2'),
+        url('../p2-font/Alegreya-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+
+
 .container{
     display: grid;
     grid-template-columns: repeat(6,1fr);
@@ -18,7 +128,7 @@
     width: 177px;
     height: 177px;
     background: #C4C4C4;
-    font-family: Rockwell;
+    font-family: 'Alegreya', Georgia, serif ;
     font-style: normal;
     font-weight: normal;
     font-size: 12px;
@@ -51,7 +161,13 @@
     width: 177px;
     height: 177px;
     background: #C4C4C4;
+    font-family: 'Alegreya',georgia, serif;
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+    text-align: center;
 }
+
 .p2 a:link{
     color: #000000;
     text-decoration: none;
@@ -59,6 +175,7 @@
 .p2 a:active{
     color: #000000;
     text-decoration: none;
+    
 }
 .p2 a:visited{
     color:#000000;
@@ -72,6 +189,9 @@
 
 .p3{
     justify-self: center;
+    display:flex;
+    align-items: center;
+    justify-content: center;
     grid-column-start:2;
     grid-column-end:3;
     grid-row-start:1;
@@ -79,6 +199,10 @@
     width: 177px;
     height: 177px;
     background: #595A4E;
+    font-family: 'Alegreya';
+    font-weight: 500;
+    font-style: normal;
+    text-align: end;
 
 }
 .p3 a:link{
@@ -95,7 +219,7 @@
 }
 .p3 a:hover{
     color:#000000;
-    text-decoration: underline;
+    text-decoration: underline dotted;
 }
 
 
@@ -109,33 +233,36 @@
     height: 177px;
     background: #000000;
     justify-self: center;
-    font-family: Rockwell;
-    font-style: normal;
-    font-weight: normal;
+    font-family: 'Alegreya';
+    font-weight: 500;
+    font-style: italic;
     font-size: 18px;
     line-height: 25px;
-    color: #FFFFFF;
+    color: #c4c4c4;
 }
 .p4 a:link{
-    color: white;
+    color: #c4c4c4;
     text-decoration: none;
 }
 .p4 a:active{
-    color: white;
+    color: #c4c4c4;
     text-decoration: none;
 }
 .p4 a:visited{
-    color:white;
+    color:#C4C4C4;
     text-decoration: none;
 }
 .p4 a:hover{
-    color:white;
-    text-decoration: underline;
+    color:#595A4E;
+    text-decoration: none;
 }
 
 
 .p5{
     justify-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     grid-column-start:2;
     grid-column-end:3;
     grid-row-start:3;
@@ -143,6 +270,11 @@
     width: 177px;
     height: 177px;
     background: #C4C4C4;
+    font-family: 'Alegreya';
+    font-weight: bold;
+    font-style: normal;
+    font-size:10px;
+    line-height: 11px;
 }
 .p5 a:link{
     color: #000000;
@@ -157,12 +289,15 @@
     text-decoration: none;
 }
 .p5 a:hover{
-    color:#000000;
-    text-decoration: underline;
+    color:white;
+    text-decoration: none;
 }
 
 .p6{
     justify-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     grid-column-start:5;
     grid-column-end:6;
     grid-row-start:2;
@@ -170,33 +305,36 @@
     width: 177px;
     height: 177px;
     background: #C4C4C4;
-    font-family: Rockwell;
-font-style: normal;
-font-weight: normal;
+    font-family: 'Alegreya';
+    font-weight: normal;
+    font-style: italic;
 font-size: 36px;
 line-height: 39px;
-color: #FFFFFF;
+color: black;
 }
 .p6 a:link{
-    color: white;
+    color: black;
     text-decoration: none;
 }
 .p6 a:active{
-    color: white;
+    color: black;
     text-decoration: none;
 }
 .p6 a:visited{
-    color:white;
+    color:black;
     text-decoration: none;
 }
 .p6 a:hover{
-    color:white;
-    text-decoration: underline;
+    color:#595A4E;
+    text-decoration: none;
 }
 
 
 .p7{
     justify-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     grid-column-start:3;
     grid-column-end:4;
     grid-row-start:4;
@@ -204,6 +342,9 @@ color: #FFFFFF;
     width: 177px;
     height: 177px;
     background: #C4C4C4;
+    font-family: 'Alegreya';
+    font-weight: bold;
+    font-style: italic;
 }
 .p7 a:link{
     color: #000000;
@@ -218,12 +359,15 @@ color: #FFFFFF;
     text-decoration: none;
 }
 .p7 a:hover{
-    color:#000000;
-    text-decoration: underline;
+    color:#595A4E;
+    text-decoration: none;
 }
 
 .p8{
     justify-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: left;
     grid-column-start:2;
     grid-column-end:3;
     grid-row-start:4;
@@ -231,7 +375,15 @@ color: #FFFFFF;
     width: 177px;
     height: 177px;
     background: #595A4E;
+    font-family: 'Alegreya';
+    font-weight: bold;
+    font-style: italic;
     color:white;
+}
+h3{
+    font-family: 'Alegreya';
+    font-weight: bold;
+    font-style: normal;
 }
 .p8 a:link{
     color: white;
@@ -416,9 +568,9 @@ color:white;
         width: auto;
         height: auto;
         background: #C4C4C4;
-        font-family: Rockwell;
-        font-size: 12px;
-        line-height: 4px;
+        font-family:  'Alegreya', Georgia, serif ;
+        font-size: 11px;
+        line-height: 5px;
         
     }
     .p1 a:link{
@@ -449,19 +601,27 @@ color:white;
         height: auto;
         background: #C4C4C4;
         font-size: 10px;
-        line-height: 10px;
+        line-height: 12px;
+        font-family: 'Alegreya',georgia, serif;
+        font-weight: 600;
+        font-style: normal;
+        font-display: swap;
+        text-align: center;
         
     }
     .p2 a:link{
-        color: black;
+
+        text-decoration: none;
 
     }
     .p2 a:active{
-        color: white;
 
+        text-decoration: none;
+        font-style: italic;
     }
     .p2 a:visited{
-        color:black;
+
+        text-decoration: none;
 
     }
 
@@ -476,19 +636,20 @@ color:white;
         height: auto;
         background: #595A4E;
         font-size: 10px;
+        color: #FFFFFF;
     }
     .p3 a:link{
-        color: #000000;
-        text-decoration: none;
+        color: #FFFFFF;
     }
     .p3 a:active{
-        color: #000000;
-        text-decoration: underline;
-    }
-    .p3 a:visited{
-        color:#000000;
+        color: #FFFFFF;
+        background: white; 
         text-decoration: none;
     }
+    .p3 a:visited{
+        color: #FFFFFF;
+    }
+
   
 
     .p4{
@@ -501,25 +662,28 @@ color:white;
         height: auto;
         background: #000000;
         justify-self: center;
-        font-family: georgia;
-        font-style: normal;
-        font-weight: normal;
+        font-family: 'Alegreya';
+        font-weight: 500;
+        font-style: italic;
         font-size: 10px;
         line-height: 12px;
-        color: #FFFFFF;
+        color: #c4c4c4;
+        
     }
     .p4 a:link{
-        color: white;
-        text-decoration: none;
+        color: #c4c4c4;
     }
+
+
     .p4 a:active{
         color: white;
-        text-decoration: underline;
+        text-decoration: none;
+        font-weight: bold;
     }
     .p4 a:visited{
-        color:white;
-        text-decoration: none;
+        color: #c4c4c4;
     }
+
 
 .p5{
     justify-self: center;
@@ -531,29 +695,32 @@ color:white;
     height: auto;
     background: #C4C4C4;
     justify-self: stretch;
-        font-family: georgia;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 17px;
-        line-height: 20px;
-        color: #FFFFFF;
+    font-family: 'Alegreya';
+    font-weight: bold;
+    font-style: normal;
+    font-size:10px;
+    line-height: 11px;
+        color:#595A4E;
 }
 .p5 a:link{
-    color: #000000;
+    color: #595A4E;
     text-decoration: none;
 }
 .p5 a:active{
     color: #000000;
-    text-decoration: underline;
+    text-decoration: none;
 }
 .p5 a:visited{
-    color:#000000;
+    color:#595A4E;
     text-decoration: none;
 }
 
 
 .p6{
     justify-self: stretch;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     grid-column-start:5;
     grid-column-end:9;
     grid-row-start:9;
@@ -561,28 +728,30 @@ color:white;
     width: auto;
     height: auto;
     background: #C4C4C4;
-    font-family: georgia;
-font-style: normal;
-font-weight: normal;
+    font-family: 'Alegreya';
+    font-weight: normal;
+    font-style: italic;
 font-size: 36px;
 line-height: 39px;
-color: #FFFFFF;
+color:  #5A5D40;
 }
 .p6 a:link{
-    color: white;
+    font-weight: normal;
+    font-style: italic;
+    color: #5A5D40;
     text-decoration: none;
 }
 .p6 a:active{
+    font-weight: normal;
+    font-style: italic;
     color: white;
     text-decoration: none;
 }
 .p6 a:visited{
-    color:white;
+    font-weight: normal;
+    font-style: italic;
+    color: #5A5D40;
     text-decoration: none;
-}
-.p6 a:hover{
-    color:white;
-    text-decoration: underline;
 }
 
 
@@ -602,7 +771,7 @@ color: #FFFFFF;
 }
 .p7 a:active{
     color: #000000;
-    text-decoration: underline;
+    text-decoration: underline dotted;
 }
 .p7 a:visited{
     color:#000000;
@@ -653,6 +822,7 @@ color: #FFFFFF;
 .p9 a:active{
     color: white;
     text-decoration: underline;
+    font-size: larger;
 }
 .p9 a:visited{
     color:white;
@@ -682,7 +852,7 @@ color: #FFFFFF;
 }
 .p10 a:active{
     color: white;
-    text-decoration: underline;
+    text-decoration: underline dotted gray;
 }
 .p10 a:visited{
     color:white;
@@ -745,7 +915,7 @@ color: #FFFFFF;
     }
     .p12 a:active{
         color: #000000;
-        text-decoration: underline;
+        text-decoration: none;
     }
     .p12 a:visited{
         color:#000000;
