@@ -60,3 +60,8 @@ text-align: right;
 color: #595A4E;
 
 }
+
+
+/*target only screens up to 375px*/
+@media only screen and (max-width:375px){
+}

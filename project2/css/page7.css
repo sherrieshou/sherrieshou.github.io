@@ -38,8 +38,9 @@ body {
  a:active{
       background:rgb(96, 109, 81)  ;
   }
-    
 
 
 
-  /*transition: right 5s ease;*/
+/*target only screens up to 375px*/
+@media only screen and (max-width:375px){
+}

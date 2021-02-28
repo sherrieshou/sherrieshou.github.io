@@ -31,3 +31,8 @@ color: #000000;
 
 
 }
+
+
+/*target only screens up to 375px*/
+@media only screen and (max-width:375px){
+}

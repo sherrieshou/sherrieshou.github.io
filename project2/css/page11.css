@@ -51,3 +51,8 @@ animation-timing-function: ease-in-out;
     height: auto;
     z-index: -1;
 }
+
+
+/*target only screens up to 375px*/
+@media only screen and (max-width:375px){
+}

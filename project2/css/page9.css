@@ -53,3 +53,9 @@ animation: color-change 3s infinite;
     50%{color:black;}
     0%{color:white;}
 }
+
+
+
+/*target only screens up to 375px*/
+@media only screen and (max-width:375px){
+}

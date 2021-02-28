@@ -1,18 +1,125 @@
+@font-face {
+    font-family: 'Alegreya';
+    src: url('../p2-font/Alegreya-Regular.woff2') format('woff2'),
+        url('../p2-font/Alegreya-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Alegreya';
+    src: url('../p2-font/Alegreya-SemiBold.woff2') format('woff2'),
+        url('../p2-font/Alegreya-SemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Alegreya';
+    src: url('../p2-font/Alegreya-SemiBoldItalic.woff2') format('woff2'),
+        url('../p2-font/Alegreya-SemiBoldItalic.woff') format('woff');
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Alegreya';
+    src: url('../p2-font/Alegreya-ExtraBold.woff2') format('woff2'),
+        url('../p2-font/Alegreya-ExtraBold.woff') format('woff');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Alegreya';
+    src: url('../p2-font/Alegreya-BlackItalic.woff2') format('woff2'),
+        url('../p2-font/Alegreya-BlackItalic.woff') format('woff');
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Alegreya';
+    src: url('../p2-font/Alegreya-Black.woff2') format('woff2'),
+        url('../p2-font/Alegreya-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Alegreya';
+    src: url('../p2-font/Alegreya-ExtraBoldItalic.woff2') format('woff2'),
+        url('../p2-font/Alegreya-ExtraBoldItalic.woff') format('woff');
+    font-weight: 800;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Alegreya';
+    src: url('../p2-font/Alegreya-Bold.woff2') format('woff2'),
+        url('../p2-font/Alegreya-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Alegreya';
+    src: url('../p2-font/Alegreya-BoldItalic.woff2') format('woff2'),
+        url('../p2-font/Alegreya-BoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Alegreya';
+    src: url('../p2-font/Alegreya-Medium.woff2') format('woff2'),
+        url('../p2-font/Alegreya-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Alegreya';
+    src: url('../p2-font/Alegreya-MediumItalic.woff2') format('woff2'),
+        url('../p2-font/Alegreya-MediumItalic.woff') format('woff');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Alegreya';
+    src: url('../p2-font/Alegreya-Italic.woff2') format('woff2'),
+        url('../p2-font/Alegreya-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
 html{
     background-color: rgb(39, 39, 39);
 }
 
 .text1{
     position: absolute;
-    width: 654.22px;
+    width: 700px;
     height: 43.33px;
     left: 150px;
     top: 67px;
-    
-    font-family: Georgia;
-    font-style: normal;
+    font-family: 'Alegreya',georgia,serif;
     font-weight: normal;
-    font-size: 18px;
+    font-style: italic;
+    font-size: 24px;
     line-height: 23px;
     color: #FFEBA3;
 }
@@ -24,9 +131,9 @@ html{
     left: 155px;
     top: 120px;
     
-    font-family: Georgia;
-    font-style: normal;
+    font-family: 'Alegreya',georgia,serif;
     font-weight: bold;
+    font-style: normal;
     font-size: 36px;
     line-height: 35px;
     color: #A69454;
@@ -38,14 +145,14 @@ html{
     position: absolute;
 width: 336.02px;
 height: 160.89px;
-left: 420px;
-top: 170px;
+left: 340px;
+top: 220px;
 
-font-family: Georgia;
-font-style: normal;
-font-weight: normal;
-font-size: 144px;
-line-height: 116px;
+font-family: 'Alegreya',georgia,serif;
+    font-weight: normal;
+    font-style: normal;
+font-size: 100px;
+line-height: 100px;
 /* or 81% */
 
 
@@ -59,12 +166,12 @@ z-index: -2;
     position: absolute;
 width: 406px;
 height: 57px;
-left: 979px;
+left: 1100px;
 top: 242px;
 
-font-family: Georgia;
-font-style: normal;
-font-weight: normal;
+font-family: 'Alegreya',georgia,serif;
+    font-weight: normal;
+    font-style: normal;
 font-size: 24px;
 line-height: 23px;
 /* or 96% */
@@ -81,7 +188,7 @@ height: 96px;
 left: 777px;
 top: 299px;
 
-font-family: Georgia;
+font-family: 'Alegreya',georgia,serif;
 font-style: normal;
 font-weight: normal;
 font-size: 48px;
@@ -99,7 +206,7 @@ height: 58px;
 left: 777px;
 top: 492px;
 
-font-family: Georgia;
+font-family: 'Alegreya',georgia,serif;
 font-style: normal;
 font-weight: normal;
 font-size: 24px;
@@ -118,7 +225,7 @@ height: 58px;
 left: 155px;
 top: 584px;
 
-font-family: Georgia;
+font-family: 'Alegreya',georgia,serif;
 font-style: normal;
 font-weight: normal;
 font-size: 36px;
@@ -133,7 +240,7 @@ animation: t7 9s infinite;
 
 @keyframes t7{
         0% {left: 155px;}
-        50% {left: 400px;}
+        50% {left: 600px;}
         100% {left: 155px;}
 }
 
@@ -145,7 +252,7 @@ height: 58px;
 left: 852px;
 top: 647px;
 
-font-family: Georgia;
+font-family: 'Alegreya',georgia,serif;
 font-style: normal;
 font-weight: normal;
 font-size: 18px;
@@ -158,12 +265,12 @@ color: #FFFFFF;
 
 .text9{
     position: absolute;
-width: 491px;
-height: 58px;
+    width:600px;
+    height:300px;
 left: 852px;
 top: 676px;
 
-font-family: Georgia;
+font-family: 'Alegreya',georgia,serif;
 font-style: normal;
 font-weight: normal;
 font-size: 24px;
@@ -177,12 +284,12 @@ color: #585858;
 
 .text10{
     position: absolute;
-width: 503px;
-height: 58px;
-left: 852px;
+    width:600px;
+    height:60px;
+left: 1300px;
 top: 790px;
 
-font-family: Georgia;
+font-family: 'Alegreya',georgia,serif;
 font-style: normal;
 font-weight: normal;
 font-size: 14px;
@@ -192,4 +299,15 @@ line-height: 23px;
 
 color: #6F6F6F;
 
+}
+
+
+
+/*target only screens up to 375px*/
+@media only screen and (max-width:376px){
+
+   header{
+       height:600px;
+   }
+    
 }

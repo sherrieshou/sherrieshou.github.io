@@ -404,6 +404,9 @@ h3{
 
 .p9{
     justify-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: right;
     grid-column-start:6;
     grid-column-end:7;
     grid-row-start:2;
@@ -412,6 +415,10 @@ h3{
     height: 177px;
     background: #5A5D40;
     color:white;
+    font-family: 'Alegreya';
+    font-weight: normal;
+    font-style: normal;
+    text-align: right;
 }
 .p9 a:link{
     color: white;
@@ -433,6 +440,9 @@ h3{
 
 .p10{
     justify-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     grid-column-start:5;
     grid-column-end:6;
     grid-row-start:4;
@@ -440,34 +450,37 @@ h3{
     width: 177px;
     height: 177px;
     background: #000000;
-    font-family: Rockwell;
-font-style: normal;
-font-weight: normal;
+    font-family: 'Alegreya';
+    font-weight: 900;
+    font-style: normal;
 font-size: 36px;
 line-height: 39px;
-color: #FFFFFF;
+color: #c4c4c4;
 }
 .p10 a:link{
-    color: white;
+    color: #c4c4c4;
     text-decoration: none;
 }
 .p10 a:active{
-    color: white;
+    color: #c4c4c4;
     text-decoration: none;
 }
 .p10 a:visited{
-    color:white;
+    color:#c4c4c4;
     text-decoration: none;
 }
 .p10 a:hover{
     color:white;
-    text-decoration: underline;
+    text-decoration: underline dotted;
 }
 
 
 
 .p11{
     justify-self: center;
+    display: flex;
+    align-items: bottom;
+    justify-content: center;
     grid-column-start:4;
     grid-column-end:5;
     grid-row-start:3;
@@ -475,37 +488,37 @@ color: #FFFFFF;
     width: 177px;
     height: 177px;
     background: #5A5D40;
-    font-family: Rockwell;
-font-style: normal;
-font-weight: normal;
-font-size: 16px;
-line-height: 23px;
+    font-family: 'Alegreya';
+    font-style: italic;
+font-size: 15px;
+line-height: 20px;
+text-align: center;
 /* or 96% */
-color:white;
+color:#c4c4c4;
 }
 .p11 a:link{
-    color: white;
+    color: #c4c4c4;
     text-decoration: none;
 }
 .p11 a:active{
-    color: white;
+    color: #c4c4c4;
     text-decoration: none;
 }
 .p11 a:visited{
-    color:white;
+    color:#c4c4c4;
     text-decoration: none;
 }
 .p11 a:hover{
     color:white;
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 
 .p12{
-    font-family: Rockwell;
+    font-family: 'Alegreya';
+    font-weight: 500;
     font-style: normal;
-    font-weight: normal;
-    font-size: 9px;
+    font-size: 20px;
     line-height: 11px;
     justify-self: center;
     display: flex;
@@ -532,8 +545,8 @@ color:white;
         text-decoration: none;
     }
     .p12 a:hover{
-        color:#000000;
-        text-decoration: underline;
+        color:white;
+        text-decoration: none;
     }
 
 
@@ -805,6 +818,9 @@ color:  #5A5D40;
 
 
 .p9{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     justify-self: stretch;
     grid-column-start:5;
     grid-column-end:8;
@@ -814,6 +830,10 @@ color:  #5A5D40;
     height: auto;
     background: #5A5D40;
     color:white;
+    font-family: 'Alegreya';
+    font-weight: normal;
+    font-style: normal;
+    text-align: right;
 }
 .p9 a:link{
     color: white;
@@ -839,15 +859,15 @@ color:  #5A5D40;
     width: auto;
     height: auto;
     background: #000000;
-    font-family: georgia;
-font-style: normal;
-font-weight: normal;
+    font-family: 'Alegreya';
+    font-weight: 900;
+    font-style: normal;
 font-size: 36px;
 line-height: 39px;
-color: #FFFFFF;
+color: #c4c4c4;
 }
 .p10 a:link{
-    color: white;
+    color: #c4c4c4;
     text-decoration: none;
 }
 .p10 a:active{
@@ -855,12 +875,13 @@ color: #FFFFFF;
     text-decoration: underline dotted gray;
 }
 .p10 a:visited{
-    color:white;
+    color:#c4c4c4;
     text-decoration: none;
 }
 
 
 .p11{
+    align-items: center;
     justify-self: stretch;
     grid-column-start:3;
     grid-column-end:5;
@@ -872,6 +893,8 @@ color: #FFFFFF;
     font-family: georgia;
     font-style: normal;
     font-weight: normal;
+    font-family: 'Alegreya';
+    font-style: italic;
     font-size: 8px;
     line-height: 10px;
     /* or 96% */
@@ -892,10 +915,10 @@ color: #FFFFFF;
  
 
 .p12{
-    font-family: Rockwell;
+    font-family: 'Alegreya';
+    font-weight: 500;
     font-style: normal;
-    font-weight: normal;
-    font-size: 9px;
+    font-size: 20px;
     line-height: 11px;
     justify-self: stretch;
     display: flex;
