@@ -58,6 +58,7 @@ animation-timing-function: ease-in-out;
     grid-row-end: 3;
     height: auto;
     z-index: -1;
+    font-size:1.3rem;
 }
 
 .home{
