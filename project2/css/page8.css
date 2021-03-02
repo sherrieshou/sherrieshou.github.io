@@ -1,6 +1,15 @@
+@font-face {
+    font-family: 'Alegreya';
+    src: url('../p2-font/Alegreya-Regular.woff2') format('woff2'),
+        url('../p2-font/Alegreya-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
 body {
     height:400vh;
     margin:0;
+    
 }
 
 section{
@@ -10,6 +19,7 @@ section{
     place-content: center;
     z-index: 2;
     position:relative;
+    
 }
 
 svg{
@@ -21,9 +31,10 @@ svg{
 }
 
 h1{
-    font-family:'helvetica';
+
     font-size: 3em;
     text-align: center;
+    font-family: 'Alegreya',georgia, serif;
 }
 
 .animate{
