@@ -38,7 +38,7 @@ color: #000000;
         position: absolute;
     width: 399px;
     height: 392px;
-    left: 150px;
+    left: 80px;
     top: 1100px;
     font-family: Rockwell;
     font-style: normal;
@@ -51,7 +51,7 @@ color: #000000;
     .text:active{
         transition-duration: 0.3s;
         position: absolute;
-        width: 399px;
+        width: 370px;
         height: 392px;
         left: 150px;
         top: 1100px;
