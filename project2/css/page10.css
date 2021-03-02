@@ -1,4 +1,11 @@
-
+@font-face {
+    font-family: 'Alegreya';
+    src: url('../p2-font/Alegreya-Regular.woff2') format('woff2'),
+        url('../p2-font/Alegreya-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
 
 body{
     font-family: georgia;
@@ -12,6 +19,7 @@ body{
     grid-template-rows: repeat(9,minmax(260px,auto));
     grid-column-gap: 20px;
     grid-row-gap:10px;
+
 }
 
 
@@ -34,7 +42,8 @@ h3{
 
 
 .text1{
-    color: white;
+    font-family: 'Alegreya',georgia, serif;
+    color: rgb(224, 224, 224);
     justify-self: center;
     display: flex;
     align-items: center;
@@ -48,6 +57,7 @@ h3{
 }
 
 .text2{
+    font-family: 'Alegreya',georgia, serif;
     color: rgb(199, 199, 199);
     justify-self: center;
     display: flex;
@@ -63,6 +73,7 @@ h3{
 
     
 .text3{
+    font-family: 'Alegreya',georgia, serif;
     color:rgb(155, 155, 155);
     justify-self: center;
     display: flex;
@@ -77,6 +88,7 @@ h3{
 }
 
 .text4{
+    font-family: 'Alegreya',georgia, serif;
     color:rgb(105, 105, 105);
     justify-self: center;
     display: flex;
