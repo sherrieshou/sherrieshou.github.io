@@ -1,27 +1,44 @@
+
+@font-face {
+    font-family: 'Alegreya';
+    src: url('../p2-font/Alegreya-Regular.woff2') format('woff2'),
+        url('../p2-font/Alegreya-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Alegreya';
+    src: url('../p2-font/Alegreya-Bold.woff2') format('woff2'),
+        url('../p2-font/Alegreya-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
 html{
     background: black;
 }
-.text1{
-    position: absolute;
 
+.text1{
+position: absolute;
 left: 180px;
 top: 340px;
-font-family: georgia;
+font-family:'Alegreya', georgia, serif;
 font-style: normal;
 font-weight: normal;
 font-size: 160px;
 line-height: 140px;
-
 color: rgb(87, 87, 87);
 
 }
 
 .text2{
-    position: absolute;
+position: absolute;
 left: 430px;
 top: 400px;
 
-font-family: georgia;
+font-family: 'Alegreya', georgia, serif;
 font-style: normal;
 font-weight: normal;
 font-size: 30px;
@@ -34,13 +51,12 @@ transform: rotate(45deg);
 }
 
 .text3{
-    position: absolute;
+position: absolute;
 left: 1000px;
 top: 300px;
-
-font-family: georgia;
+font-family: 'Alegreya', georgia, serif;
 font-style: normal;
-font-weight: normal;
+font-weight: bold;
 font-size: 70px;
 line-height: 144px;
 color: white;
@@ -56,6 +72,25 @@ animation: color-change 3s infinite;
 
 
 
-/*target only screens up to 375px*/
-@media only screen and (max-width:375px){
+@media only screen and (min-device-width: 375px) and (max-device-height: 812px){ 
+
+    .text1{
+        position: absolute;
+        left: 400px;
+        top: 1540px;
+    width:40%;
+    font-size: 10rem;
 }
+.text2{
+    position: absolute;
+    left: 0px;
+    top: 1300px;
+    width: 130%;
+    font-size:3rem;
+}
+
+.text3{
+    position: absolute;
+    left: 200px;
+    top: 500px;
+}}
