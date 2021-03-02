@@ -80,5 +80,6 @@ color: #E5E5E5;
         grid-row-start:2;
         grid-row-end: 4;
         width:auto;
+        font-size: 1.8rem;
 }
 }

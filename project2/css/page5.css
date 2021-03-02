@@ -1,3 +1,28 @@
+
+@font-face {
+    font-family: 'Alegreya';
+    src: url('../p2-font/Alegreya-Regular.woff2') format('woff2'),
+        url('../p2-font/Alegreya-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Alegreya';
+    src: url('../p2-font/Alegreya-ExtraBold.woff2') format('woff2'),
+        url('../p2-font/Alegreya-ExtraBold.woff') format('woff');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+.container{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(1,minmax(120px,auto));
+    grid-column-gap: 10px;
+    grid-row-gap:10px;
+}
 .text{
     position: absolute;
 width: 675px;
@@ -5,27 +30,23 @@ height: 74px;
 left: 473px;
 top: 335px;
 
-font-family: Georgia;
+font-family:'Alegreya', Georgia, serif;
 font-style: normal;
 font-weight: normal;
 font-size: 36px;
 line-height: 36px;
-/* or 100% */
-
-
 color: #595A4E;
 }
 button{
-    background: none;
-	color: inherit;
-	border: none;
-	padding: 0;
-	font: inherit;
-	cursor: pointer;
-	outline: inherit;
-    background-color: white; 
-
-    font-family: Georgia;
+background: none;
+color: inherit;
+border: none;
+padding: 0;
+font: inherit;
+cursor: pointer;
+outline: inherit;
+background-color: white; 
+font-family: 'Alegreya', Georgia, serif;
 font-style: normal;
 font-weight: normal;
 font-size: 36px;
@@ -47,7 +68,7 @@ height: 116px;
 left: 291px;
 top: 449px;
 
-font-family: Georgia;
+font-family: 'Alegreya', Georgia, serif;
 font-style: normal;
 font-weight: normal;
 font-size: 18px;
@@ -65,7 +86,7 @@ height: 116px;
 left: 730px;
 top: 520px;
 
-font-family: Georgia;
+font-family: 'Alegreya', Georgia, serif;
 font-style: normal;
 font-weight: normal;
 font-size: 18px;
@@ -80,8 +101,7 @@ color: #595A4E;
 width: 250px;
 left: 795px;
 top: 230px;
-
-font-family: Georgia;
+font-family: 'Alegreya', Georgia, serif;
 font-style: normal;
 font-weight: normal;
 font-size: 18px;
@@ -92,6 +112,93 @@ color: #595A4E;
 }
 
 
-/*target only screens up to 375px*/
-@media only screen and (max-width:375px){
+
+@media only screen and (min-device-width: 375px) and (max-device-height: 812px){ 
+
+    .text{
+        position: absolute;
+    width:30%;
+    left: 200px;
+    top: 600px;
+    text-align: right;
+
+    font-style: normal;
+    font-weight: normal;
+    font-size: 39px;
+    line-height: 39px;
+    color: #595A4E;
+    }
+    button{
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+    background-color: white; 
+    text-decoration: underline;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 38px;
+    line-height: 39px;
+    color: #595A4E;
+    }
+    button:visited{
+        text-decoration: none;
+        border: none;
+    }
+    button:active{
+        text-decoration: underline;
+
+    }
+    
+    #hide{
+        position: absolute;
+    width: 25%;
+    left: 530px;
+    top: 820px;
+    
+
+    font-style: normal;
+    font-weight: normal;
+    font-size: 23px;
+    line-height: 23px;
+    text-align: left;
+    
+    color: #595A4E;
+    
+    }
+    
+    #hide2{
+        position: absolute;
+        width: 25%;
+        left: 530px;
+        top: 940px;
+    
+
+    font-style: normal;
+    font-weight: normal;
+    font-size: 23px;
+    line-height: 23px;
+    text-align: left;
+    color: #595A4E;
+    
+    }
+    
+    #hide3{
+        position: absolute;
+    width: 25%;
+    left: 530px;
+    top: 600px;
+
+    font-style: normal;
+    font-weight: normal;
+    font-size: 23px;
+    line-height: 23px;
+    text-align: left;
+    color: #595A4E;
+    
+    }
+
 }
