@@ -51,7 +51,7 @@ color: #000000;
     
     .text:hover{
         position: absolute;
-        width: 399px;
+        width: 500px;
         height: 392px;
         left: 150px;
         top: 1100px;
@@ -66,7 +66,7 @@ color: #000000;
     .text:active{
         transition-duration: 1s;
         position: absolute;
-    width: 300x;
+        width:500px;
     height: 1300px;
     left: 50px;
     top: 100px;
