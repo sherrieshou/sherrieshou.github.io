@@ -98,6 +98,7 @@ color: #E5E5E5;
         grid-column-end:7;
         grid-row-start:7;
         grid-row-end: 9;
+        font-size: 2rem;
     color: #E5E5E5;
     }
     .text2:hover{
