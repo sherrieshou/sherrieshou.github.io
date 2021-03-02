@@ -1,5 +1,22 @@
+@font-face {
+    font-family: 'Alegreya';
+    src: url('../p2-font/Alegreya-Regular.woff2') format('woff2'),
+        url('../p2-font/Alegreya-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Alegreya';
+    src: url('../p2-font/Alegreya-Italic.woff2') format('woff2'),
+        url('../p2-font/Alegreya-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
 body{
-    font-family: Georgia;
+    font-family: 'Alegreya', Georgia, serif;
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
@@ -185,6 +202,7 @@ top: 10px;
         top: 440px;
     width: 213px;
     height: 213px;
+    font-style: italic;
 
     }
     
@@ -212,8 +230,8 @@ top: 10px;
     
     .text7{
         position: absolute;
-        left: 60px;
-        top: 70px;
+        left: 720px;
+        top: 880px;
         width: 211px;
         height: 211px;
 
@@ -222,8 +240,8 @@ top: 10px;
     
     .text8{
         position: absolute;
-        left: 60px;
-        top: 70px;
+        left: 10px;
+        top: 880px;
     width: 211px;
     height: 211px;
 
