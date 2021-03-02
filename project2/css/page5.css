@@ -30,7 +30,6 @@ font-style: normal;
 font-weight: normal;
 font-size: 36px;
 line-height: 36px;
-/* or 100% */
 color: #595A4E;
 }
 button:visited{
@@ -53,10 +52,41 @@ font-style: normal;
 font-weight: normal;
 font-size: 18px;
 line-height: 18px;
-/* or 100% */
-
 text-align: right;
 
+color: #595A4E;
+
+}
+
+#hide2{
+    position: absolute;
+width: 165px;
+height: 116px;
+left: 730px;
+top: 520px;
+
+font-family: Georgia;
+font-style: normal;
+font-weight: normal;
+font-size: 18px;
+line-height: 18px;
+text-align: left;
+color: #595A4E;
+
+}
+
+#hide3{
+    position: absolute;
+width: 250px;
+left: 795px;
+top: 230px;
+
+font-family: Georgia;
+font-style: normal;
+font-weight: normal;
+font-size: 18px;
+line-height: 18px;
+text-align: left;
 color: #595A4E;
 
 }

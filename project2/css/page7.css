@@ -1,3 +1,31 @@
+@font-face {
+  font-family: 'Alegreya';
+  src: url('../p2-font/Alegreya-Regular.woff2') format('woff2'),
+      url('../p2-font/Alegreya-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Alegreya';
+  src: url('../p2-font/Alegreya-SemiBold.woff2') format('woff2'),
+      url('../p2-font/Alegreya-SemiBold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Alegreya';
+  src: url('../p2-font/Alegreya-SemiBoldItalic.woff2') format('woff2'),
+      url('../p2-font/Alegreya-SemiBoldItalic.woff') format('woff');
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+
 body {
     font-family: Georgia;
 
@@ -21,6 +49,51 @@ body {
     grid-column-end:3;
     grid-row-start:2;
     grid-row-end: 3;
+    font-family: 'Alegreya', georgia, serif;
+    font-weight: normal;
+    font-style: normal;
+}
+
+  .hl {
+    color: rgb(177, 177, 177);
+    flex: 1;
+    font-size: 2em;
+    line-height: 1.2;
+    text-decoration: none;
+    background:white;
+    font-family: 'Alegreya', georgia, serif;
+    font-weight: normal;
+    font-style: italic;
+    transition: background 2s ease;
+
+  }
+
+ a:active{
+      background:rgb(96, 109, 81)  ;
+  }
+
+
+@media only screen and (min-device-width: 375px) and (max-device-height: 812px){ 
+
+
+  .container{
+    display: grid;
+    grid-template-columns: repeat(7,1fr);
+    grid-template-rows: repeat(3,minmax(400px,auto));
+    grid-column-gap: 10px;
+    grid-row-gap:10px;
+}
+
+.text{
+    font-size: 1rem;
+    justify-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-column-start:2;
+    grid-column-end:7;
+    grid-row-start:2;
+    grid-row-end: 3;
 }
 
   .hl {
@@ -39,8 +112,4 @@ body {
       background:rgb(96, 109, 81)  ;
   }
 
-
-
-/*target only screens up to 375px*/
-@media only screen and (max-width:375px){
 }
