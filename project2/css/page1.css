@@ -1,15 +1,24 @@
+@font-face {
+    font-family: 'Alegreya';
+    src: url('../p2-font/Alegreya-Regular.woff2') format('woff2'),
+        url('../p2-font/Alegreya-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
 .text{
     position: absolute;
 width: 399px;
 height: 392px;
 left: 71px;
 top: 501px;
-font-family: Rockwell;
+font-family: 'Alegreya', georgia, serif;
 font-style: normal;
 font-weight: normal;
 font-size: 24px;
 line-height: 10px;
-/* or 42% */
+
 color: #000000;
 }
 
@@ -21,7 +30,8 @@ width: 740px;
 height: 740px;
 left: 200px;
 top: 54px;
-font-family: Rockwell;
+font-family: 'Alegreya', georgia, serif;
+font-style: normal;
 font-style: normal;
 font-weight: normal;
 font-size: 24px;
@@ -40,7 +50,8 @@ color: #000000;
     height: 392px;
     left: 80px;
     top: 1100px;
-    font-family: Rockwell;
+    font-family: 'Alegreya', georgia, serif;
+    font-style: normal;
     font-style: normal;
     font-weight: normal;
     font-size: 2rem;
@@ -55,7 +66,8 @@ color: #000000;
         height: 392px;
         left: 150px;
         top: 1100px;
-        font-family: Rockwell;
+        font-family: 'Alegreya', georgia, serif;
+        font-style: normal;
         font-style: normal;
         font-weight: normal;
         font-size: 2rem;
