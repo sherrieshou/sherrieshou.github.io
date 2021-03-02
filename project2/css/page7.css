@@ -60,7 +60,7 @@ body {
     font-size: 2em;
     line-height: 1.2;
     text-decoration: none;
-    background:white;
+    background:none;
     font-family: 'Alegreya', georgia, serif;
     font-weight: normal;
     font-style: italic;
@@ -79,13 +79,13 @@ body {
   .container{
     display: grid;
     grid-template-columns: repeat(7,1fr);
-    grid-template-rows: repeat(3,minmax(400px,auto));
+    grid-template-rows: repeat(3,minmax(320px,auto));
     grid-column-gap: 10px;
     grid-row-gap:10px;
 }
 
 .text{
-    font-size: 1rem;
+    font-size: 1.4rem;
     justify-self: center;
     display: flex;
     align-items: center;
@@ -102,14 +102,22 @@ body {
     font-size: 2em;
     line-height: 1.2;
     text-decoration: none;
-    background:white;
-
-    transition: background 2s ease;
+    background:none;
+    animation: hl 10s infinite;
+animation-delay: 0.2s;
+animation-timing-function: ease-in-out;
 
   }
-
- a:active{
-      background:rgb(96, 109, 81)  ;
+@keyframes hl{
+  0%{
+    color:  rgb(177, 177, 177);
   }
+  50%{
+    color: black;
+  }
+  100%{
+    color: rgb(177, 177, 177);
+  }
+}
 
 }
