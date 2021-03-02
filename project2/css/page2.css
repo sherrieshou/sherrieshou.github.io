@@ -99,6 +99,7 @@ color: #E5E5E5;
         grid-row-start:7;
         grid-row-end: 9;
         font-size: 2rem;
+        line-height:1.2;
     color: #E5E5E5;
     }
     .text2:hover{

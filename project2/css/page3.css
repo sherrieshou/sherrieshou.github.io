@@ -8,22 +8,14 @@ body{
     color: #000000;
 }
 
-.container{
-    display: grid;
-    grid-template-columns: repeat(10,1fr);
-    grid-template-rows: repeat(10,minmax(60px,80px));
-    grid-column-gap: 1px;
-    grid-row-gap:1px;
-}
-
 
 
 .text1{
     position: absolute;
 width: 183px;
 height: 206px;
-left: 259px;
-top: 422px;
+left: 309px;
+top: 442px;
 }
 
 .text1:hover{
@@ -38,8 +30,8 @@ top: 42px;
     position: absolute;
 width: 227px;
 height: 206px;
-left: 339px;
-top: 292px;
+left: 389px;
+top: 302px;
 }
 
 .text2:hover{
@@ -55,7 +47,7 @@ top: 42px;
     position: absolute;
     width: 207px;
     height: 207px;
-    left: 484px;
+    left: 544px;
     top: 406px;
     
 }
@@ -73,8 +65,8 @@ top: 42px;
     position: absolute;
 width: 213px;
 height: 213px;
-left: 568px;
-top: 232px;
+left: 668px;
+top: 242px;
 }
 
 .text4:hover{
@@ -90,7 +82,7 @@ top: 42px;
     position: absolute;
 width: 211px;
 height: 211px;
-left: 724px;
+left: 824px;
 top: 394px; 
 }
 
@@ -107,7 +99,7 @@ top: 636px;
     position: absolute;
     width: 211px;
     height: 211px;
-    left: 832px;
+    left: 932px;
     top: 296px;
 }
 
@@ -123,7 +115,7 @@ top: 636px;
     position: absolute;
     width: 211px;
     height: 211px;
-    left: 973px;
+    left: 1073px;
     top: 344px;
 }
 .text7:hover{
@@ -138,7 +130,7 @@ top: 636px;
     position: absolute;
 width: 211px;
 height: 211px;
-left: 1103px;
+left: 1203px;
 top: 406px;
 }
 
@@ -151,7 +143,91 @@ top: 636px;
 }
 
 
+
+@media only screen and (min-device-width: 375px) and (max-device-height: 812px){ 
+
  
-/*target only screens up to 375px*/
-@media only screen and (max-width:375px){
+.text1{
+    position: absolute;
+width: 183px;
+height: 206px;
+left: 10px;
+top: 10px;
+}
+    
+    
+
+    
+    .text2{
+        position: absolute;
+        left: 220px;
+        top: 220px;
+    width: 270px;
+    height: 206px;
+
+    }
+
+    
+    
+    .text3{
+        position: absolute;
+        left: 500px;
+        top: 220px;
+        width: 207px;
+        height: 207px;
+    }
+    
+   
+    
+    .text4{
+        position: absolute;
+        left: 500px;
+        top: 440px;
+    width: 213px;
+    height: 213px;
+
+    }
+    
+
+    
+    .text5{
+        position: absolute;
+        left: 500px;
+        top: 660px;
+    width: 211px;
+    height: 211px;
+
+    }
+    
+
+    
+    .text6{
+        position: absolute;
+        left: 720px;
+        top: 660px;
+        width: 211px;
+        height: 211px;
+    }
+
+    
+    .text7{
+        position: absolute;
+        left: 60px;
+        top: 70px;
+        width: 211px;
+        height: 211px;
+
+    }
+
+    
+    .text8{
+        position: absolute;
+        left: 60px;
+        top: 70px;
+    width: 211px;
+    height: 211px;
+
+    }
+    
+
 }
