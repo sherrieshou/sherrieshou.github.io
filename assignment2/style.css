@@ -101,7 +101,7 @@ img{
 
 
 
-@media only screen and (max-device-width: 1024px) and (max-device-height:  1366px){ 
+@media only screen and (max-device-width: 1024px){ 
     html{
         background-color: #c7c7c7;
     }
@@ -185,7 +185,7 @@ img{
 }
 
 
-@media only screen and (max-device-width: 375px) and (max-device-height: 812px){ 
+@media only screen and (max-device-width: 375px){ 
     html{
         background-color: #c7c7c7;
     }
