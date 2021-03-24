@@ -189,12 +189,13 @@ line-height: 1.2;
 }
 .text1:hover{
     position: absolute;
-    width: 25%;
+    width: 75%;
     height: auto;
     left: 10px;
     top: 200px;
-    font-size: 1.5rem;
+    font-size: 2.3rem;
     line-height: 1.2;
+    color: #5A5D40;
 }
     
     
@@ -202,19 +203,20 @@ line-height: 1.2;
     
     .text2{
         position: absolute;
-        left: 220px;
+        left: 150px;
         top: 430px;
-    width: 25%;
-
-    font-size:1rem;
-    line-height: 1.7;
+    width: 35%;
+    font-size:1.3rem;
+    line-height: 1.2;
+    color:#c4c4c4;
     }
     .text2:hover{
         position: absolute;
-    width: 75%;
+    width: 65%;
     left: 265px;
     top: 42px;
-    font-size:2.5rem;
+    font-size:2.3rem;
+    color:black;
     }
 
     
@@ -224,16 +226,16 @@ line-height: 1.2;
         left: 500px;
         top: 430px;
         width: 25%;
-        font-size:1rem;
-        line-height: 1.7;
+        font-size:1.3rem;
+        line-height: 1.2;
     }
 
     .text3:hover{
         position: absolute;
-    width: 25%;
+    width: 30%;
     left: 529px;
-    top: 42px;
-    font-size:2rem;
+    top: 20px;
+    font-size:2.3rem;
     }
     
    
@@ -244,29 +246,39 @@ line-height: 1.2;
         top: 640px;
     width: 50%;
     font-style: italic;
-    font-size:1.8rem;
+    font-size:2.3rem;
     line-height: 2;
 
     }
-
+    .text4:hover{
+        position: absolute;
+        left: 500px;
+        top: 640px;
+    width: 50%;
+    font-style:normal;
+    font-size:2.3rem;
+    line-height: 2;
+    color: #5A5D40;
+    }
     
 
     
     .text5{
         position: absolute;
         left: 220px;
-
         top: 1060px;
+        font-size:1.6rem;
     width: 22%;
     }
 
 .text5:hover{
     position: absolute;
-width: 211px;
-left: 200px;
-top: 736px;
-font-size: 2rem;
-line-height: 1.3;
+width: 35%;
+left: 100px;
+top: 836px;
+font-size: 2.3rem;
+line-height: 1.2;
+color: #5A5D40;
 }
     
 
@@ -274,23 +286,25 @@ line-height: 1.3;
     .text6{
         position: absolute;
         left: 500px;
-        top: 1060px;
+        top: 1260px;
         width: 25%;
+        color:#c4c4c4;
     }
     .text6:hover{
         position: absolute;
         width: 45%;
-        left: 30px;
-        top: 650px;
+        left: 500px;
+        top: 1160px;
         font-size: 2rem;
         line-height: 1.3;
+        color: #5A5D40;
     }
 
     
     .text7{
         position: absolute;
         left: 740px;
-        top: 1280px;
+        top: 1580px;
         width: 25%;
         font-size: 1.7rem;
         line-height: 1.3;
@@ -298,11 +312,11 @@ line-height: 1.3;
 
     .text7:hover{
         position: absolute;
-        left: 740px;
-        top: 1280px;
-        width: 25%;
-        font-size: 1.7rem;
-        line-height: 1.3;
+        left: 540px;
+        top: 1580px;
+        width: 35%;
+        font-size: 2.3rem;
+        line-height: 1.2;
     }
     
     .text8{
@@ -310,16 +324,16 @@ line-height: 1.3;
         left: 10px;
         top: 1480px;
     width: 50%;
-    font-size:1.8rem;
-    line-height: 2;
+    font-size:2.3rem;
+    line-height: 1.2;
     }
     .text8:hover{
         position: absolute;
         left: 10px;
         top: 1480px;
     width: 50%;
-    font-size:1.8rem;
-    line-height: 2;
+    font-size:2.3rem;
+    line-height: 1.2;
     }
     .home{
         position:absolute;

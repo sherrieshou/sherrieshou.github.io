@@ -40,7 +40,13 @@ font-style: normal;
 font-weight: normal;
 font-size: 1.6rem;
 line-height: 1.4;
-color: #000000;
+color:#a8a8a8;
+padding: 50px;;
+}
+
+.text-f:hover{
+    background-color: white ;
+    color:#5A5D40;
 }
 
 
@@ -76,11 +82,12 @@ img {
 }
 
 
+
 @media only screen and (min-device-width: 375px) and (max-device-height: 812px){ 
     .container{
         display: grid;
         grid-template-columns: repeat(5,1fr);
-        grid-template-rows: repeat(4,minmax(500px,auto));
+        grid-template-rows: repeat(4,minmax(300px,auto));
         grid-column-gap: 10px;
         grid-row-gap:10px;
     }
@@ -95,7 +102,13 @@ img {
         grid-row-start:2;
         grid-row-end: 4;
         width:auto;
-        font-size: 1.8rem;
+        font-size: 2.3rem;
+        padding:40px;
+}
+.text-b{
+ font-size:1rem;
+
+
 }
 .home{
     position:absolute;

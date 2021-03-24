@@ -41,7 +41,7 @@ font-weight: 800;
 font-size: 28px;
 line-height: 36px;
 color: #6F6F6F;
-
+outline: inherit;
 }
 
 #b1:hover,#text3:hover,#text6:hover,#text7:hover,#text10:hover,#text12:hover{
@@ -79,9 +79,9 @@ img {
     position: absolute;
     width: 50%;
     height: auto;
-    left: 230px;
+    left: 250px;
     top: 700px;
-    font-size: 1.6rem;
+    font-size: 3rem;
     line-height: 1.2;
     color: #6F6F6F;
     }
@@ -93,6 +93,22 @@ img {
         height:50px;
     
     }
+    #b1:hover,#text3:hover,#text6:hover,#text7:hover,#text10:hover,#text12:hover{
+        color:black;
+        font-size: 2.3rem;
+        }
+ 
+        
+        #text2:hover,#text4:hover, #text5:hover,#text11:hover{
+        color:rgb(196, 196, 196);
+        font-size: 2.3rem;
+        }
+        
+        #text8:hover,#text9:hover{
+        color:#474b29;
+        background-color: #898b73;
+        font-size:2.3rem;
+        }
     img {
         width: 100px;
     }

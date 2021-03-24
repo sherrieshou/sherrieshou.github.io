@@ -74,18 +74,23 @@ img {
     .text:active{
         transition-duration: 0.3s;
         position: absolute;
-        width: 370px;
+        width: 70%;
         height: 392px;
         left: 150px;
-        top: 1100px;
-        font-family: 'Alegreya', georgia, serif;
-        font-style: normal;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 2rem;
-        line-height: 10px;
-        color: #000000;
+        top: 400px;
+        font-size: 2.3rem;
+        line-height: 1.2;
     }
+    .text:hover{
+        position: absolute;
+        width: 70%;
+        height: 392px;
+        left: 150px;
+        top: 400px;
+        font-size: 2.3rem;
+        line-height: 1.2;
+    }
+
     .home{
         position:absolute;
         left:10px;

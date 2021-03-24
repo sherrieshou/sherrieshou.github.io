@@ -54,10 +54,12 @@ body {
     font-style: normal;
 }
 
-  .hl {
+  button {
     color: rgb(177, 177, 177);
+    border: 0;
+    outline: inherit;
     flex: 1;
-    font-size: 2em;
+    font-size: 1.8em;
     line-height: 1.2;
     text-decoration: none;
     background:none;
@@ -65,10 +67,10 @@ body {
     font-weight: normal;
     font-style: italic;
     transition: background 2s ease;
-
+    text-align: left;
   }
 
- a:active{
+ button:active{
       background:rgb(96, 109, 81)  ;
   }
   .home{
@@ -99,7 +101,6 @@ img {
 }
 
 .text{
-    font-size: 1.4rem;
     justify-self: center;
     display: flex;
     align-items: center;
@@ -108,6 +109,8 @@ img {
     grid-column-end:7;
     grid-row-start:2;
     grid-row-end: 3;
+    font-size: 2.3rem;
+    line-height: 1.2;
 }
 
   .hl {

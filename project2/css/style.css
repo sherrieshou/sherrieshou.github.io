@@ -125,14 +125,15 @@
     grid-column-end:4;
     grid-row-start:1;
     grid-row-end: 2;
-    width: 177px;
-    height: 177px;
+    width: 210px;
+    height: 210px;
     background: #C4C4C4;
-    font-family: 'Alegreya', Georgia, serif ;
-    font-style: normal;
+    font-family: 'Alegreya',georgia, serif;
     font-weight: normal;
-    font-size: 12px;
-    line-height: 4px;
+    font-style: italic;
+font-size: 36px;
+line-height: 39px;
+text-align: center;
 }
 
 .p1 a:link{
@@ -154,18 +155,21 @@
 
 .p2{
     justify-self: center;
+    display:flex;
+    align-items: center;
+    justify-content: center;
     grid-column-start:1;
     grid-column-end:2;
     grid-row-start:2;
     grid-row-end: 3;
-    width: 177px;
-    height: 177px;
+    width: 210px;
+    height: 210px;
     background: #C4C4C4;
     font-family: 'Alegreya',georgia, serif;
-    font-weight: 600;
-    font-style: normal;
-    font-display: swap;
-    text-align: center;
+    font-weight: normal;
+    font-style: italic;
+font-size: 36px;
+line-height: 39px;
 }
 
 .p2 a:link{
@@ -196,12 +200,14 @@
     grid-column-end:3;
     grid-row-start:1;
     grid-row-end: 2;
-    width: 177px;
-    height: 177px;
+    width: 210px;
+    height: 210px;
     background: #595A4E;
     font-family: 'Alegreya';
-    font-weight: 500;
-    font-style: normal;
+    font-weight: normal;
+    font-style: italic;
+font-size: 36px;
+line-height: 39px;
     text-align: end;
 
 }
@@ -225,20 +231,24 @@
 
 .p4{
     justify-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     grid-column-start:1;
     grid-column-end:2;
     grid-row-start:1;
     grid-row-end: 2;
-    width: 177px;
-    height: 177px;
+    width: 210px;
+    height: 210px;
     background: #000000;
     justify-self: center;
     font-family: 'Alegreya';
-    font-weight: 500;
+    font-weight: normal;
     font-style: italic;
-    font-size: 18px;
-    line-height: 25px;
+    font-size: 36px;
+    line-height: 39px;
     color: #c4c4c4;
+    text-align: center;
 }
 .p4 a:link{
     color: #c4c4c4;
@@ -267,14 +277,14 @@
     grid-column-end:3;
     grid-row-start:3;
     grid-row-end: 4;
-    width: 177px;
-    height: 177px;
+    width: 210px;
+    height: 210px;
     background: #C4C4C4;
     font-family: 'Alegreya';
-    font-weight: bold;
-    font-style: normal;
-    font-size:10px;
-    line-height: 11px;
+    font-weight: normal;
+    font-style: italic;
+    font-size: 36px;
+    line-height: 39px;
 }
 .p5 a:link{
     color: #000000;
@@ -302,8 +312,8 @@
     grid-column-end:6;
     grid-row-start:2;
     grid-row-end: 3;
-    width: 177px;
-    height: 177px;
+    width: 210px;
+    height: 210px;
     background: #C4C4C4;
     font-family: 'Alegreya';
     font-weight: normal;
@@ -339,12 +349,15 @@ color: black;
     grid-column-end:4;
     grid-row-start:4;
     grid-row-end: 5;
-    width: 177px;
-    height: 177px;
+    width: 210px;
+    height: 210px;
     background: #C4C4C4;
     font-family: 'Alegreya';
-    font-weight: bold;
+    font-weight: normal;
     font-style: italic;
+    font-size: 36px;
+    line-height: 39px;
+    text-align: center;
 }
 .p7 a:link{
     color: #000000;
@@ -367,23 +380,21 @@ color: black;
     justify-self: center;
     display: flex;
     align-items: center;
-    justify-content: left;
+    justify-content:center;
     grid-column-start:2;
     grid-column-end:3;
     grid-row-start:4;
     grid-row-end: 5;
-    width: 177px;
-    height: 177px;
+    width: 210px;
+    height: 210px;
     background: #595A4E;
     font-family: 'Alegreya';
-    font-weight: bold;
+    font-weight: normal;
     font-style: italic;
+    font-size: 36px;
+    line-height: 39px;
     color:white;
-}
-h3{
-    font-family: 'Alegreya';
-    font-weight: bold;
-    font-style: normal;
+    text-align: center;
 }
 .p8 a:link{
     color: white;
@@ -406,19 +417,21 @@ h3{
     justify-self: center;
     display: flex;
     align-items: center;
-    justify-content: right;
+    justify-content: center;
     grid-column-start:6;
     grid-column-end:7;
     grid-row-start:2;
     grid-row-end: 3;
-    width: 177px;
-    height: 177px;
+    width: 210px;
+    height: 210px;
     background: #5A5D40;
     color:white;
     font-family: 'Alegreya';
     font-weight: normal;
-    font-style: normal;
-    text-align: right;
+    font-style: italic;
+    font-size: 36px;
+    line-height: 39px;
+    text-align: left;
 }
 .p9 a:link{
     color: white;
@@ -447,15 +460,15 @@ h3{
     grid-column-end:6;
     grid-row-start:4;
     grid-row-end: 5;
-    width: 177px;
-    height: 177px;
+    width: 210px;
+    height: 210px;
     background: #000000;
     font-family: 'Alegreya';
-    font-weight: 900;
-    font-style: normal;
-font-size: 36px;
-line-height: 39px;
-color: #c4c4c4;
+    font-weight: normal;
+    font-style: italic;
+    font-size: 36px;
+    line-height: 39px;
+    color: #c4c4c4;
 }
 .p10 a:link{
     color: #c4c4c4;
@@ -479,22 +492,22 @@ color: #c4c4c4;
 .p11{
     justify-self: center;
     display: flex;
-    align-items: bottom;
+    align-items: center;
     justify-content: center;
     grid-column-start:4;
     grid-column-end:5;
     grid-row-start:3;
     grid-row-end: 4;
-    width: 177px;
-    height: 177px;
+    width: 210px;
+    height: 210px;
     background: #5A5D40;
     font-family: 'Alegreya';
+    font-weight: normal;
     font-style: italic;
-font-size: 15px;
-line-height: 20px;
-text-align: center;
-/* or 96% */
-color:#c4c4c4;
+    font-size: 36px;
+    line-height: 39px;
+    text-align: center;
+    color:#c4c4c4;
 }
 .p11 a:link{
     color: #c4c4c4;
@@ -516,10 +529,11 @@ color:#c4c4c4;
 
 .p12{
     font-family: 'Alegreya';
-    font-weight: 500;
-    font-style: normal;
-    font-size: 20px;
-    line-height: 11px;
+    font-weight: normal;
+    font-style: italic;
+font-size: 36px;
+line-height: 39px;
+color: black;
     justify-self: center;
     display: flex;
     align-items: center;
@@ -528,8 +542,8 @@ color:#c4c4c4;
     grid-column-end:7;
     grid-row-start:3;
     grid-row-end: 4;
-    width: 177px;
-    height: 177px;
+    width: 210px;
+    height: 210px;
     background:#C4C4C4;
     }
     .p12 a:link{
@@ -581,9 +595,6 @@ color:#c4c4c4;
         width: auto;
         height: auto;
         background: #C4C4C4;
-        font-family:  'Alegreya', Georgia, serif ;
-        font-size: 11px;
-        line-height: 5px;
         
     }
     .p1 a:link{
@@ -613,11 +624,9 @@ color:#c4c4c4;
         width: auto;
         height: auto;
         background: #C4C4C4;
-        font-size: 10px;
-        line-height: 12px;
+        font-size: 15px;
+        line-height: 17px;
         font-family: 'Alegreya',georgia, serif;
-        font-weight: 600;
-        font-style: normal;
         font-display: swap;
         text-align: center;
         
@@ -645,10 +654,12 @@ color:#c4c4c4;
         grid-column-end:5;
         grid-row-start:3;
         grid-row-end: 5;
-        width: auto;
+        width: 84px;
         height: auto;
         background: #595A4E;
-        font-size: 10px;
+        font-family: 'Alegreya';
+        font-size: 15px;
+        line-height: 17px;
         color: #FFFFFF;
     }
     .p3 a:link{
@@ -674,12 +685,9 @@ color:#c4c4c4;
         width: auto;
         height: auto;
         background: #000000;
-        justify-self: center;
         font-family: 'Alegreya';
-        font-weight: 500;
-        font-style: italic;
-        font-size: 10px;
-        line-height: 12px;
+        font-size: 15px;
+        line-height: 17px;
         color: #c4c4c4;
         
     }
@@ -709,10 +717,8 @@ color:#c4c4c4;
     background: #C4C4C4;
     justify-self: stretch;
     font-family: 'Alegreya';
-    font-weight: bold;
-    font-style: normal;
-    font-size:10px;
-    line-height: 11px;
+    font-size:15px;
+    line-height: 17px;
         color:#595A4E;
 }
 .p5 a:link{
@@ -830,10 +836,9 @@ color:  #5A5D40;
     height: auto;
     background: #5A5D40;
     color:white;
-    font-family: 'Alegreya';
-    font-weight: normal;
-    font-style: normal;
-    text-align: right;
+    font-size: 25px;
+    line-height: 27px;
+    text-align: center;
 }
 .p9 a:link{
     color: white;
@@ -859,11 +864,6 @@ color:  #5A5D40;
     width: auto;
     height: auto;
     background: #000000;
-    font-family: 'Alegreya';
-    font-weight: 900;
-    font-style: normal;
-font-size: 36px;
-line-height: 39px;
 color: #c4c4c4;
 }
 .p10 a:link{
@@ -890,14 +890,8 @@ color: #c4c4c4;
     width: auto;
     height: auto;
     background: #5A5D40;
-    font-family: georgia;
-    font-style: normal;
-    font-weight: normal;
-    font-family: 'Alegreya';
-    font-style: italic;
-    font-size: 8px;
-    line-height: 10px;
-    /* or 96% */
+    font-size: 15px;
+    line-height: 17px;
     color:white;
     }
     .p11 a:link{
@@ -915,11 +909,8 @@ color: #c4c4c4;
  
 
 .p12{
-    font-family: 'Alegreya';
-    font-weight: 500;
-    font-style: normal;
-    font-size: 20px;
-    line-height: 11px;
+    font-size: 15px;
+        line-height: 17px;
     justify-self: stretch;
     display: flex;
     align-items: center;
