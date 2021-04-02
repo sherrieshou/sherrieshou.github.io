@@ -66,7 +66,9 @@ function showSongs() {
         nameOfArtist.innerText = song.fields.artist;
         document.body.append(nameOfArtist);
 
-       
+       var songImage = document.createElement("img");
+       songImage.src = song.fields.song_image[0].url;
+       document.body.append(songImage);
 
     });
   }
