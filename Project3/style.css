@@ -223,14 +223,15 @@ h1{
     }
     .filter{
     font-size: 20px;
-    padding:2rem;
+    padding:1rem;
     color:white;
-    position: sticky;
+    top: 20px;
+    position: fixed;
     left:20px;
     height:200px;
     width:200px;
     font-family: 'dela_gothic_oneregular';
-    font-size: 1.5rem;
+    font-size: 1rem;
 
 }
 .another{
@@ -241,6 +242,7 @@ h1{
     width: 100px;
     right: 10px;
     display: block;
+    position: fixed;
 }
 .sign-image.active {
     display: block;
@@ -270,4 +272,9 @@ h1{
     color: black;
 }
 
+.billboard, .protest, .road, .shop, .js-reset{
+    display: flex;
+    left:10px;
+    padding:5px;
+}
 }
