@@ -250,8 +250,8 @@ h1{
 }
 .sign-image.active {
     display: block;
-    top: 0;
-    left: 0;
+    top: 30%;
+    left: 10%;
     width: 174px;
 }
 .sign-title.active {
