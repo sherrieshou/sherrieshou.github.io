@@ -231,7 +231,7 @@ h1{
     height:200px;
     width:200px;
     font-family: 'dela_gothic_oneregular';
-    font-size: 1rem;
+    font-size: 0.6rem;
 
 }
 .another{
@@ -246,7 +246,7 @@ h1{
 }
 .sign-image.active {
     display: block;
-    top: 40%;
+    top: 30%;
     left: 10%;
     width: 174px;
 }
