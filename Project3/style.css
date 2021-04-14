@@ -98,8 +98,8 @@ h1{
 .sign-image.active{
     display:block;
     position: fixed; /* or absolute */
-    top: 5%;
-    left: 36%;
+    top: 0;
+    left: 0;
     width: 25%;
     margin-top: 0px;
     margin-left: 0px;
