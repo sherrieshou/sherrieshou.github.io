@@ -98,8 +98,8 @@ h1{
 .sign-image.active{
     display:block;
     position: fixed; /* or absolute */
-    top: 0;
-    left: 0;
+    top: 5%;
+    left: 36%;
     width: 25%;
     margin-top: 0px;
     margin-left: 0px;
@@ -250,8 +250,8 @@ h1{
 }
 .sign-image.active {
     display: block;
-    top: 30%;
-    left: 10%;
+    top: 0;
+    left: 0;
     width: 174px;
 }
 .sign-title.active {
