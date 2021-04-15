@@ -42,12 +42,12 @@ function gotAllSigns(err) {
       return;
     }
   
-    // call functions to log and show the books
+    // call functions to log and show the signs
     consoleLogSigns();
     showSigns();
   }
 
-// just loop through the books and console.log them
+// just loop through the signs and console.log them
 function consoleLogSigns() {
     console.log("consoleLogSigns()");
     signs.forEach(sign => {
@@ -121,7 +121,7 @@ function showSigns() {
     //filter by category
     //get genre field from airtable
     //loop through the array and add each genre as
-    //a class to the song container
+    //a class to the sign container
 
     var signGenre = sign.fields.genre;
     signGenre.forEach(function(genre) {
