@@ -216,11 +216,7 @@ h1{
         /* display:flex; */
         /* overflow-x: scroll; */
     }
-    img{
-        position:fixed;
-        left:20px;
-        top:500px
-    }
+
     .filter{
     font-size: 20px;
     padding:1rem;
