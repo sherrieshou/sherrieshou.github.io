@@ -241,10 +241,11 @@ h1{
     position: fixed;
 }
 .sign-image.active {
-    display: block;
+    display: flex;
     top: 30%;
     left: 10%;
     width: 174px;
+    z-index: 10;
 }
 .sign-title.active {
     display: block;
