@@ -242,7 +242,7 @@ h1{
 }
 .sign-image.active {
     display: flex;
-    top: 30%;
+    top: 35%;
     left: 10%;
     width: 174px;
     z-index: 10;
