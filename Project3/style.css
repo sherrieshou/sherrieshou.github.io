@@ -169,7 +169,7 @@ h1{
     color:#E4BB7E;
 }
 .billboard:hover{
-    color:#E4BB7E;
+    color:#b88e4f;
 }
 
 
@@ -177,14 +177,14 @@ h1{
     color:#D77B7B;
 }
 .protest:active{
-    color:#D77B7B;
+    color:#9e4949;
 }
 
 .road:active{
     color:#81B8A4;
 }
 .road:hover{
-    color:#81B8A4;
+    color:#3e7561;
 }
 
 
@@ -192,14 +192,14 @@ h1{
     color:#7BB0D7;
 }
 .shop:hover{
-    color:#7BB0D7;
+    color:#406b8a;
 }
 
 .js-reset:active{
     color:#8A7DA4;
 }
 .js-reset:hover{
-    color:#8A7DA4;
+    color:#4e3e6d;
 }
 
 
