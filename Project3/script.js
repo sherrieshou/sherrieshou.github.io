@@ -108,12 +108,10 @@ function showSigns() {
       })
 
      //add background color
-     signContainer.addEventListener("mouseenter", function(event) {
+     signContainer.addEventListener("click", function(event) {
         document.body.style.backgroundColor = sign.fields.bgcolor;
         });
-        signContainer.addEventListener("mouseleave", function(event) {
-        document.body.style.backgroundColor = "";
-        });
+      
         signContainer.addEventListener("click", function() {
         document.body.style.backgroundColor = sign.fields.bgcolor;
         });
