@@ -69,6 +69,10 @@ button:active{
     background:black ;
     color:black;
 }
+button:hover{
+
+    color:black;
+}
 
 
 .home{
@@ -109,10 +113,11 @@ img {
 
 button{
     position: absolute;
-    left: 500px;
+    left: 400px;
     top: 500px;
-    font-size:10rem;
+    font-size:7rem;
     padding:30px;
+    width:50%;
 }
 
 .home{
@@ -126,4 +131,5 @@ button{
 img {
     width: 100px;
 }
+
 }
