@@ -73,6 +73,9 @@ body {
  button:active{
       background:rgb(96, 109, 81)  ;
   }
+  button:hover{
+    background:rgb(96, 109, 81)  ;
+  }
   .home{
     position:absolute;
     right:80px;
