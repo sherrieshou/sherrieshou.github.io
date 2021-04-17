@@ -123,22 +123,10 @@ img {
     line-height: 1.2;
     text-decoration: none;
     background:none;
-    animation: hl 10s infinite;
-animation-delay: 0.2s;
-animation-timing-function: ease-in-out;
 
   }
-@keyframes hl{
-  0%{
-    color:  rgb(177, 177, 177);
-  }
-  50%{
-    color: black;
-  }
-  100%{
-    color: rgb(177, 177, 177);
-  }
-}
+
+
 .home{
   position:absolute;
   right:80px;
