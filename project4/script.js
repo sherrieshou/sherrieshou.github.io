@@ -65,8 +65,6 @@ if (sessionStorage.getItem('imgSrc')) {
   document.getElementById('images').src = sessionStorage.getItem('imgSrc');
 }
 
-
-
 var xcimages = ["img/4pm.png", "img/5am.png", "img/7pm.png", ];
  // create the links arrey and name it hdLinks
 //  var hdLinks = new Array();
@@ -77,6 +75,12 @@ document.getElementById('images').src = xcimages[rnd];
 sessionStorage.setItem('imgSrc', xcimages[rnd]);
 
   });
+
+
+
+
+
+  
 
   let hintDiv = document.querySelector("#xc,#dc,#hd,#cy");
   let textDiv = document.querySelector("#text")
@@ -94,6 +98,59 @@ sessionStorage.setItem('imgSrc', xcimages[rnd]);
     }
   });
   
-  
 
 
+//NightHaidian Random Images
+let nhdDiv = document.querySelector("#nhd");
+
+// Click Event - detect when this div has been clicked
+nhdDiv.addEventListener("click", function(event){
+
+var images = ["img/night/hd1.png"];
+ // create the links arrey and name it hdLinks
+//  var hdLinks = new Array();
+
+var rnd = Math.floor(Math.random() * images.length);
+
+document.getElementById('images').src = images[rnd];
+  });
+
+
+
+  //NightChaoyang Random Images
+  let ncyDiv = document.querySelector("#ncy");
+
+ncyDiv.addEventListener("click", function(event){
+
+var cyimages = ["img/night/cy1.png","img/night/cy2.png","img/night/cy3.png","img/night/cy4.png"];
+
+var rnd = Math.floor(Math.random() * cyimages.length);
+
+document.getElementById('images').src = cyimages[rnd];
+  });
+
+   //NightDongCheng Random Images
+   let ndcDiv = document.querySelector("#ndc");
+
+   ndcDiv.addEventListener("click", function(event){
+   
+   var cyimages = ["img/night/dc1.png","img/night/dc2.png","img/night/dc3.png","img/night/dc4.png"];
+   
+   var rnd = Math.floor(Math.random() * cyimages.length);
+   
+   document.getElementById('images').src = cyimages[rnd];
+     });
+
+
+
+   //NightXiCheng Random Images
+   let nxcDiv = document.querySelector("#nxc");
+
+   nxcDiv.addEventListener("click", function(event){
+   
+   var cyimages = ["img/night/xc1.png","img/night/xc2.png","img/night/xc3.png"];
+   
+   var rnd = Math.floor(Math.random() * cyimages.length);
+   
+   document.getElementById('images').src = cyimages[rnd];
+     });
