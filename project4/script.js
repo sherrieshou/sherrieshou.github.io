@@ -8,7 +8,7 @@ let hdDiv = document.querySelector("#hd");
 // Click Event - detect when this div has been clicked
 hdDiv.addEventListener("click", function(event){
 
-var images = ["img/2pm.png", "img/3pm.png", "img/9am.png"];
+var images = ["img/hd1.png", "img/hd2.png", "img/hd3.png","img/hd4.png","img/hd5.png", "img/hd6.png"];
  // create the links arrey and name it hdLinks
 //  var hdLinks = new Array();
 
@@ -25,7 +25,7 @@ document.getElementById('images').src = images[rnd];
 // Click Event - detect when this div has been clicked
 cyDiv.addEventListener("click", function(event){
 
-var cyimages = ["img/1pm.png", "img/6pm.png", "img/8pm.png"];
+var cyimages = ["img/dc1.png", "img/dc2.png", "img/dc3.png"];
  // create the links arrey and name it hdLinks
 //  var hdLinks = new Array();
 
@@ -42,7 +42,7 @@ document.getElementById('images').src = cyimages[rnd];
 // Click Event - detect when this div has been clicked
 dcDiv.addEventListener("click", function(event){
 
-var dcimages = ["img/6am.png", "img/7am.png", "img/8am.png", "img/11am.png"];
+var dcimages = ["img/dc1.png", "img/dc2.png", "img/dc3.png"];
  // create the links arrey and name it hdLinks
 //  var hdLinks = new Array();
 
@@ -65,7 +65,7 @@ if (sessionStorage.getItem('imgSrc')) {
   document.getElementById('images').src = sessionStorage.getItem('imgSrc');
 }
 
-var xcimages = ["img/4pm.png", "img/5am.png", "img/7pm.png", ];
+var xcimages = ["img/xc1.png", "img/xc2.png", "img/xc3.png", "img/xc4.png" ];
  // create the links arrey and name it hdLinks
 //  var hdLinks = new Array();
 var rnd = Math.floor(Math.random() * xcimages.length);
@@ -82,21 +82,21 @@ sessionStorage.setItem('imgSrc', xcimages[rnd]);
 
   
 
-  let hintDiv = document.querySelector("#xc,#dc,#hd,#cy");
-  let textDiv = document.querySelector("#text")
+  // let hintDiv = document.querySelector("#xc,#dc,#hd,#cy");
+  // let textDiv = document.querySelector("#text")
 
-  hintDiv.addEventListener("click", function(event){
-    if (textDiv.classList.contains('hidden')) {
-      textDiv.classList.remove('hidden');
-      sessionStorage.setItem('textIsVisible', 'true');
-    } else {
-      textDiv.classList.add('hidden');
-      sessionStorage.removeItem('textIsVisible');
-    }
-    if (sessionStorage.getItem('textIsVisible')) {
-      textDiv.classList.remove('hidden');
-    }
-  });
+  // hintDiv.addEventListener("click", function(event){
+  //   if (textDiv.classList.contains('hidden')) {
+  //     textDiv.classList.remove('hidden');
+  //     sessionStorage.setItem('textIsVisible', 'true');
+  //   } else {
+  //     textDiv.classList.add('hidden');
+  //     sessionStorage.removeItem('textIsVisible');
+  //   }
+  //   if (sessionStorage.getItem('textIsVisible')) {
+  //     textDiv.classList.remove('hidden');
+  //   }
+  // });
   
 
 

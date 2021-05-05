@@ -8,21 +8,28 @@
     <title>Project 4</title>
 </head>
 <body>
+    <div id="daytitle">The <div id="we">Weekend</div> Generator
+        of <div id="bj">Beijing</div></div>
+
+    <div id="nighttitle">The <div id="nl">Night Life</div> Generator
+        of <div id="bj">Beijing</div></div>
+
+
     <div class="toggle"></div>
 
-    <div id="text" class="hidden">Please click the same button again if you don't like this result</div>
+    <div id="text" class="hidden">Click again for more</div>
 
 
     <div id="hd" class="button"></div>
-    <div id="cy"></div>
-    <div id="dc"></div>
-    <div id="xc"></div>
+    <div id="cy" class="button"></div>
+    <div id="dc" class="button"></div>
+    <div id="xc" class="button"></div>
 
 
     <div id="nhd" class="button"></div>
-    <div id="ncy"></div>
-    <div id="ndc"></div>
-    <div id="nxc"></div>
+    <div id="ncy" class="button"></div>
+    <div id="ndc" class="button"></div>
+    <div id="nxc" class="button"></div>
 
     
     <div id="horizontal"></div>
@@ -35,6 +42,7 @@
     <script>
     
     $(document).ready(function(){
+        
         $('.toggle').click(function(){
             $('.toggle').toggleClass('active')
             $('body').toggleClass('night')
@@ -47,6 +55,9 @@
         $('#ncy').hide();
         $('#ndc').hide();
         $('#nxc').hide();
+        $('#text').hide();
+        $('#daytitle').show()
+        $('#nighttitle').hide()
         $('.toggle').on('click',function(){
             $('#hd').toggle();
             $('#xc').toggle();
@@ -56,10 +67,14 @@
             $('#nxc').toggle();
             $('#ndc').toggle();
             $('#ncy').toggle();
-          
+            $('#daytitle').toggle();
+            $('#nighttitle').toggle();
         });
-      
+        $('.button').on('click',function(){
+            $('#text').show();
+        });
       });
+
     </script>
 </body>
 </html>
