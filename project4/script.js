@@ -1,6 +1,15 @@
 //When you can't decide where to go for weekend, you can use this webpage to help you
 //You will first need to select an area 
 
+//set up button colors for Haidian
+var color = ["#c3d5e5", "#9dc2e3","#7bb2e3", "#5799d4", "#3f8cd1","#2872b5", "#1a61a1"]
+ var i = 0;
+ document.querySelector("#hd").addEventListener("click",
+ function(){
+i = 1 < color.length ? ++i : 0;
+document.querySelector("#hd").style.background = color[i]
+ })
+
 //Here are the 4 buttons that generates different cards
 //Haidian Random Images
 let hdDiv = document.querySelector("#hd");
@@ -19,6 +28,14 @@ document.getElementById('images').src = images[rnd];
 
 
 
+//set up button colors for Chaoyang
+var cycolor = ["#dab461", "#d4a339","#d1991f", "#ba8513", "#ba7713","#ba6613", "#9c530b"]
+ var a = 0;
+ document.querySelector("#cy").addEventListener("click",
+ function(){
+i = 1 < cycolor.length ? ++a : 0;
+document.querySelector("#cy").style.background = cycolor[a]
+ })
   //Chaoyang Random Images
   let cyDiv = document.querySelector("#cy");
 
@@ -36,6 +53,14 @@ document.getElementById('images').src = cyimages[rnd];
 
 
 
+//set up button colors for Dongcheng
+var dccolor = ["#bd6464", "#bf5858","#bf4545", "#bf3232", "#b51d1d","#9c1616", "#7d0e0e"]
+ var d = 0;
+ document.querySelector("#dc").addEventListener("click",
+ function(){
+i = 1 < cycolor.length ? ++d : 0;
+document.querySelector("#dc").style.background = dccolor[d]
+ })
   //DongCheng Random Images
   let dcDiv = document.querySelector("#dc");
 
@@ -53,6 +78,14 @@ document.getElementById('images').src = dcimages[rnd];
 
 
 
+//set up button colors for Xicheng
+var xccolor = ["#739152", "#688c3f","#5f8731", "#4f781f", "#3f6612","#365c0b", "#2b4d05"]
+ var x = 0;
+ document.querySelector("#xc").addEventListener("click",
+ function(){
+i = 1 < cycolor.length ? ++x : 0;
+document.querySelector("#xc").style.background = xccolor[x]
+ })
   //XiCheng Random Images
   let xcDiv = document.querySelector("#xc");
  
