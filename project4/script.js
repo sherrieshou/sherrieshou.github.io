@@ -42,7 +42,7 @@ document.querySelector("#cy").style.background = cycolor[a]
 // Click Event - detect when this div has been clicked
 cyDiv.addEventListener("click", function(event){
 
-var cyimages = ["img/dc1.png", "img/dc2.png", "img/dc3.png"];
+var cyimages = ["img/cy1.png", "img/cy2.png", "img/cy3.png"];
  // create the links arrey and name it hdLinks
 //  var hdLinks = new Array();
 
