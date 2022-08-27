@@ -187,3 +187,9 @@ document.getElementById('images').src = cyimages[rnd];
    
    document.getElementById('images').src = cyimages[rnd];
      });
+
+    document.addEventListener('keydown',function(event){
+      if(event.key=="h"){
+        console.log("Hello")
+      }
+    })
