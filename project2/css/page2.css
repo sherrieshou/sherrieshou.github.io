@@ -1,0 +1,135 @@
+@font-face {
+    font-family: 'Alegreya';
+    src: url('../p2-font/Alegreya-Regular.woff2') format('woff2'),
+        url('../p2-font/Alegreya-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+body{
+    font-family: 'Alegreya';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+    text-align: justify;
+}
+.container{
+    display: grid;
+    grid-template-columns: repeat(7,1fr);
+    grid-template-rows: repeat(5,minmax(130px,auto));
+    grid-column-gap: 10px;
+    grid-row-gap:10px;
+}
+.text1{
+    justify-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-column-start:2;
+    grid-column-end:3;
+    grid-row-start:2;
+    grid-row-end: 5;
+width: 188px;
+height: auto;
+left: 292px;
+top: 170px;
+color: #E5E5E5;
+}
+.text1:hover{
+    transition-duration: 0.8s;
+    color: black;
+}
+
+.text2{
+    justify-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-column-start:4;
+    grid-column-end:7;
+    grid-row-start:3;
+    grid-row-end: 4;
+
+left: 563px;
+top: 400px;
+color: #E5E5E5;
+}
+.text2:hover{
+    transition-duration: 0.8s;
+    color: black;
+}
+.home{
+    position:absolute;
+    right:80px;
+    top:20px;
+    width:20px;
+    height:50px;
+
+}
+
+img {
+    position: sticky;
+    right: 10px;
+    top: 10px;
+    width: 50px;
+}
+
+@media only screen and (min-device-width: 375px) and (max-device-height: 812px){ 
+
+
+.container{
+        display: grid;
+        grid-template-columns: repeat(7,1fr);
+        grid-template-rows: repeat(10,minmax(130px,auto));
+        grid-column-gap: 10px;
+        grid-row-gap:10px;
+    }
+    .text1{
+        justify-self: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        grid-column-start:3;
+        grid-column-end:6;
+        grid-row-start:2;
+        grid-row-end: 5;
+        font-size: 2.3rem;
+        line-height: 1.2;
+        width:300px;
+        color: black;
+    }
+
+    
+    .text2{
+        justify-self: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        grid-column-start:2;
+        grid-column-end:7;
+        grid-row-start:7;
+        grid-row-end: 9;
+        font-size: 2.3rem;
+        line-height:1.2;
+    color: #E5E5E5;
+    }
+    .text2:hover{
+        transition-duration: 0.8s;
+        color: black;
+    }
+    .home{
+        position:absolute;
+        right:80px;
+        top:80px;
+        width:100px;
+        height:50px;
+    
+    }
+    img {
+        width: 100px;
+    }
+
+}

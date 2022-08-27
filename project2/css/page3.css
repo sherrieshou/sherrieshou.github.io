@@ -1,0 +1,350 @@
+@font-face {
+    font-family: 'Alegreya';
+    src: url('../p2-font/Alegreya-Regular.woff2') format('woff2'),
+        url('../p2-font/Alegreya-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Alegreya';
+    src: url('../p2-font/Alegreya-Italic.woff2') format('woff2'),
+        url('../p2-font/Alegreya-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+body{
+    font-family: 'Alegreya', Georgia, serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 20px;
+    
+    color: #000000;
+}
+
+
+
+.text1{
+    position: absolute;
+width: 183px;
+height: 206px;
+left: 309px;
+top: 442px;
+}
+
+.text1:hover{
+    position: absolute;
+width: 183px;
+height: 206px;
+left: 85px;
+top: 42px;
+}
+
+.text2{
+    position: absolute;
+width: 227px;
+height: 206px;
+left: 389px;
+top: 302px;
+}
+
+.text2:hover{
+    position: absolute;
+width: 227px;
+height: 206px;
+left: 285px;
+top: 42px;
+}
+
+
+.text3{
+    position: absolute;
+    width: 207px;
+    height: 207px;
+    left: 544px;
+    top: 406px;
+    
+}
+
+.text3:hover{
+    position: absolute;
+width: 207px;
+height: 207px;
+left: 529px;
+top: 42px;
+
+}
+
+.text4{
+    position: absolute;
+width: 213px;
+height: 213px;
+left: 668px;
+top: 242px;
+}
+
+.text4:hover{
+    position: absolute;
+width: 213px;
+height: 213px;
+left: 753px;
+top: 42px;
+
+}
+
+.text5{
+    position: absolute;
+width: 211px;
+height: 211px;
+left: 824px;
+top: 394px; 
+}
+
+.text5:hover{
+    position: absolute;
+width: 211px;
+height: 211px;
+left: 485px;
+top: 636px;
+}
+
+
+.text6{
+    position: absolute;
+    width: 211px;
+    height: 211px;
+    left: 932px;
+    top: 296px;
+}
+
+.text6:hover{
+    position: absolute;
+    width: 211px;
+    height: 211px;
+    left: 729px;
+    top: 632px;
+}
+
+.text7{
+    position: absolute;
+    width: 211px;
+    height: 211px;
+    left: 1073px;
+    top: 344px;
+}
+.text7:hover{
+    position: absolute;
+width: 211px;
+height: 211px;
+left: 973px;
+top: 636px;
+}
+
+.text8{
+    position: absolute;
+width: 211px;
+height: 211px;
+left: 1203px;
+top: 406px;
+}
+
+.text8:hover{
+    position: absolute;
+width: 211px;
+height: 211px;
+left: 1217px;
+top: 636px;
+}
+.home{
+    position:absolute;
+    right:80px;
+    top:20px;
+    width:20px;
+    height:50px;
+
+}
+
+img {
+    position: sticky;
+    right: 10px;
+    top: 10px;
+    width: 50px;
+}
+
+
+@media only screen and (min-device-width: 375px) and (max-device-height: 812px){ 
+
+ 
+.text1{
+    position: absolute;
+width: 25%;
+height: auto;
+left: 10px;
+top: 200px;
+font-size: 1.5rem;
+line-height: 1.2;
+}
+.text1:hover{
+    position: absolute;
+    width: 75%;
+    height: auto;
+    left: 10px;
+    top: 200px;
+    font-size: 2.3rem;
+    line-height: 1.2;
+    color: #5A5D40;
+}
+    
+    
+
+    
+    .text2{
+        position: absolute;
+        left: 150px;
+        top: 430px;
+    width: 35%;
+    font-size:1.3rem;
+    line-height: 1.2;
+    color:#c4c4c4;
+    }
+    .text2:hover{
+        position: absolute;
+    width: 65%;
+    left: 265px;
+    top: 42px;
+    font-size:2.3rem;
+    color:black;
+    }
+
+    
+    
+    .text3{
+        position: absolute;
+        left: 500px;
+        top: 430px;
+        width: 25%;
+        font-size:1.3rem;
+        line-height: 1.2;
+    }
+
+    .text3:hover{
+        position: absolute;
+    width: 30%;
+    left: 529px;
+    top: 20px;
+    font-size:2.3rem;
+    }
+    
+   
+    
+    .text4{
+        position: absolute;
+        left: 500px;
+        top: 640px;
+    width: 50%;
+    font-style: italic;
+    font-size:2.3rem;
+    line-height: 2;
+
+    }
+    .text4:hover{
+        position: absolute;
+        left: 500px;
+        top: 640px;
+    width: 50%;
+    font-style:normal;
+    font-size:2.3rem;
+    line-height: 2;
+    color: #5A5D40;
+    }
+    
+
+    
+    .text5{
+        position: absolute;
+        left: 220px;
+        top: 1060px;
+        font-size:1.6rem;
+    width: 22%;
+    }
+
+.text5:hover{
+    position: absolute;
+width: 35%;
+left: 100px;
+top: 836px;
+font-size: 2.3rem;
+line-height: 1.2;
+color: #5A5D40;
+}
+    
+
+    
+    .text6{
+        position: absolute;
+        left: 500px;
+        top: 1260px;
+        width: 25%;
+        color:#c4c4c4;
+    }
+    .text6:hover{
+        position: absolute;
+        width: 45%;
+        left: 500px;
+        top: 1160px;
+        font-size: 2rem;
+        line-height: 1.3;
+        color: #5A5D40;
+    }
+
+    
+    .text7{
+        position: absolute;
+        left: 740px;
+        top: 1580px;
+        width: 25%;
+        font-size: 1.7rem;
+        line-height: 1.3;
+    }
+
+    .text7:hover{
+        position: absolute;
+        left: 540px;
+        top: 1580px;
+        width: 35%;
+        font-size: 2.3rem;
+        line-height: 1.2;
+    }
+    
+    .text8{
+        position: absolute;
+        left: 10px;
+        top: 1480px;
+    width: 50%;
+    font-size:2.3rem;
+    line-height: 1.2;
+    }
+    .text8:hover{
+        position: absolute;
+        left: 10px;
+        top: 1480px;
+    width: 50%;
+    font-size:2.3rem;
+    line-height: 1.2;
+    }
+    .home{
+        position:absolute;
+        left:10px;
+        top:10px;
+        width:100px;
+        height:50px;
+    
+    }
+    img {
+        width: 100px;
+    }
+
+}

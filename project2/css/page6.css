@@ -1,0 +1,118 @@
+@font-face {
+    font-family: 'Alegreya';
+    src: url('../p2-font/Alegreya-Regular.woff2') format('woff2'),
+        url('../p2-font/Alegreya-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Alegreya';
+    src: url('../p2-font/Alegreya-ExtraBold.woff2') format('woff2'),
+        url('../p2-font/Alegreya-ExtraBold.woff') format('woff');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+.text{
+position: absolute;
+width: 626px;
+height: 204px;
+left: 548px;
+top: 316px;
+
+font-family: 'Alegreya', Georgia, serif;
+font-style: normal;
+font-weight: normal;
+font-size: 28px;
+line-height: 36px;
+color: #6F6F6F;
+}
+
+#b1,#text2,#text3,#text4,#text5,#text6,#text7,#text8,#text9,#text10,#text11,#text12{
+background-color: white; 
+color: inherit;
+border: none;
+border: none;
+font-family: 'Alegreya', Georgia, serif;
+font-style: normal;
+font-weight: 800;
+font-size: 28px;
+line-height: 36px;
+color: #6F6F6F;
+outline: inherit;
+}
+
+#b1:hover,#text3:hover,#text6:hover,#text7:hover,#text10:hover,#text12:hover{
+color:black;
+}
+
+#text2:hover,#text4:hover, #text5:hover,#text11:hover{
+color:rgb(196, 196, 196);
+}
+
+#text8:hover,#text9:hover{
+color:#474b29;
+background-color: #898b73;
+}
+.home{
+    position:absolute;
+    right:80px;
+    top:20px;
+    width:20px;
+    height:50px;
+
+}
+
+img {
+    position: sticky;
+    right: 10px;
+    top: 10px;
+    width: 50px;
+}
+
+
+@media only screen and (min-device-width: 375px) and (max-device-height: 812px){ 
+
+.text{
+    position: absolute;
+    width: 50%;
+    height: auto;
+    left: 250px;
+    top: 700px;
+    font-size: 3rem;
+    line-height: 1.2;
+    color: #6F6F6F;
+    }
+    .home{
+        position:absolute;
+        right:80px;
+        top:80px;
+        width:100px;
+        height:50px;
+    
+    }
+    #b1,#text2,#text3,#text4,#text5,#text6,#text7,#text8,#text9,#text10,#text11,#text12{
+        background-color: white; 
+        color: inherit;
+        border: none;
+        border: none;
+        font-family: 'Alegreya', Georgia, serif;
+        font-style: normal;
+        font-weight: 800;
+        font-size: 2.4rem;
+        line-height: 36px;
+        color: rgb(163, 163, 163);
+        outline: inherit;
+        }
+    #b1:hover,#text3:hover,#text6:hover,#text7:hover,#text10:hover,#text12:hover,#text2:hover,#text4:hover, #text5:hover,#text11:hover, #text8:hover,#text9:hover{
+        color:black;
+        font-size: 2.4rem;
+        }
+ 
+    
+    img {
+        width: 100px;
+    }
+}

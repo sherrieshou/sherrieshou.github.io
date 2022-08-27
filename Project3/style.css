@@ -1,0 +1,277 @@
+ 
+ 
+
+@font-face {
+    font-family: 'dela_gothic_oneregular';
+    src: url('webfontkit-20210413-091109/delagothicone-regular-webfont.woff2') format('woff2'),
+         url('webfontkit-20210413-091109/delagothicone-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'poppinslight';
+    src: url('poppinsweb/poppins-light-webfont.woff2') format('woff2'),
+         url('poppinsweb/poppins-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+html {
+    height: 100%;
+    color:White;
+    }
+body{
+    background:white;
+    max-height:100%;
+}
+.container{
+    position:absolute;
+    margin: 0 auto;
+    padding: 4px;
+    width: 100%;
+    height:100%;
+    transition: all ease-in-out 0.2s;
+    padding: 12px;
+
+    /* display:flex; */
+    /* overflow-x: scroll; */
+}
+
+.filter{
+    display:block;
+    top: 1%;
+    padding:2rem;
+    color:white;
+    position: fixed;
+    height:200px;
+
+    font-family: 'dela_gothic_oneregular';
+    font-size: 1.2rem;
+
+}
+
+
+
+.another{
+    margin: 0 auto;
+    padding: 16px;
+    transition: all ease-in-out 0.2s;
+    display:flex;
+    overflow-x: scroll;
+    position:absolute;
+    bottom:10px;
+    height:90px;
+}
+
+
+.sign-container {
+  border-radius: 50%;
+  height:80px;
+  width:80px;
+  display: inline-block;
+    padding:2rem;
+    border: 2px white;
+    margin: 10px;
+    background-color: white;
+}
+
+
+h1{
+    font-family: 'poppinslight';
+    font-weight: normal;
+    font-size:7rem;
+    margin:0;
+
+}
+
+
+.sign-image{
+    display:none;
+    width:200px;
+    height:auto;
+
+}
+
+.sign-image.active{
+    display:block;
+    position: fixed; /* or absolute */
+    top: 5%;
+    left: 36%;
+    width: 25%;
+    margin-top: 0px;
+    margin-left: 0px;
+}
+
+
+
+.sign-title{
+    display:none;
+}
+
+.sign-title.active{
+    display:block;
+    position: fixed; /* or absolute */
+    top: 3%;
+    right: 4%;
+    color:black;
+}
+
+.sign-artist{
+    display:none;
+}
+
+.sign-artist.active{
+    font-family: 'poppinslight';
+    display:block;
+    position: fixed; /* or absolute */
+    top: 20%;
+    right: 4%;
+    font-weight:normal;
+    font-size:3rem;
+    margin:0;
+    color:black;
+
+}
+
+
+.bk, .bk2, .bk3, .bk4, .bk5{
+    width: 174px;
+    padding: 1px;
+}
+
+.bk{
+    background-color: #8A7DA4 ;
+}
+
+.bk2{
+    background-color: #E4BB7E ;
+}
+.bk3{
+    background-color: #D77B7B ;
+}
+.bk4{
+    background-color: #81B8A4 ;
+}
+.bk5{
+    background-color: #7BB0D7 ;
+}
+
+.billboard, .protest, .road, .shop, .js-reset{
+    display: flex;
+    left:20px;
+    padding:5px;
+}
+
+.billboard:active{
+    color:#E4BB7E;
+}
+.billboard:hover{
+    color:#b88e4f;
+}
+
+
+.protest:hover{
+    color:#D77B7B;
+}
+.protest:active{
+    color:#9e4949;
+}
+
+.road:active{
+    color:#81B8A4;
+}
+.road:hover{
+    color:#3e7561;
+}
+
+
+.shop:active{
+    color:#7BB0D7;
+}
+.shop:hover{
+    color:#406b8a;
+}
+
+.js-reset:active{
+    color:#8A7DA4;
+}
+.js-reset:hover{
+    color:#4e3e6d;
+}
+
+
+/*target only screens up to 375px*/
+@media only screen and (max-width:380px){
+    .container{
+        position:absolute;
+        margin: 0 auto;
+        padding: 4px;
+        width: 375px;
+        height:812px;
+        transition: all ease-in-out 0.2s;
+        padding: 12px;
+        /* display:flex; */
+        /* overflow-x: scroll; */
+    }
+
+    .filter{
+    font-size: 20px;
+    padding:1rem;
+    color:white;
+    top: 20px;
+    position: fixed;
+    left:20px;
+    height:200px;
+    width:200px;
+    font-family: 'dela_gothic_oneregular';
+    font-size: 1rem;
+
+}
+.another{
+    margin-top: 100%;
+    /* position: relative; */
+    bottom: 10px;
+    height: 800px;
+    width: 100px;
+    right: 10px;
+    display: block;
+    position: fixed;
+}
+.sign-image.active {
+    display: flex;
+    top: 35%;
+    left: 10%;
+    width: 174px;
+    z-index: 10;
+}
+.sign-title.active {
+    display: block;
+    position: fixed;
+    right: 4%;
+    color: black;
+    top: 88%;
+    left: 12%;
+}
+h1{
+    font-size: 4rem;
+}
+.sign-artist.active {
+    display: block;
+    position: fixed;
+    top: 85%;
+    left: 13%;
+    font-weight: normal;
+    font-size: 1.2rem;
+    margin: 0;
+    color: black;
+}
+
+.billboard, .protest, .road, .shop, .js-reset{
+    display: flex;
+    left:10px;
+    padding:5px;
+}
+}

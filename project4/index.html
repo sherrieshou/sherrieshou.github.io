@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Project 4</title>
+</head>
+<body>
+    <div id="daytitle">The <div id="we">Weekend</div> Generator
+        of <div id="bj">Beijing</div></div>
+
+    <div id="nighttitle">The <div id="nl">Night Life</div> Generator
+        of <div id="bj">Beijing</div></div>
+
+
+    <div class="toggle"></div>
+
+    <div id="text" class="hidden"></div>
+
+
+    <div id="hd" class="button"></div>
+    <div id="cy" class="button"></div>
+    <div id="dc" class="button"></div>
+    <div id="xc" class="button"></div>
+
+
+    <div id="nhd" class="button"></div>
+    <div id="ncy" class="button"></div>
+    <div id="ndc" class="button"></div>
+    <div id="nxc" class="button"></div>
+
+    
+    <div id="horizontal"></div>
+    <div id="vertical"></div>
+    <img id="map" src="img/beijingmap.png">
+    <img id="images">
+
+    <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+    
+    $(document).ready(function(){
+        
+        $('.toggle').click(function(){
+            $('.toggle').toggleClass('active')
+            $('body').toggleClass('night')
+        });
+        $('#hd').show();
+        $('#cy').show();
+        $('#xc').show();
+        $('#dc').show();
+        $('#nhd').hide();
+        $('#ncy').hide();
+        $('#ndc').hide();
+        $('#nxc').hide();
+        $('#text').hide();
+        $('#daytitle').show()
+        $('#nighttitle').hide()
+        $('.toggle').on('click',function(){
+            $('#hd').toggle();
+            $('#xc').toggle();
+            $('#dc').toggle();
+            $('#cy').toggle();
+            $('#nhd').toggle();
+            $('#nxc').toggle();
+            $('#ndc').toggle();
+            $('#ncy').toggle();
+            $('#daytitle').toggle();
+            $('#nighttitle').toggle();
+        });
+        $('.button').on('click',function(){
+            $('#text').show();
+        });
+      });
+
+    </script>
+</body>
+</html>
+
+<!-- While open the webpage, the user will see the active circles on the map. -->

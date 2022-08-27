@@ -1,0 +1,31 @@
+
+@font-face {
+    font-family: 'cormorant_garamondmedium';
+    src: url('type/fonts/cormorantgaramond-medium_copy-webfont.woff2') format('woff2'),
+         url('type/fonts/cormorantgaramond-medium_copy-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+.body{
+    margin:0;
+    padding:0;
+    animation:bgcolor infinite 20s;
+}
+button{
+    border:0;
+    padding:0.5em 1.5em;
+    font-size: 2rem;
+    font-family: 'cormorant_garamondmedium', serif;
+    color:white;
+    background-image: linear-gradient(to right,#0984e3, #fdcb6e);
+}
+
+.audio{
+    position:absolute;
+    top:50%;
+    left:50%;
+    border:0;
+    padding: 2em 2em;
+    background-image: linear-gradient(to right, #a29bfe, #ff7675);
+
+}
