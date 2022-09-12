@@ -46,6 +46,7 @@ var checkDead = setInterval(function() {
 
 //click show room2
 function myFunction() {
+    document.getElementById('check3').style.display = "block";
   var x = document.getElementById("room2");
   if (x.style.display === "none") {
     x.style.display = "none";
@@ -65,6 +66,18 @@ var checkDead = setInterval(function() {
     }
 }, 10);
 
+//show list on shelf
+
+function showList() {
+    console.log("open");
+    document.getElementById('listdiv').style.display = "block";
+ };
+ 
+function hideList() {
+    console.log("hide");
+    document.getElementById('listdiv').style.display = "none";
+ };
+ 
 
 //Turn on room4
 var checkDead = setInterval(function() {
@@ -76,6 +89,20 @@ var checkDead = setInterval(function() {
 
     }
 }, 10);
+
+ //play music
+ var playmusic = document.querySelector("#musicplay")
+
+ // Click Event - detect when this div has been clicked
+ playmusic.addEventListener("click", function(event){
+   console.log("playmusic");
+   var audio = new Audio('img/bgm.mp3');
+   audio.play();
+   document.getElementById('check1').style.display = "block";
+
+ });
+
+
 
 //Turn on room5
 var checkDead = setInterval(function() {
@@ -96,6 +123,8 @@ var playDiv = document.querySelector("#play");
 // Click Event - detect when this div has been clicked
 playDiv.addEventListener("click", function(event){
     console.log("playmovie");
+    document.getElementById('check2').style.display = "block";
+
  // create the links arrey of movies
 var images = ["img/mov1.gif", "img/mov2.gif", "img/mov3.gif","img/mov4.gif","img/mov5.gif"];
 
@@ -105,3 +134,6 @@ var rnd = Math.floor(Math.random() * images.length);
 document.getElementById('movie').src = images[rnd];
 
   });
+
+
+ 
