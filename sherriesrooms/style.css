@@ -1,0 +1,101 @@
+*{
+    padding:0;
+    margin:0;
+  }
+  
+  #game{
+    width:100vw;
+    height:100vh;
+  }
+  
+  #rooms {
+    width:1450px;
+    height:auto;
+    position: absolute;
+    top:0;
+    z-index:-2;
+  }
+  #dark {
+    width:1450px;
+    height:auto;
+    position: absolute;
+    top:0;
+    z-index:1;
+    display:none;
+  }
+  
+  #character {
+    width:25px;
+    height:auto;
+    position: absolute;
+    top:495px;
+    left:200px;
+    z-index:2;
+  }
+  #room1 {
+    width:260px;
+    height:auto;
+    position: absolute;
+    top:387px;
+    left:50px;
+  }
+  #frame {
+    width:20px;
+    height:30px;
+    position: absolute;
+    top:489px;
+    left:105px;
+  }
+  #room2 {
+    width:250px;
+    height:auto;
+    position: absolute;
+    top:335px;
+    left:335px;
+    display:none;
+  }
+  
+  #room3 {
+    width:230px;
+    height:auto;
+    position: absolute;
+    top:350px;
+    left:600px;
+    display:none;
+  }
+  
+  #room4 {
+    width:230px;
+    height:auto;
+    position: absolute;
+    top:370px;
+    left:870px;
+    display:none;
+  }
+  
+  #room5 {
+    width:230px;
+    height:auto;
+    position: absolute;
+    top:385px;
+    left:1150px;
+    display:none;
+  }
+  #movie{
+    width:230px;
+    height:auto;
+    position: absolute;
+    /* background-color:red; */
+    top:389px;
+    left:1150px;
+    z-index:-1;
+  }
+  #play{
+    width: 35px;
+    height:25px;
+    position: absolute;
+    /* background-color:blue; */
+    top:470px;
+    left:1300px;
+    z-index:2;
+  }
