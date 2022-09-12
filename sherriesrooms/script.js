@@ -63,6 +63,7 @@ var checkDead = setInterval(function() {
     if(characterLeft>=574 && characterLeft<=578 ){
       console.log("turn on room 3");
       document.getElementById("room3").style.display = "block";
+      document.getElementById("animearrow").style.display = "block";
     }else{
 
     }
@@ -73,6 +74,7 @@ var checkDead = setInterval(function() {
 function showList() {
     console.log("open");
     document.getElementById('listdiv').style.display = "block";
+    document.getElementById("animearrow").style.display = "none";
  };
  
 function hideList() {
