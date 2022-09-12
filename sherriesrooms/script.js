@@ -50,8 +50,10 @@ function myFunction() {
   var x = document.getElementById("room2");
   if (x.style.display === "none") {
     x.style.display = "none";
+
   } else {
     x.style.display = "block";
+    document.getElementById("textbox").style.display = "block";
   }
 }
 
@@ -135,5 +137,54 @@ document.getElementById('movie').src = images[rnd];
 
   });
 
+//Turn on column names
+//column1
+function column1() {
+    console.log("column1");
+        document.getElementById("column1").style.display = "block";
+        document.getElementById("column2").style.display = "none";
+        document.getElementById("column3").style.display = "none";
+        document.getElementById("column4").style.display = "none";
+        document.getElementById("column5").style.display = "none";
+  
+ };
 
  
+//column2
+function column2() {
+      document.getElementById("column1").style.display = "none";
+      document.getElementById("column2").style.display = "block";
+      document.getElementById("column3").style.display = "none";
+      document.getElementById("column4").style.display = "none";
+      document.getElementById("column5").style.display = "none";
+    };
+
+ 
+//column3
+function column3() {
+      document.getElementById("column1").style.display = "none";
+      document.getElementById("column2").style.display = "none";
+      document.getElementById("column3").style.display = "block";
+      document.getElementById("column4").style.display = "none";
+      document.getElementById("column5").style.display = "none";
+    };
+ 
+
+//column4
+function column4() {
+      document.getElementById("column1").style.display = "none";
+      document.getElementById("column2").style.display = "none";
+      document.getElementById("column3").style.display = "none";
+      document.getElementById("column4").style.display = "block";
+      document.getElementById("column5").style.display = "none";
+    };
+
+
+//column5
+function column5() {
+      document.getElementById("column1").style.display = "none";
+      document.getElementById("column2").style.display = "none";
+      document.getElementById("column3").style.display = "none";
+      document.getElementById("column4").style.display = "none";
+      document.getElementById("column5").style.display = "block";
+};
