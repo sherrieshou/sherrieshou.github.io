@@ -1,0 +1,9 @@
+body{
+    margin:0;
+}
+.export{
+    position:relative;
+    width: 100vw;
+    height: auto;
+    margin:0;
+}
