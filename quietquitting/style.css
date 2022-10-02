@@ -112,7 +112,7 @@ h1{
   font-weight: 400;
 }
 
-h2{
+#name{
   margin-left: 15%;
   font-weight: 100;
 }
@@ -172,6 +172,7 @@ h2{
 }
 
 #endhint{
+  font-weight: 100;
   width: 100%;
   margin-left: 0%;
 }
