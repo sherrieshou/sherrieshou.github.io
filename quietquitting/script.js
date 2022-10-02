@@ -49,11 +49,28 @@ var rnd5 = Math.floor(Math.random()* images.length);
 var rnd6 = Math.floor(Math.random()* images.length);
 
 
+// // Title Disappear
+// Title = document.getElementById("title");
+// var titleScroll = function () {
+//     var y = window.scrollY;
+//     if (y >= 200) {
+//         Title.className = "titlehide"
+//     } else {
+//         // Title.className = "titleshow"
+//     }
+
+
+// };
+// window.addEventListener("scroll", titleScroll);
+
+
+
+
 // scroll1
 myBox1 = document.getElementById("myBox1");
 var myFirScroll = function () {
     var y = window.scrollY;
-    if (y >= 100) {
+    if (y >= 500) {
         myBox1.className = "bottomMenu show"
         // console.log(images[rnd])
         document.getElementById('images1').src = images[rnd];
@@ -71,7 +88,7 @@ window.addEventListener("scroll", myFirScroll);
 myBox2 = document.getElementById("myBox2");
 var mySecScroll = function () {
     var y = window.scrollY;
-    if (y >= 300) {
+    if (y >= 800) {
         myBox2.className = "bottomMenu show"
         document.getElementById('images2').src = images2[rnd2];
         myBox2.style.left = up2[rndPos2] + '%';
@@ -89,7 +106,7 @@ window.addEventListener("scroll", mySecScroll);
 myBox3 = document.getElementById("myBox3");
 var myTrdScroll = function () {
     var y = window.scrollY;
-    if (y >= 800) {
+    if (y >= 1400) {
         myBox3.className = "bottomMenu show"
         document.getElementById('images3').src = images3[rnd3];
         myBox3.style.left = up3[rndPos3] + '%';
@@ -108,7 +125,7 @@ window.addEventListener("scroll", myTrdScroll);
 myBox4 = document.getElementById("myBox4");
 var myForScroll = function () {
     var y = window.scrollY;
-    if (y >= 1300) {
+    if (y >= 1700) {
         myBox4.className = "bottomMenu show"
         document.getElementById('images4').src = images4[rnd4];
         myBox4.style.left = up4[rndPos4] + '%';
@@ -127,7 +144,7 @@ window.addEventListener("scroll", myForScroll);
 myBox5 = document.getElementById("myBox5");
 var myFivScroll = function () {
     var y = window.scrollY;
-    if (y >= 1500) {
+    if (y >= 2500) {
         myBox5.className = "bottomMenu show"
         document.getElementById('images5').src = images5[rnd5];
         myBox5.style.left = up5[rndPos5] + '%';
@@ -145,7 +162,7 @@ window.addEventListener("scroll", myFivScroll);
 myBox6 = document.getElementById("myBox6");
 var mySixScroll = function () {
     var y = window.scrollY;
-    if (y >= 1900) {
+    if (y >= 3000) {
         myBox6.className = "bottomMenu show"
         document.getElementById('images6').src = images6[rnd6];
         myBox6.style.left = up6[rndPos6] + '%';

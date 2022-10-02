@@ -1,11 +1,7 @@
 
-
-
 body {
   height: 600vh;
 }
-
-
 
 /* calender */
 .cabox{
@@ -103,6 +99,33 @@ img {
 
 }
 
+.title{
+  position: relative;
+  top: -290px;
+  transition: all .5s;
+  width: 40vw;
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+}
+h1{
+  margin-left: 15%;
+  font-weight: 400;
+}
+
+h2{
+  margin-left: 15%;
+  font-weight: 100;
+}
+/* 
+.titleshow {
+  opacity:1;
+}
+
+.titlehide {
+  opacity:0;
+  display: none;
+} */
+
 .parent {
   display: grid;
   grid-template-columns: 2fr 1fr 2fr;
@@ -111,6 +134,7 @@ img {
   grid-row-gap: 0px;
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
+  font-size: 18px;
 }
 
 .p1, .p3, .p5{
