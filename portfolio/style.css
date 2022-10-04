@@ -124,6 +124,7 @@ h2{
     left: 50%;
     opacity:1;
     transform: translateX(-80px);
+    border: 1px solid #ffffff;
 }
 
 #p1:hover, #p2:hover, #p3:hover, #p4:hover{
