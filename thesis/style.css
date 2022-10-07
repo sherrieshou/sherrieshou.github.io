@@ -6,6 +6,7 @@ body{
 
 h1{
     font-family: 'Roboto Mono', monospace;
+    font-size: 3rem;
 }
 
 #board{
@@ -20,7 +21,6 @@ h1{
 }
 #ans{
     position: relative;
-    
     width: 100%;
     height: auto;
     top: 10%;
