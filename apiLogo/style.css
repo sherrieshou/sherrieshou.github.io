@@ -14,21 +14,21 @@ body{
 
 #lonely{
     position: absolute;
-    left: 46.8%;
-    top: 42%;
+    left: 50%;
+    top: 50%;
     height: auto;
-    width:auto;
-    transform: translateX(-50%);
+    width: auto;
+    transform: translate(-39px,3px);
     display: inline-block;
 }
 
 #planet{
     position: absolute;
     left: 50%;
-    top: 52%;
+    top: 50%;
     height: auto;
     width: auto;
-    transform: translateX(-50%);
+    transform: translate(-5px,72px);
 }
 
 #circle{
@@ -66,11 +66,11 @@ button{
 
 #deco{
     position: absolute;
-    left: 47%;
-    top: 42%;
+    left: 50%;
+    top: 50%;
     height: auto;
-    width:auto;
-    transform: translate(-44px,27px);
+    width: auto;
+    transform: translate(-50%,50%);
     line-height: 35%;
 }
 
