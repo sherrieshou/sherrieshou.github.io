@@ -132,7 +132,7 @@ fetch(oneUrl, options)
 		// console.log(oneLat);
 		// console.log(oneLon);
 		let oneLeft = Math.abs(map(oneLon, -180, 180, 0, 100));
-		let oneTop = Math.abs(map(oneLat, -90, 90, 0, 50));
+		let oneTop = Math.abs(map(oneLat, 90, -90, 0, 100));
 		console.log('Departure city Lontitude' + oneLeft);
 		console.log('Departure city Latitude'+ oneTop);
 		lonely.style.left = oneLeft+ 'vw';
@@ -165,7 +165,7 @@ fetch(oneUrl, options)
 		// console.log(twoLat);
 		// console.log(twoLon);
 		let twoLeft = Math.abs(map(twoLon, -180, 180, 0,100));
-		let twoTop = Math.abs(map(twoLat, 90, -90, 0, 50));
+		let twoTop = Math.abs(map(twoLat, 90, -90, 0, 100));
 		let twoAmt = Math.abs(map(twoPop, 0, 37435191, 0, 100));
 		console.log('Destination city Lontitude'+ twoLeft);
 		console.log('Destination city Latitude'+ twoTop);
