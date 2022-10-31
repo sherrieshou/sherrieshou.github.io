@@ -1,7 +1,7 @@
 body{
     font-family: 'Comfortaa', cursive;
     font-weight: 400;
-    font-size: 32px;
+    font-size: 36px;
     display: inline-block;
     /* text-align: center; */
     letter-spacing: 0.185em;
@@ -14,21 +14,19 @@ body{
 
 #lonely{
     position: absolute;
-    left: 50%;
-    top: 50%;
+    left: 50px;
+    top: 10%;
     height: auto;
     width: auto;
-    transform: translate(-39px,3px);
     display: inline-block;
 }
 
 #planet{
     position: absolute;
-    left: 50%;
-    top: 50%;
+    left: 160px;
+    top: 10%;
     height: auto;
     width: auto;
-    transform: translate(-5px,72px);
 }
 
 #circle{
@@ -44,9 +42,9 @@ body{
     position:absolute;
     font-family: 'Comfortaa', cursive;
     font-weight: 200;
-    font-size: 16px;
+    font-size: 24px;
     display: inline-block;
-    width: 300px;
+    /* width: 300px; */
     line-height: 32px;
     border-style: solid;
     border-width: 2px;
@@ -54,6 +52,10 @@ body{
     letter-spacing: 0em;
     border-radius: 0.5em;
     cursor: move;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
 }
 
 button{
@@ -64,27 +66,16 @@ button{
     letter-spacing: 0%;
 }
 
-#deco{
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    height: auto;
-    width: auto;
-    transform: translate(-50%,50%);
-    line-height: 35%;
+#lonelyimg{
+    display: block;
+    position: relative;
+    width:100px;
+    height:auto;
 }
 
-#o2{
-   transform: translateX(10px);
+#planetimg{
+    display: block;
+    position: relative;
+    width:110px;
+    height:auto;
 }
-
-#o3{
-    transform: translateX(20px);
- }
-
- #o4{
-    transform: translateX(30px);
- }
- #o5{
-    transform: translateX(40px);
- }
