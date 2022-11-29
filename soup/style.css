@@ -1,0 +1,58 @@
+.container{
+    width: 392px;
+    height: 200px;
+    border: 1px solid #000000;
+    background-color: #F9F5ED;
+}
+
+
+.inner-container{
+    position: relative;
+    top: -66%;
+    left: 50%;
+    transform: translateX(-159px);
+    width: 318px;
+    height: 135px;
+    border-radius: 100px;
+}
+
+
+.stroke{
+    position: relative; 
+    left: 50%;
+    top: 50%;
+    transform: translate(-200px,-80px);
+    width: 400px;
+    height: 160px;
+    box-sizing: border-box;
+    color : "red";
+}
+
+.soup-name{
+    position: relative; 
+    bottom:190px;
+    left: 20%;
+    top: -105%;
+    font-family: 'Times New Roman', Times, serif;
+    z-index: 2;
+    text-align: left;
+    /* transform: rotate(90deg); */
+}
+
+.logo{
+    content:url(https://upload.wikimedia.org/wikipedia/commons/c/c5/Amy%27s_Kitchen_logo_gn.svg);
+    width: 65px;
+    bottom: 577px;
+    left: 6px;
+    position: relative;
+}
+
+.soup-img{
+    position: relative;
+    z-index: 2;
+    width: 109px;
+    /* border: 10px solid #C3E696; */
+    border-radius: 0px 69px 69px 0px;
+    left: 167px;
+    top: -135%;
+}
