@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
+
 .container{
     width: 392px;
     height: 200px;
@@ -29,21 +32,22 @@
 }
 
 .soup-name{
-    position: relative; 
-    bottom:190px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 14px;
+    position: relative;
+    bottom: 216px;
     left: 20%;
-    top: -105%;
-    font-family: 'Times New Roman', Times, serif;
     z-index: 2;
     text-align: left;
-    /* transform: rotate(90deg); */
+    width: 35%;
+    height: 10%;
 }
 
 .logo{
     content:url(https://upload.wikimedia.org/wikipedia/commons/c/c5/Amy%27s_Kitchen_logo_gn.svg);
     width: 65px;
-    bottom: 577px;
-    left: 6px;
+    top: -407px;
+    left: 1px;
     position: relative;
 }
 
@@ -54,5 +58,5 @@
     /* border: 10px solid #C3E696; */
     border-radius: 0px 69px 69px 0px;
     left: 167px;
-    top: -135%;
+    top: -151%;
 }

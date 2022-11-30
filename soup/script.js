@@ -98,7 +98,7 @@ for (let datapoint of data){
    
 //product source
    soupImg.src = "img/" + pro + ".png";
-//    soupName.innerText = `${title}`;
+   soupName.innerText = datapoint.products;
 
 // season
     if (season == 1){ 
