@@ -3,35 +3,35 @@ let allContainer = document.getElementById("all");
 let sheetID = "1tSAReBpAHCnmsou1jV-QqWwJLoaJtdL9CF1qTneF07o";
 let tabName = 'sheet1';
 
-let oneN = 'Organic Chunky Vegetable Soup';
-let twoN = 'Lentil';
-let thrN = 'Organic Lentil Vegetable Soup';
-let fouN = 'Organic Chunky Tomato Bisque, light in Sodium';
-let fivN = 'Organic Black Bean Vegetable Soup';
-let sixN = 'Organic Split Pea Soup, Light In Sodium';
-let sevN = 'Organic Vegetable Barley Soup';
-let eigN = 'Organic Minestrone Soup, Light In Sodium';
-let ninN = 'Mushroom Bisque With Porcini';
-let tenN = 'Organic Quinoa, Kale & Red Lentil Soup';
-let oneoneN = 'Organic Alphabet Soup';
-let onetwoN = 'Indian Golden Lentil Soup';
-let onethrN = 'Organic Carrot Ginger Soup';
-let onefouN = 'Organic Butternut Squash Soup';
-let onefivN = 'Organic Cream of Mushroom Soup';
-let onesixN = 'Organic Cream of Tomato Soup';
-let onesevN = 'Organic Fire Roasted Southwestern Vegetable Soup';
-let oneeigN = 'No Chicken Noodle Soup';
-let oneninN = 'Organic Tortilla Soup';
-let onetenN = 'Organic Hearty Rustic Italian Vegetable Soup';
-let twooneN = 'Organic Hearty French Country Vegetable Soup';
-let twotwoN = 'Organic Hearty Spanish Rice & Red Bean Soup';
-let twothrN = 'Organic Hearty Minestrone with Vegetables';
-let twofouN = 'Thai Coconut Soup';
-let twofivN = 'Thai Curry Sweet Potato Lentil Soup';
-let twosixN = 'Organic vegan Mushroom Bisque';
-let twosevN = 'Sweet Potato & Corn Chowder';
-let twoeigN = 'Lentil & Chickpea Soup';
-let twoninN = 'Organic Red Bean & Vegetable Soup';
+// let oneN = 'Organic Chunky Vegetable Soup';
+// let twoN = 'Lentil';
+// let thrN = 'Organic Lentil Vegetable Soup';
+// let fouN = 'Organic Chunky Tomato Bisque, light in Sodium';
+// let fivN = 'Organic Black Bean Vegetable Soup';
+// let sixN = 'Organic Split Pea Soup, Light In Sodium';
+// let sevN = 'Organic Vegetable Barley Soup';
+// let eigN = 'Organic Minestrone Soup, Light In Sodium';
+// let ninN = 'Mushroom Bisque With Porcini';
+// let tenN = 'Organic Quinoa, Kale & Red Lentil Soup';
+// let oneoneN = 'Organic Alphabet Soup';
+// let onetwoN = 'Indian Golden Lentil Soup';
+// let onethrN = 'Organic Carrot Ginger Soup';
+// let onefouN = 'Organic Butternut Squash Soup';
+// let onefivN = 'Organic Cream of Mushroom Soup';
+// let onesixN = 'Organic Cream of Tomato Soup';
+// let onesevN = 'Organic Fire Roasted Southwestern Vegetable Soup';
+// let oneeigN = 'No Chicken Noodle Soup';
+// let oneninN = 'Organic Tortilla Soup';
+// let onetenN = 'Organic Hearty Rustic Italian Vegetable Soup';
+// let twooneN = 'Organic Hearty French Country Vegetable Soup';
+// let twotwoN = 'Organic Hearty Spanish Rice & Red Bean Soup';
+// let twothrN = 'Organic Hearty Minestrone with Vegetables';
+// let twofouN = 'Thai Coconut Soup';
+// let twofivN = 'Thai Curry Sweet Potato Lentil Soup';
+// let twosixN = 'Organic vegan Mushroom Bisque';
+// let twosevN = 'Sweet Potato & Corn Chowder';
+// let twoeigN = 'Lentil & Chickpea Soup';
+// let twoninN = 'Organic Red Bean & Vegetable Soup';
 
 
 // format them into Ben's uri
@@ -48,21 +48,34 @@ fetch(opensheet_uri)
         console.log(data);
 				//do something with the data here
 
+
+
+  
+let sortableData = [];
+for (let datapoint of data) {
+    sortableData.push([datapoint.products , datapoint.thickness,datapoint.season ]);
+}
+console.log(sortableData );
+// sortableData.sort(function(a, b) {
+//     return a[1] - b[1];
+// });
+
+
 let dataArr = [];
 
-      for (let datapoint of data){
+for (let datapoint of data){
     let chewy = parseFloat(datapoint.chews);
     let thick = parseFloat(datapoint.thickness);
     let sweet = parseFloat(datapoint.sweetness);
     let season = parseFloat(datapoint.season);
     let veg = parseFloat(datapoint.veg);
     let pro = parseFloat(datapoint.img);
-    let title = parseFloat(datapoint.varname);
+    let title = parseFloat(datapoint.products);
  
     console.log(title);
 
      // add this object to our blank array
-     dataArr.push([chewy, thick, sweet, season, veg, pro]);
+     dataArr.push([chewy, thick, sweet, season, veg, pro, title]);
 
 
 
@@ -85,7 +98,7 @@ let dataArr = [];
    
 //product source
    soupImg.src = "img/" + pro + ".png";
-//    soupName.innerText = title;
+//    soupName.innerText = `${title}`;
 
 // season
     if (season == 1){ 
