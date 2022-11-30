@@ -3,36 +3,6 @@ let allContainer = document.getElementById("all");
 let sheetID = "1tSAReBpAHCnmsou1jV-QqWwJLoaJtdL9CF1qTneF07o";
 let tabName = 'sheet1';
 
-// let oneN = 'Organic Chunky Vegetable Soup';
-// let twoN = 'Lentil';
-// let thrN = 'Organic Lentil Vegetable Soup';
-// let fouN = 'Organic Chunky Tomato Bisque, light in Sodium';
-// let fivN = 'Organic Black Bean Vegetable Soup';
-// let sixN = 'Organic Split Pea Soup, Light In Sodium';
-// let sevN = 'Organic Vegetable Barley Soup';
-// let eigN = 'Organic Minestrone Soup, Light In Sodium';
-// let ninN = 'Mushroom Bisque With Porcini';
-// let tenN = 'Organic Quinoa, Kale & Red Lentil Soup';
-// let oneoneN = 'Organic Alphabet Soup';
-// let onetwoN = 'Indian Golden Lentil Soup';
-// let onethrN = 'Organic Carrot Ginger Soup';
-// let onefouN = 'Organic Butternut Squash Soup';
-// let onefivN = 'Organic Cream of Mushroom Soup';
-// let onesixN = 'Organic Cream of Tomato Soup';
-// let onesevN = 'Organic Fire Roasted Southwestern Vegetable Soup';
-// let oneeigN = 'No Chicken Noodle Soup';
-// let oneninN = 'Organic Tortilla Soup';
-// let onetenN = 'Organic Hearty Rustic Italian Vegetable Soup';
-// let twooneN = 'Organic Hearty French Country Vegetable Soup';
-// let twotwoN = 'Organic Hearty Spanish Rice & Red Bean Soup';
-// let twothrN = 'Organic Hearty Minestrone with Vegetables';
-// let twofouN = 'Thai Coconut Soup';
-// let twofivN = 'Thai Curry Sweet Potato Lentil Soup';
-// let twosixN = 'Organic vegan Mushroom Bisque';
-// let twosevN = 'Sweet Potato & Corn Chowder';
-// let twoeigN = 'Lentil & Chickpea Soup';
-// let twoninN = 'Organic Red Bean & Vegetable Soup';
-
 
 // format them into Ben's uri
 let opensheet_uri = `https://opensheet.elk.sh/${sheetID}/${tabName}`
@@ -83,6 +53,7 @@ for (let datapoint of data){
     let soupInner = document.createElement("DIV");
     let soupStroke = document.createElement("IMG");
     let soupName = document.createElement("p");
+    let soupNameContainer = document.createElement("DIV");
     let soupLogo = document.createElement("IMG");
     let soupImg = document.createElement("IMG");
 
@@ -92,8 +63,7 @@ for (let datapoint of data){
     soupName.classList.add("soup-name");
     soupLogo.classList.add("logo");
     soupImg.classList.add("soup-img");
-    
-
+    soupNameContainer.classList.add("text-cont");
 
    
 //product source
@@ -156,14 +126,15 @@ if (thick == 1 && season == 4){
     soupInner.style.background = "#F9F5ED";
 }
 
-//    soupName.innerHTML += title;
+
 
 //appendChild
     soupContainer.appendChild(soupStroke);
     soupContainer.appendChild(soupInner);
-    soupContainer.appendChild(soupName);
+    soupContainer.appendChild(soupNameContainer);
+    soupNameContainer.appendChild(soupName);
     soupContainer.appendChild(soupLogo);
-    soupContainer.appendChild(soupImg);
+    soupInner.appendChild(soupImg);
     allContainer.appendChild(soupContainer);
     
     }

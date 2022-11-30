@@ -28,35 +28,42 @@
     width: 400px;
     height: 160px;
     box-sizing: border-box;
-    color : "red";
+
 }
 
 .soup-name{
     font-family: 'Orbitron', sans-serif;
-    font-size: 14px;
+    font-size: 12px;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+    
+}
+
+.text-cont{
     position: relative;
-    bottom: 216px;
-    left: 20%;
+    bottom: 202px;
+    left: 23%;
     z-index: 2;
     text-align: left;
-    width: 35%;
-    height: 10%;
+    width: 30%;
+    height: 62px;
 }
 
 .logo{
     content:url(https://upload.wikimedia.org/wikipedia/commons/c/c5/Amy%27s_Kitchen_logo_gn.svg);
     width: 65px;
-    top: -407px;
+    bottom: 359px;
     left: 1px;
     position: relative;
 }
 
 .soup-img{
-    position: relative;
+    position: absolute;
     z-index: 2;
-    width: 109px;
-    /* border: 10px solid #C3E696; */
+    width: 108px;
     border-radius: 0px 69px 69px 0px;
-    left: 167px;
-    top: -151%;
+    left: 196px;
+    top: 50%;
+    transform: translateY(-50%);
 }
