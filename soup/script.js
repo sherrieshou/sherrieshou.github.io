@@ -18,17 +18,8 @@ fetch(opensheet_uri)
         console.log(data);
 				//do something with the data here
 
-
-
-  
-let sortableData = [];
-for (let datapoint of data) {
-    sortableData.push([datapoint.products , datapoint.thickness,datapoint.season ]);
-}
-console.log(sortableData );
-// sortableData.sort(function(a, b) {
-//     return a[1] - b[1];
-// });
+let img = data.img;
+console.log(img);
 
 
 let dataArr = [];
