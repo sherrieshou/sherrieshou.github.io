@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+body{
+    font-family: 'Roboto', sans-serif;;
+}
+
+#border{
+    background-color: white;
+    width:100vw;
+    height:108px;
+    position: fixed;
+    border-top: 2px solid black;
+    border-left: 2px solid black;
+    border-bottom: 2px solid black;
+    top:50vh;
+    transform: translateY(-54px);
+}
+
+#cookieObj{
+    background-color: aqua;
+    width:100px;
+    height:100px;
+    position: fixed;
+    top:54px;
+    left: 4px;
+    transform: translateY(-50px);
+}
+
+
+
+#number{
+    display: flex;
+    position: fixed;
+    top:56vh;
+    /* left:10px; */
+}
+
+.num{
+    margin-right: 10vw;
+    /* margin-left: 10px; */
+}
+
+#hp{
+    position: fixed;
+    top:26vh;
+    font-size: 4rem;
+}
