@@ -234,8 +234,8 @@ imgShow.addEventListener("mouseenter", function() {
     imgMedium.innerText = datapoint.medium;
     imgSize.innerText = datapoint.size;
     imgMain.src = "img/" + datapoint.main + ".png";
-    sq.style.display = "nonw";
-    textin.style.display = "none";
+    // sq.style.display = "nonw";
+    // textin.style.display = "none";
     
 });
 
@@ -257,11 +257,23 @@ imgShow.addEventListener("mouseleave", function() {
 
 
  imgContainer.appendChild(imgShow);
- textContainer.appendChild(imgTitle);
- textContainer.appendChild(imgDetail);
- textContainer.appendChild(imgMedium);
- textContainer.appendChild(imgSize);
+//  textContainer.appendChild(imgTitle);
+//  textContainer.appendChild(imgDetail);
+//  textContainer.appendChild(imgMedium);
+//  textContainer.appendChild(imgSize);
  textContainer.appendChild(imgMain);
+
+//box for information
+
+
+ let descriptionDiv = document.createElement("div");
+ descriptionDiv.classList.add("descriptionDiv");
+ descriptionDiv.appendChild(imgTitle);
+ descriptionDiv.appendChild(imgDetail);
+ descriptionDiv.appendChild(imgMedium);
+ descriptionDiv.appendChild(imgSize);
+ textContainer.appendChild(descriptionDiv);
+
 }
 
 
@@ -275,17 +287,10 @@ imgShow.addEventListener("mouseleave", function() {
         
 
 
-var  info = document.getElementById("info");
-var  sq = document.getElementById("sq");
-var  textin = document.getElementById("in");
-info.addEventListener("click", function() {
-    sq.style.display = "block";
-    textin.style.display = "block";
-
- });
-
-//  info.addEventListener("mouseleave", function() {
-//     sq.style.display = "nonw";
-//     textin.style.display = "none";
-
+// var  info = document.getElementById("info");
+// var  textin = document.getElementById("in");
+// info.addEventListener("click", function() {
+//     textin.style.display = "block";
 //  });
+
+
