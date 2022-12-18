@@ -1,0 +1,287 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+body{
+    margin:0px;
+    font-family: 'Inter', sans-serif;
+}
+
+/* unvisited link */
+a:link {
+    color: black;
+    text-decoration: none;
+  }
+  
+  /* visited link */
+  a:visited {
+    color: black;
+    text-decoration: none;
+  }
+  
+  /* mouse over link */
+  a:hover {
+    color: black;
+    text-decoration: underline;
+  }
+  
+  /* selected link */
+  a:active {
+    color: black;
+    text-decoration: none;
+  }
+
+  #tag-cont{
+    display: flex;
+    position: fixed;
+    top:1px;
+    right:0px;
+  }
+  .tag{
+    /* border: 2px solid #000000; */
+    width:120px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    /* border-radius: 50px 50px 0px 0px; */
+    text-align: center;
+    display: flex;
+    justify-content: center;
+  }
+  .tag:hover{
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  #about{
+    opacity:0;
+  }
+
+
+#cut{
+    width: 100vw;
+    height:33px;
+    border-bottom: 1.5px solid #000000;
+    position: fixed;
+    background-color: white;
+    z-index:-1;
+
+}
+
+
+.blank{
+    position: fixed;
+    right:0px;
+    background-color: white;
+    z-index:-2;
+    width: 80vw;
+    height:30px;
+
+}
+#cut2{
+    top:33px;
+}
+
+#section2{
+    width: 30vw;
+    position: fixed;
+    top:40px;
+    margin-top: 10px;
+
+}
+h1{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 64px;
+    margin-top: 0px;
+    margin-bottom:0px;
+}
+
+h2{
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px; 
+    margin-top: 0px;
+    margin-bottom:0px;
+    /* font-weight: bold; */
+}
+h3{
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px; 
+    margin-top: 0px;
+    margin-bottom:0px;
+    font-style: italic; 
+}
+#title-cont{
+    position: relative;
+    margin-left: 30px;
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+#name{
+    margin-left: 30px;
+    margin-bottom:10px;
+}
+
+.my{
+    margin-left: 30px;
+    margin-top: 5px;
+}
+
+.category{
+    margin-top:3px;
+}
+
+
+.container {
+    position: absolute;
+    right:30px;
+    top: 8vh;
+    width: 60vw;
+    z-index:-3;
+    margin:0;
+    padding:0;
+
+    grid-template-columns: 1fr; 
+    grid-template-rows: repeat(5, 1fr); 
+    grid-column-gap: 0px;
+    grid-row-gap: 10px; 
+    }
+
+.video {
+    position:relative;
+    width:60vw;
+    height:755px;
+    display: block;
+}
+
+.content-text{
+    position:relative;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    font-size: 1.2rem;
+}
+
+#text1{
+    width:59vw;
+    /* float:right;
+     */
+}
+
+#book{ 
+    width:60vw;
+    height:auto;
+}
+
+#nypl{
+    position: relative;
+  float: right;
+    width:40vw;
+    padding-bottom:20vh; 
+}
+.look{
+    width:100%;
+}
+@media screen and (max-width: 580px) {
+
+    h1{
+      font-size: 32px;
+    }
+    h2{
+      font-style: normal;
+      font-weight: 300;
+      font-size: 32px;
+      margin-top: 0px;
+      margin-bottom:0px;
+      /* font-weight: bold; */
+    }
+    h3{
+      font-style: normal;
+      font-size: 10px; 
+    }
+    p{
+      font-size: 10px;
+    }
+  
+    .container {
+       right: 20px;
+       width: 90vw;
+       position: absolute;
+       left: 20px;
+       top: 36vh;
+       display: grid;
+       grid-template-columns: 1fr;
+       grid-template-rows: 1fr;
+       grid-column-gap: 0px;
+       grid-row-gap: 0px;
+      }
+
+    .my{
+      margin-left: 20px;
+      margin-top:0px;
+      margin-bottom:10px;
+    }
+    #my-school{
+        font-size: 12px;
+    }
+     
+      #section2{
+          width: 100vw;
+          position: fixed;
+          top:35px;
+      }
+      .blank{
+          background-color: rgb(255, 255, 255);
+          z-index:-2;
+          width: 100vw;
+          height:190px;
+      }
+      #tag-cont {
+          top: 1px;
+          margin-left: auto;
+          margin-right: auto;
+          /* width:100vw; */
+      }
+      .tag{
+          width: 20vw;
+      }
+      #title-cont {
+          margin-left: 20px;
+          margin-top: 20px;
+      }
+
+      .video {
+        position:relative;
+        width:100%;
+        height:540px;
+        display: block;
+    }
+    
+    .content-text{
+        position:relative;
+        margin-top: 40px;
+        margin-bottom: 40px;
+        font-size: 1.2rem;
+    }
+    #text1{
+        width:100%;
+        
+    }
+    #text2{
+        width:100%;
+        
+    }
+    
+    #text3 {    
+        position: relative;
+        } 
+    
+    #book{ 
+        width:100%;
+        height:auto;
+    }
+    
+  }
