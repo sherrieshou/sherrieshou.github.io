@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pain Index-ver2</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  
+<div id="board">
+    <div class="ans" id="ans"></div>
+    <div class="ans" id="ans2"></div>
+    <div class="ans" id="ans3"></div>
+    <div class="ans" id="ans4"></div>
+    <div class="ans" id="ans5"></div>
+            <!-- <img id="gif"> -->
+</div>
+<div id="keys">
+    <h1 id="tytle">PAIN INDEX</h1>
+    <h3>Name Your Pain</h3>
+    <form id="hello">
+      <input type="text" id="name" required>
+      <button type="button" onclick="showValue()">Start</button>
+    </form>
+    <!-- <h3>Some Objective Adjective</h3> -->
+    <div class="category" id="under">Rhythm:<br/>
+        <div class="names" id="rhythmOne" onclick="underline()">Continuous</div>
+        <div id="sp">/</div> 
+        <div class="names" id="rhythmTwo" onclick="underdot()">Periodical</div>
+        <div id="sp">/</div> 
+        <div class="names" id="rhythmTwo" onclick="underthr()">Decrease</div>
+        <div id="sp">/</div> 
+        <div class="names" id="rhythmTwo" onclick="underfou()">Increase</div>
+    </div>
+    <div class="category" id="scale">Pain Scale:
+        <div id="pain1" onclick="PainOne()">1</div>
+        <div id="pain2" onclick="PainTwo()">2</div>
+        <div id="pain3" onclick="PainThr()">3</div>
+        <div id="pain4" onclick="PainFor()">4</div>
+        <div id="pain5" onclick="PainFiv()">5</div>
+        <div id="pain6" onclick="PainSix()">6</div>
+        <div id="pain7" onclick="PainSev()">7</div>
+        <div id="pain8" onclick="PainEig()">8</div>
+        <div id="pain9" onclick="PainNin()">9</div>
+        <div id="pain10" onclick="PainTen()">10</div>
+    </div>
+    <div class="category" id="spread">Range:
+        <div class="names" id="spread1" onclick="spreadOne()">Spread</div> 
+        <div id="sp">/</div> 
+        <div class="names" id="spread2" onclick="spreadTwo()">Point </div> 
+        <div id="sp">/</div> 
+        <div class="names" id="spread3" onclick="spreadThr()"> Divergent </div>
+    </div>
+
+    <div  class="category" id="condOne"><h3>Condition:</h3>
+        <div class="names" id="condTwo" onclick="CondOne()">When Exercise</div> 
+        <!-- <div id="sp">/</div>  -->
+        <div class="names" id="condThr" onclick="CondTwo()">Dizziness </div> 
+        <div class="names" id="condThr" onclick="CondThr()">Loss of Consciousness </div> 
+        <div class="names" id="condThr" onclick="CondFou()">Unable to Describe </div> 
+        <div class="names" id="condThr" onclick="CondFiv()">Suffocation </div> 
+        <div class="names" id="condThr" onclick="CondSix()">Colic </div> 
+    </div>
+
+</div>
+
+
+<script src="script.js" async defer></script>
+</body>
+</html>
