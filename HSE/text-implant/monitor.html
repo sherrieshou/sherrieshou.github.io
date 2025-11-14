@@ -71,19 +71,6 @@
             border-color: #6C6C6C;
         }
 
-        .pill.blinking {
-            animation: blinkBorder 1s ease-in-out infinite;
-        }
-
-        @keyframes blinkBorder {
-            0%, 100% {
-                border-color: #ccc;
-            }
-            50% {
-                border-color: #6C6C6C;
-            }
-        }
-
         .arrow {
             color: #ccc;
             font-size: 20px;
@@ -272,7 +259,6 @@
         .pause-btn.resume:hover {
             background-color: #f0fdf4;
         }
-
 
         /* Modal Overlay */
         .modal-overlay {
@@ -497,19 +483,10 @@
                 this.completedCount++;
                 
                 if (this.phase === 'primary' && this.completedCount === this.totalAnimations) {
-                    // Primary phase animations completed, show first modal
-                    const modal = document.getElementById('completion-modal');
-                    const modalContent = document.getElementById('modal-content-text');
-                    const modalNextBtn = document.getElementById('modal-next-btn');
-                    if (modal && modalContent && modalNextBtn) {
-                        modalContent.textContent = 'Primary driver is now at the targeted position';
-                        modalNextBtn.textContent = 'Next';
-                        modal.classList.add('show');
-                    }
-                    // Stop blinking and make Descend Toward Target pill permanently dark
+                    // Primary phase animations completed, automatically start inserter phase
+                    // Make Descend Toward Target pill permanently dark
                     const descendPill = document.getElementById('pill-descend');
                     if (descendPill) {
-                        descendPill.classList.remove('blinking');
                         descendPill.classList.add('completed');
                     }
                     // Make first arrow dark
@@ -517,18 +494,64 @@
                     if (arrow1) {
                         arrow1.classList.add('completed');
                     }
-                    // Change pause button to green resume
-                    const pauseBtn = document.getElementById('pause-btn');
-                    if (pauseBtn) {
-                        pauseBtn.textContent = '▶ Resume';
-                        pauseBtn.classList.remove('paused');
-                        pauseBtn.classList.add('resume');
-                        // Update button state
-                        if (typeof window.buttonState !== 'undefined') {
-                            window.buttonState = 'resume';
-                            buttonState = 'resume';
+                    
+                    // Replace image with video in timeline-chart
+                    const timelineChart = document.querySelector('.timeline-chart');
+                    if (timelineChart) {
+                        const img = timelineChart.querySelector('img');
+                        if (img) {
+                            const video = document.createElement('video');
+                            video.src = 'text-signal.mp4';
+                            video.loop = true;
+                            video.autoplay = true;
+                            video.muted = true; // Required for autoplay in most browsers
+                            video.playsInline = true; // For mobile devices
+                            img.replaceWith(video);
                         }
                     }
+                    
+                    // Wait 5 seconds before starting the second animation
+                    setTimeout(function() {
+                        // Start Inserter Driver animations automatically
+                        if (configData) {
+                            // Reset animation controller for new animations (inserter phase)
+                            animationController.reset('inserter');
+                            
+                            // Get current Inserter Driver position (should be at Primary Driver target position)
+                            const inserterPositionEl = document.getElementById('inserter-position');
+                            const currentPositionText = inserterPositionEl ? inserterPositionEl.textContent : 'Current Position: 0.00 mm';
+                            const currentPosition = parseFloat(currentPositionText.match(/[\d.]+/)?.[0] || '0');
+                            
+                            // Animate Inserter Driver Current Position to Inserter Driver Target Position
+                            const inserterTargetPosition = parseFloat(configData.inserterDriver.destination);
+                            if (inserterPositionEl && inserterTargetPosition) {
+                                animateNumber(
+                                    inserterPositionEl,
+                                    'Current Position: ',
+                                    ' mm',
+                                    currentPosition,
+                                    inserterTargetPosition,
+                                    10000,
+                                    'inserter-position'
+                                );
+                            }
+                            
+                            // Animate Inserter Driver Current Velocity to Inserter Driver Velocity
+                            const inserterVelocityEl = document.getElementById('inserter-velocity');
+                            const inserterTargetVelocity = parseFloat(configData.inserterDriver.velocity);
+                            if (inserterVelocityEl && inserterTargetVelocity) {
+                                animateNumber(
+                                    inserterVelocityEl,
+                                    'Current Velocity: ',
+                                    ' mm/s',
+                                    0.00,
+                                    inserterTargetVelocity,
+                                    5000,
+                                    'inserter-velocity'
+                                );
+                            }
+                        }
+                    }, 5000); // 5 second delay
                 } else if (this.phase === 'inserter' && animType === 'inserter-position') {
                     // Inserter Driver position animation completed, show second modal
                     const modal = document.getElementById('completion-modal');
@@ -539,10 +562,9 @@
                         modalNextBtn.textContent = 'Completed, start retract.';
                         modal.classList.add('show');
                     }
-                    // Stop blinking and make Precise Electrode Insertion pill permanently dark
+                    // Make Precise Electrode Insertion pill permanently dark
                     const precisePill = document.getElementById('pill-precise');
                     if (precisePill) {
-                        precisePill.classList.remove('blinking');
                         precisePill.classList.add('completed');
                     }
                     // Make second arrow dark
@@ -563,19 +585,10 @@
                         }
                     }
                 } else if (this.phase === 'retract' && animType === 'inserter-retract') {
-                    // Inserter Driver retract animation completed, show third modal
-                    const modal = document.getElementById('completion-modal');
-                    const modalContent = document.getElementById('modal-content-text');
-                    const modalNextBtn = document.getElementById('modal-next-btn');
-                    if (modal && modalContent && modalNextBtn) {
-                        modalContent.textContent = 'Insertor driver successfully retracted.';
-                        modalNextBtn.textContent = 'Next';
-                        modal.classList.add('show');
-                    }
-                    // Stop blinking and make Retract Inserter pill permanently dark
+                    // Inserter Driver retract animation completed, automatically start return phase
+                    // Make Retract Inserter pill permanently dark
                     const retractPill = document.getElementById('pill-retract');
                     if (retractPill) {
-                        retractPill.classList.remove('blinking');
                         retractPill.classList.add('completed');
                     }
                     // Make fourth arrow dark
@@ -583,17 +596,67 @@
                     if (arrow4) {
                         arrow4.classList.add('completed');
                     }
-                    // Change pause button to green resume
-                    const pauseBtn = document.getElementById('pause-btn');
-                    if (pauseBtn) {
-                        pauseBtn.textContent = '▶ Resume';
-                        pauseBtn.classList.remove('paused');
-                        pauseBtn.classList.add('resume');
-                        // Update button state
-                        if (typeof window.buttonState !== 'undefined') {
-                            window.buttonState = 'resume';
-                            buttonState = 'resume';
+                    
+                    // Start return animations automatically
+                    if (configData) {
+                        // Reset animation controller for return phase
+                        animationController.reset('return');
+                        
+                        // Get current positions
+                        const primaryPositionEl = document.getElementById('primary-position');
+                        const inserterPositionEl = document.getElementById('inserter-position');
+                        const primaryVelocityEl = document.getElementById('primary-velocity');
+                        
+                        const primaryCurrentPositionText = primaryPositionEl ? primaryPositionEl.textContent : 'Current Position: 0.00 mm';
+                        const inserterCurrentPositionText = inserterPositionEl ? inserterPositionEl.textContent : 'Current Position: 0.00 mm';
+                        const primaryCurrentPosition = parseFloat(primaryCurrentPositionText.match(/[\d.]+/)?.[0] || '0');
+                        const inserterCurrentPosition = parseFloat(inserterCurrentPositionText.match(/[\d.]+/)?.[0] || '0');
+                        
+                        // Animate Primary Driver Current Position back to 0.00
+                        if (primaryPositionEl) {
+                            animateNumber(
+                                primaryPositionEl,
+                                'Current Position: ',
+                                ' mm',
+                                primaryCurrentPosition,
+                                0.00,
+                                30000,
+                                'primary-position-return'
+                            );
                         }
+                        
+                        // Animate Inserter Driver Current Position back to 0.00
+                        if (inserterPositionEl) {
+                            animateNumber(
+                                inserterPositionEl,
+                                'Current Position: ',
+                                ' mm',
+                                inserterCurrentPosition,
+                                0.00,
+                                30000,
+                                'inserter-position-return'
+                            );
+                        }
+                        
+                        // Animate Primary Driver Current Velocity to preset value
+                        const primaryTargetVelocity = parseFloat(configData.primaryDriver.velocity);
+                        if (primaryVelocityEl && primaryTargetVelocity) {
+                            // Get current velocity value
+                            const currentVelocityText = primaryVelocityEl.textContent;
+                            const currentVelocity = parseFloat(currentVelocityText.match(/[\d.]+/)?.[0] || '0');
+                            
+                            animateNumber(
+                                primaryVelocityEl,
+                                'Current Velocity: ',
+                                ' mm/s',
+                                currentVelocity,
+                                primaryTargetVelocity,
+                                5000,
+                                'primary-velocity-return'
+                            );
+                        }
+                        
+                        // Inserter Driver Current Velocity remains 0.00 (no animation needed)
                     }
                 } else if (this.phase === 'return' && (animType === 'primary-position-return' || animType === 'inserter-position-return')) {
                     // Check if both position animations are completed
@@ -610,10 +673,9 @@
                             modalNextBtn.textContent = 'Back to Home';
                             modal.classList.add('show');
                         }
-                        // Stop blinking and make Return to Origin pill permanently dark
+                        // Make Return to Origin pill permanently dark
                         const returnPill = document.getElementById('pill-return');
                         if (returnPill) {
-                            returnPill.classList.remove('blinking');
                             returnPill.classList.add('completed');
                         }
                         // Change pause button to green resume
@@ -710,12 +772,6 @@
                 buttonState = 'pause';
                 window.buttonState = buttonState;
                 
-                // Start blinking Descend Toward Target pill
-                const descendPill = document.getElementById('pill-descend');
-                if (descendPill) {
-                    descendPill.classList.add('blinking');
-                }
-                
                 // Reset animation controller
                 animationController.reset();
                 
@@ -809,68 +865,7 @@
                 }
                 
                 // Check which modal was clicked
-                if (currentModalText.includes('Primary driver is now at the targeted position')) {
-                    // Replace image with video in timeline-chart
-                    const timelineChart = document.querySelector('.timeline-chart');
-                    if (timelineChart) {
-                        const img = timelineChart.querySelector('img');
-                        if (img) {
-                            const video = document.createElement('video');
-                            video.src = 'text-signal.mp4';
-                            video.loop = true;
-                            video.autoplay = true;
-                            video.muted = true; // Required for autoplay in most browsers
-                            video.playsInline = true; // For mobile devices
-                            img.replaceWith(video);
-                        }
-                    }
-                    
-                    // First modal - Start Inserter Driver animations
-                    // Start blinking Precise Electrode Insertion pill
-                    const precisePill = document.getElementById('pill-precise');
-                    if (precisePill) {
-                        precisePill.classList.add('blinking');
-                    }
-                    
-                    if (configData) {
-                        // Reset animation controller for new animations (inserter phase)
-                        animationController.reset('inserter');
-                        
-                        // Get current Inserter Driver position (should be at Primary Driver target position)
-                        const inserterPositionEl = document.getElementById('inserter-position');
-                        const currentPositionText = inserterPositionEl ? inserterPositionEl.textContent : 'Current Position: 0.00 mm';
-                        const currentPosition = parseFloat(currentPositionText.match(/[\d.]+/)?.[0] || '0');
-                        
-                        // Animate Inserter Driver Current Position to Inserter Driver Target Position
-                        const inserterTargetPosition = parseFloat(configData.inserterDriver.destination);
-                        if (inserterPositionEl && inserterTargetPosition) {
-                            animateNumber(
-                                inserterPositionEl,
-                                'Current Position: ',
-                                ' mm',
-                                currentPosition,
-                                inserterTargetPosition,
-                                10000,
-                                'inserter-position'
-                            );
-                        }
-                        
-                        // Animate Inserter Driver Current Velocity to Inserter Driver Velocity
-                        const inserterVelocityEl = document.getElementById('inserter-velocity');
-                        const inserterTargetVelocity = parseFloat(configData.inserterDriver.velocity);
-                        if (inserterVelocityEl && inserterTargetVelocity) {
-                            animateNumber(
-                                inserterVelocityEl,
-                                'Current Velocity: ',
-                                ' mm/s',
-                                0.00,
-                                inserterTargetVelocity,
-                                5000,
-                                'inserter-velocity'
-                            );
-                        }
-                    }
-                } else if (currentModalText.includes('Inserter driver is now at the targeted position')) {
+                if (currentModalText.includes('Inserter driver is now at the targeted position')) {
                     // Second modal - Start retract animation
                     // Make Release of Electrode pill permanently dark
                     const releasePill = document.getElementById('pill-release');
@@ -881,12 +876,6 @@
                     const arrow3 = document.getElementById('arrow-3');
                     if (arrow3) {
                         arrow3.classList.add('completed');
-                    }
-                    
-                    // Start blinking Retract Inserter pill
-                    const retractPill = document.getElementById('pill-retract');
-                    if (retractPill) {
-                        retractPill.classList.add('blinking');
                     }
                     
                     if (configData) {
@@ -911,74 +900,6 @@
                                 'inserter-retract'
                             );
                         }
-                    }
-                } else if (currentModalText.includes('Insertor driver successfully retracted')) {
-                    // Third modal - Start return animations
-                    // Start blinking Return to Origin pill
-                    const returnPill = document.getElementById('pill-return');
-                    if (returnPill) {
-                        returnPill.classList.add('blinking');
-                    }
-                    
-                    if (configData) {
-                        // Reset animation controller for return phase
-                        animationController.reset('return');
-                        
-                        // Get current positions
-                        const primaryPositionEl = document.getElementById('primary-position');
-                        const inserterPositionEl = document.getElementById('inserter-position');
-                        const primaryVelocityEl = document.getElementById('primary-velocity');
-                        
-                        const primaryCurrentPositionText = primaryPositionEl ? primaryPositionEl.textContent : 'Current Position: 0.00 mm';
-                        const inserterCurrentPositionText = inserterPositionEl ? inserterPositionEl.textContent : 'Current Position: 0.00 mm';
-                        const primaryCurrentPosition = parseFloat(primaryCurrentPositionText.match(/[\d.]+/)?.[0] || '0');
-                        const inserterCurrentPosition = parseFloat(inserterCurrentPositionText.match(/[\d.]+/)?.[0] || '0');
-                        
-                        // Animate Primary Driver Current Position back to 0.00
-                        if (primaryPositionEl) {
-                            animateNumber(
-                                primaryPositionEl,
-                                'Current Position: ',
-                                ' mm',
-                                primaryCurrentPosition,
-                                0.00,
-                                30000,
-                                'primary-position-return'
-                            );
-                        }
-                        
-                        // Animate Inserter Driver Current Position back to 0.00
-                        if (inserterPositionEl) {
-                            animateNumber(
-                                inserterPositionEl,
-                                'Current Position: ',
-                                ' mm',
-                                inserterCurrentPosition,
-                                0.00,
-                                30000,
-                                'inserter-position-return'
-                            );
-                        }
-                        
-                        // Animate Primary Driver Current Velocity to preset value
-                        const primaryTargetVelocity = parseFloat(configData.primaryDriver.velocity);
-                        if (primaryVelocityEl && primaryTargetVelocity) {
-                            // Get current velocity value
-                            const currentVelocityText = primaryVelocityEl.textContent;
-                            const currentVelocity = parseFloat(currentVelocityText.match(/[\d.]+/)?.[0] || '0');
-                            
-                            animateNumber(
-                                primaryVelocityEl,
-                                'Current Velocity: ',
-                                ' mm/s',
-                                currentVelocity,
-                                primaryTargetVelocity,
-                                5000,
-                                'primary-velocity-return'
-                            );
-                        }
-                        
-                        // Inserter Driver Current Velocity remains 0.00 (no animation needed)
                     }
                 } else if (currentModalText.includes('Experiment Completed!')) {
                     // Fourth modal - Navigate to assembly.html
