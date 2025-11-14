@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuration</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #f8f8f8;
+            padding: 24px;
+            color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background-color: white;
+            border-radius: 8px;
+            padding: 32px;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 48px;
+            gap: 16px;
+            position: relative;
+        }
+
+        .back-button {
+            font-size: 16px;
+            color: #666;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            padding-right: 16px;
+            gap: 8px;
+            background: none;
+            border: none;
+        }
+
+        .header-title {
+            padding: 4px 16px;
+            border: 2px solid #ccc;
+            border-radius: 25px;
+            background-color: white;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            color: #333;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .header-title:hover {
+            border-color: #999;
+        }
+
+        /* Description */
+        .description {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #333;
+            margin-bottom: 48px;
+            max-width: 900px;
+        }
+
+        /* Configuration Section */
+        .section {
+            margin-bottom: 48px;
+        }
+
+        .section-label {
+            font-size: 14px;
+            color: #999;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .dropdown {
+            width: 100%;
+            padding: 12px 16px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            background-color: white;
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            background-size: 20px;
+            padding-right: 40px;
+        }
+
+        .dropdown:hover {
+            border-color: #999;
+        }
+
+        /* Motor Sections */
+        .motor-section {
+            margin-bottom: 48px;
+        }
+
+        .motor-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #333;
+        }
+
+        .input-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            margin-bottom: 24px;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .input-label {
+            font-size: 13px;
+            color: #999;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .input-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .input-field {
+            flex: 1;
+            padding: 12px 12px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-family: inherit;
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-color: #333;
+        }
+
+        .unit {
+            font-size: 13px;
+            color: #999;
+            min-width: 40px;
+            text-align: center;
+        }
+
+        /* Button Section */
+        .button-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 48px;
+            gap: 16px;
+        }
+
+        .button {
+            padding: 12px 32px;
+            font-size: 16px;
+            border: 2px solid #ccc;
+            border-radius: 6px;
+            background-color: white;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .button:hover {
+            border-color: #333;
+        }
+
+        .button-primary {
+            background-color: #555;
+            color: white;
+            border-color: #555;
+        }
+
+        .button-primary:hover {
+            background-color: #333;
+            border-color: #333;
+        }
+
+        .button-primary:disabled {
+            background-color: #ccc;
+            color: white;
+            border-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        .button-primary:disabled:hover {
+            background-color: #ccc;
+            border-color: #ccc;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 12px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .container {
+                padding: 24px;
+            }
+
+            .input-row {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .button-row {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            .button {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 16px;
+            }
+
+            .container {
+                padding: 16px;
+            }
+
+            .header {
+                margin-bottom: 32px;
+            }
+
+            .description {
+                font-size: 14px;
+                margin-bottom: 32px;
+            }
+
+            .motor-title {
+                font-size: 16px;
+                margin-bottom: 16px;
+            }
+
+            .button-row {
+                margin-top: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <button class="back-button" onclick="window.location.href='assembly.html'">‹ Back</button>
+            <div style="flex: 1;"></div>
+            <div class="header-title">Configuration</div>
+            <div style="flex: 1;"></div>
+        </div>
+
+        <!-- Description -->
+        <div class="description">
+            Configuring the implant settings is not a required step. You may either select the system's configuration or enter your own parameters. If you wish to operate in full manual mode, please select "Manual Mode" and skip this step. You can save your customized parameters for future use.
+        </div>
+
+        <!-- Configuration Dropdown -->
+        <div class="section">
+            <label class="section-label">Configuration</label>
+            <select class="dropdown" id="config-dropdown">
+                <option value="">-- Select Configuration --</option>
+                <option value="Flexible Implant – Standard">Flexible Implant – Standard</option>
+                <option value="Flexible Implant – Deep Tissue">Flexible Implant – Deep Tissue</option>
+                <option value="Flexible Implant – Gentle Surface">Flexible Implant – Gentle Surface</option>
+            </select>
+        </div>
+
+        <!-- Primary Driver Section -->
+        <div class="motor-section">
+            <div class="motor-title">Primary Driver (Convex Motor+ Concave Motor)</div>
+            <div class="input-row">
+                <div class="input-group">
+                    <label class="input-label">Destination</label>
+                    <div class="input-wrapper">
+                        <input type="number" id="primary-destination" class="input-field" value="" step="0.01">
+                        <span class="unit">mm</span>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label class="input-label">Velocity</label>
+                    <div class="input-wrapper">
+                        <input type="number" id="primary-velocity" class="input-field" value="" step="0.01">
+                        <span class="unit">mm/s</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Inserter Driver Section -->
+        <div class="motor-section">
+            <div class="motor-title">Inserter Driver (Concave Motor)</div>
+            <div class="input-row">
+                <div class="input-group">
+                    <label class="input-label">Destination</label>
+                    <div class="input-wrapper">
+                        <input type="number" id="inserter-destination" class="input-field" value="" step="0.01">
+                        <span class="unit">mm</span>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label class="input-label">Velocity</label>
+                    <div class="input-wrapper">
+                        <input type="number" id="inserter-velocity" class="input-field" value="" step="0.001">
+                        <span class="unit">mm/s</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Buttons -->
+        <div class="button-row">
+            <div style="flex: 1;"></div>
+            <button id="next-button" class="button button-primary" disabled>Next</button>
+        </div>
+    </div>
+
+    <script>
+        // Configuration presets
+        const configurationPresets = {
+            "presets": [
+                {
+                    "name": "Flexible Implant – Standard",
+                    "primary_driver": {
+                        "destination": 185.80,
+                        "velocity": 5.00
+                    },
+                    "inserter_driver": {
+                        "destination": 196.95,
+                        "velocity": 0.05
+                    }
+                },
+                {
+                    "name": "Flexible Implant – Deep Tissue",
+                    "primary_driver": {
+                        "destination": 186.10,
+                        "velocity": 5.25
+                    },
+                    "inserter_driver": {
+                        "destination": 196.30,
+                        "velocity": 0.04
+                    }
+                },
+                {
+                    "name": "Flexible Implant – Gentle Surface",
+                    "primary_driver": {
+                        "destination": 185.60,
+                        "velocity": 5.15
+                    },
+                    "inserter_driver": {
+                        "destination": 196.75,
+                        "velocity": 0.02
+                    }
+                }
+            ]
+        };
+
+        // Get DOM elements
+        const dropdown = document.getElementById('config-dropdown');
+        const primaryDestination = document.getElementById('primary-destination');
+        const primaryVelocity = document.getElementById('primary-velocity');
+        const inserterDestination = document.getElementById('inserter-destination');
+        const inserterVelocity = document.getElementById('inserter-velocity');
+        const nextButton = document.getElementById('next-button');
+
+        // Function to check if all inputs have values
+        function checkInputs() {
+            const allFilled = 
+                primaryDestination.value.trim() !== '' &&
+                primaryVelocity.value.trim() !== '' &&
+                inserterDestination.value.trim() !== '' &&
+                inserterVelocity.value.trim() !== '';
+            
+            nextButton.disabled = !allFilled;
+        }
+
+        // Add event listeners to all input fields
+        primaryDestination.addEventListener('input', checkInputs);
+        primaryVelocity.addEventListener('input', checkInputs);
+        inserterDestination.addEventListener('input', checkInputs);
+        inserterVelocity.addEventListener('input', checkInputs);
+
+        // Handle dropdown change event
+        dropdown.addEventListener('change', function() {
+            const selectedName = this.value;
+            
+            if (selectedName === '') {
+                // Clear all inputs if no option is selected
+                primaryDestination.value = '';
+                primaryVelocity.value = '';
+                inserterDestination.value = '';
+                inserterVelocity.value = '';
+                checkInputs();
+                return;
+            }
+
+            // Find the selected preset
+            const preset = configurationPresets.presets.find(p => p.name === selectedName);
+            
+            if (preset) {
+                // Fill in the input fields with preset values
+                primaryDestination.value = preset.primary_driver.destination;
+                primaryVelocity.value = preset.primary_driver.velocity;
+                inserterDestination.value = preset.inserter_driver.destination;
+                inserterVelocity.value = preset.inserter_driver.velocity;
+                checkInputs();
+            }
+        });
+
+        // Handle Next button click
+        nextButton.addEventListener('click', function() {
+            if (!this.disabled) {
+                // Save configuration data to localStorage
+                const configData = {
+                    configName: dropdown.value || 'Custom Configuration',
+                    primaryDriver: {
+                        destination: primaryDestination.value,
+                        velocity: primaryVelocity.value
+                    },
+                    inserterDriver: {
+                        destination: inserterDestination.value,
+                        velocity: inserterVelocity.value
+                    }
+                };
+                localStorage.setItem('configurationData', JSON.stringify(configData));
+                window.location.href = 'monitor.html';
+            }
+        });
+    </script>
+</body>
+</html>

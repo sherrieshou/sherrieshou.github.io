@@ -1,0 +1,1484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Monitor Interface</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-left: 24px;
+            padding-right: 24px;
+            padding-top: 24px;
+            padding-bottom: 8px;
+            position: relative;
+            z-index: 100;
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.5) 100%);
+        }
+
+        .back-link {
+            font-size: 16px;
+            color: #666;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            padding-left: 16px;
+            padding-right: 16px;
+            gap: 8px;
+        }
+
+        .user-info {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .nav-pills {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .pill {
+            padding: 4px 16px;
+            border: 2px solid #ccc;
+            border-radius: 25px;
+            background-color: white;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .pill.completed {
+            border-color: #6C6C6C;
+        }
+
+        .pill.blinking {
+            animation: blinkBorder 1s ease-in-out infinite;
+        }
+
+        @keyframes blinkBorder {
+            0%, 100% {
+                border-color: #ccc;
+            }
+            50% {
+                border-color: #6C6C6C;
+            }
+        }
+
+        .arrow {
+            color: #ccc;
+            font-size: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .arrow.completed {
+            color: #333;
+        }
+
+        .left-sidebar {
+            position: fixed;
+            left: 24px;
+            top: 66px;
+            width: 16px;
+            height: 87vh;
+            background-color: #e0e0e0;
+            z-index: 1;
+        }
+
+        .motor-image {
+            position: fixed;
+            left: 62px;
+            top: -90px;
+            width: 63px;
+            height: auto;
+            z-index: 1;
+            transition: top 30s ease-in-out;
+        }
+
+        .motor-image-2 {
+            position: fixed;
+            left: 105px;
+            top: -90px;
+            width: 86px;
+            height: auto;
+            z-index: 0;
+            display: block;
+            transition: top 30s ease-in-out;
+        }
+
+        .motor-image-3 {
+            position: fixed;
+            left: 128px;
+            top: 324px;
+            width: 63px;
+            height: auto;
+            z-index: 0;
+            display: block;
+            background-color: transparent;
+            transition: top 30s ease-in-out;
+        }
+
+        .main-layout {
+            display: flex;
+            height: 92vh;
+            gap: 24px;
+            padding-left: 24px;
+            padding-top: 8px;
+            padding-bottom: 24px;
+            padding-right: 0;
+            position: relative;
+        }
+
+
+        .main-content-container {
+            width: 74%;
+            padding-right: 24px;
+            margin-left: auto;
+        }
+
+        .timeline-section {
+            padding-left:0;
+            padding-right:0;
+            overflow-x: auto;
+            margin-bottom: 20px;
+        }
+
+        .timeline-chart {
+            min-width: 100%;
+            height: 45vh;
+            background-image: url('img/visual-pause-signal.png');
+            background-size: 100% auto;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .timeline-chart video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: none;
+        }
+        
+        .timeline-chart.show-video {
+            background-image: none;
+        }
+        
+        .timeline-chart.show-video video {
+            display: block;
+        }
+
+        .content-area {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            padding: 0;
+            min-height: auto;
+            height: 45%;
+        }
+
+        .section {
+            border: 2px solid #6C6C6C;
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .section-header {
+            padding-top: 16px;
+            font-size: 20px;
+            font-weight: 600;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .camera-section {
+            flex: 1;
+            position: relative;
+        }
+
+        .camera-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('camera.png');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: flex-end;
+            padding: 15px;
+            gap: 10px;
+            z-index: 1;
+        }
+
+        .camera-label {
+            background-color: white;
+            border: 1px solid #6C6C6C;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        .auto-mode-section {
+            padding-top: 0px;
+            padding-left: 8px;
+            padding-right: 8px;
+            padding-bottom: 8px;
+            height: auto;
+        }
+
+        .config-label {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 8px;
+        }
+
+        .config-value {
+            font-size: 14px;
+            font-weight: 500;
+           
+            border-bottom: 2px solid #6C6C6C;
+            margin-bottom: 8px;
+        }
+
+
+
+        .driver-detail {
+            position: relative;
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 4px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            border-radius: 6px;
+            border: 1.5px solid #6C6C6C;
+            padding-left: 6px;
+            padding-right: 6px;
+            padding-top: 2px;
+            padding-bottom: 2px;
+            width: fit-content;
+            background-color: white;
+        }
+
+        #inserter-position {
+            left: 188px;
+        }
+
+        #primary-velocity{
+            left: 188px;
+        }
+
+        #inserter-velocity{
+            left: 188px;
+        }
+
+        .primary-target-line {
+            position: fixed;
+            height: 1px;
+            background-color: #6C6C6C;
+            left: 24px;
+            z-index: 1;
+        }
+
+        .inserter-target-line {
+            position: fixed;
+            height: 1px;
+            background-color: #6C6C6C;
+            left: 24px;
+            z-index: 1;
+        }
+
+        .driver-details-container {
+            top: 283px;
+            position: fixed;
+            width: 250px;
+            z-index: 2;
+            transition: top 30s ease-in-out;
+        }
+
+        .driver-details-container-line {
+            position: absolute;
+            height: 1px;
+            background-color: #6C6C6C;
+        }
+
+        #inserter-velocity {
+            display: none;
+        }
+
+        #primary-target {
+            position: fixed;
+            top: 80vh;
+            left: 18vw;
+        }
+
+        #inserter-target {
+            position: fixed;
+            top: 90vh;
+            left: 18vw;
+        }
+
+        .status-box {
+            border: 2px dashed #6C6C6C;
+            border-radius: 6px;
+            padding: 12px;
+            margin: 8px 0;
+            font-size: 13px;
+        }
+
+        .status-indicator {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background-color: #4ade80;
+            border-radius: 50%;
+            margin-right: 6px;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+            justify-content: space-between;
+        }
+
+        .pause-btn {
+            flex: 1;
+            padding: 12px 20px;
+            border: 2px solid #4ade80;
+            border-radius: 8px;
+            background-color: white;
+            color: #4ade80;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .pause-btn:hover {
+            background-color: #f0fdf4;
+        }
+
+        .pause-btn.paused {
+            border: 2px solid #ef4444;
+            color: #ef4444;
+        }
+
+        .pause-btn.paused:hover {
+            background-color: #fef2f2;
+        }
+
+        .pause-btn.resume {
+            border: 2px solid #4ade80;
+            color: #4ade80;
+        }
+
+        .pause-btn.resume:hover {
+            background-color: #f0fdf4;
+        }
+
+
+        /* Modal Overlay */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 3000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-overlay.show {
+            display: flex;
+        }
+
+        .modal {
+            width: 50vw;
+            height: 50vh;
+            background-color: white;
+            border-radius: 8px;
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .modal-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: #333;
+            text-align: center;
+            gap: 16px;
+            padding: 20px;
+            min-height: 0;
+        }
+        
+        .modal-content img {
+            height: 80%;
+            width: auto;
+            max-width: 100%;
+            object-fit: contain;
+            flex-shrink: 1;
+        }
+
+        .modal-footer {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: auto;
+        }
+
+        .modal-next-btn {
+            padding: 12px 32px;
+            font-size: 16px;
+            border: none;
+            border-radius: 6px;
+            background-color: #555;
+            color: white;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .modal-next-btn:hover {
+            background-color: #333;
+        }
+
+        @media (max-width: 1024px) {
+            .content-area {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-pills {
+                flex-wrap: wrap;
+            }
+
+            .header {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="back-link" onclick="window.location.href='configuration.html'">
+                ‹ Back
+            </div>
+            <div class="nav-pills">
+                <div class="pill" id="pill-descend">Descend Toward Target</div>
+                <div class="arrow" id="arrow-1">></div>
+                <div class="pill" id="pill-precise">Precise Electrode Insertion</div>
+                <div class="arrow" id="arrow-2">></div>
+                <div class="pill" id="pill-release">Release of Electrode</div>
+                <div class="arrow" id="arrow-3">></div>
+                <div class="pill" id="pill-retract">Retract Inserter</div>
+                <div class="arrow" id="arrow-4">></div>
+                <div class="pill" id="pill-return">Return to Origin</div>
+            </div>
+        </div>
+
+        <div class="left-sidebar"></div>
+        <img src="img/motor1.png" alt="Motor" class="motor-image">
+        <img src="img/motor2.png" alt="Motor 2" class="motor-image-2">
+        <img src="img/motor3.png" alt="Motor 3" class="motor-image-3">
+
+        <div class="main-layout">
+        
+
+                        <div class="driver-detail" id="primary-target">Primary Goal: n mm</div>
+                        <div class="driver-detail" id="inserter-target">Inserter Goal: 186.3 mm</div>
+                        <div class="driver-details-container">
+                            <div class="driver-detail" id="primary-velocity">Velocity<br>0.00 mm/s</div>
+                            <div class="driver-detail" id="inserter-velocity">Velocity<br>0.00 mm/s</div>
+                            <div class="driver-detail" id="inserter-position">Position<br>0.00 mm</div>
+                            <div class="driver-details-container-line" id="driver-details-container-line"></div>
+                        </div>
+                        <div class="primary-target-line" id="primary-target-line"></div>
+                        <div class="inserter-target-line" id="inserter-target-line"></div>
+
+
+            <div class="main-content-container">
+                <div class="timeline-section">
+                    <div class="timeline-chart">
+                        <video id="timeline-video" src="img/visual-signal.mp4" loop muted playsinline></video>
+                    </div>
+                </div>
+
+                <div class="content-area">
+                <div class="section camera-section">
+                    <div class="section-header">Live Camera</div>
+                    <div class="camera-content">
+                        <div class="camera-label">Mouse name:Rat110</div>
+                        <div class="camera-label">Temp: 37.2 °C</div>
+                    </div>
+                </div>
+
+                <div class="section auto-mode-section">
+                    <div class="section-header">Auto Mode</div>
+                    <div style="padding: 8px;">
+                        <div class="config-label" id="config-name">Configuration: Flexible Implant – Standard</div>
+                        <div class="config-value"></div>
+
+                        <div class="status-box">
+                            <div><span class="status-indicator"></span><strong>Ready</strong> Auto Mode is active</div>
+                        </div>
+
+                        <div class="button-group">
+                            <button id="pause-btn" class="pause-btn">▶ Start</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal-overlay" id="completion-modal">
+        <div class="modal">
+            <div class="modal-content" id="modal-content-text">
+                Primary driver is now at the targeted position
+            </div>
+            <div class="modal-footer">
+                <button class="modal-next-btn" id="modal-next-btn">Next</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Set all driver-detail elements to have the same width as primary-target
+        function setDriverDetailWidths() {
+            const primaryTargetEl = document.getElementById('primary-target');
+            if (primaryTargetEl) {
+                const primaryTargetWidth = primaryTargetEl.offsetWidth;
+                const allDriverDetails = document.querySelectorAll('.driver-detail');
+                allDriverDetails.forEach(function(el) {
+                    el.style.width = primaryTargetWidth + 'px';
+                });
+            }
+        }
+
+        // Set line position and width for a given element
+        function setLinePosition(elementId, lineId) {
+            const element = document.getElementById(elementId);
+            const lineEl = document.getElementById(lineId);
+            if (element && lineEl) {
+                const rect = element.getBoundingClientRect();
+                // Line top should be at the bottom of element (including border)
+                const lineTop = rect.bottom - 1;
+                // Line width: from left-sidebar left (24px) to the middle of element's right edge
+                const lineLeft = 24;
+                const lineRight = rect.left + (rect.width / 2);
+                const lineWidth = lineRight - lineLeft;
+                
+                lineEl.style.top = lineTop + 'px';
+                lineEl.style.width = lineWidth + 'px';
+            }
+        }
+
+        // Set primary-target-line position and width
+        function setPrimaryTargetLine() {
+            setLinePosition('primary-target', 'primary-target-line');
+        }
+
+        // Set inserter-target-line position and width
+        function setInserterTargetLine() {
+            setLinePosition('inserter-target', 'inserter-target-line');
+        }
+
+        // Set driver-details-container-line position and width
+        function setDriverDetailsContainerLine() {
+            const containerEl = document.querySelector('.driver-details-container');
+            const inserterPositionEl = document.getElementById('inserter-position');
+            const lineEl = document.getElementById('driver-details-container-line');
+            if (containerEl && inserterPositionEl && lineEl) {
+                const containerRect = containerEl.getBoundingClientRect();
+                const inserterRect = inserterPositionEl.getBoundingClientRect();
+                // Calculate line position relative to container
+                const lineTop = inserterRect.bottom - containerRect.top - 1;
+                // Line width: from left-sidebar left (24px) to the middle of inserter-position's right edge
+                const lineLeft = 24;
+                const lineRight = inserterRect.left + (inserterRect.width / 2);
+                const lineWidth = lineRight - lineLeft;
+                
+                lineEl.style.top = lineTop + 'px';
+                lineEl.style.width = lineWidth + 'px';
+            }
+        }
+
+        // Call on page load and after content updates
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                setDriverDetailWidths();
+                setPrimaryTargetLine();
+                setInserterTargetLine();
+                setDriverDetailsContainerLine();
+            }, 100);
+        });
+
+        // Load configuration data from localStorage
+        let configData = null;
+        const configDataStr = localStorage.getItem('configurationData');
+        if (configDataStr) {
+            configData = JSON.parse(configDataStr);
+            
+            // Update configuration name
+            const configNameEl = document.getElementById('config-name');
+            if (configNameEl) {
+                configNameEl.textContent = 'Configuration: ' + configData.configName;
+            }
+            
+            // Update Primary Driver Target Position
+            const primaryTargetEl = document.getElementById('primary-target');
+            if (primaryTargetEl && configData.primaryDriver.destination) {
+                primaryTargetEl.innerHTML = 'Primary Goal <br> ' + configData.primaryDriver.destination + ' mm';
+            }
+            
+            // Update Inserter Driver Target Position
+            const inserterTargetEl = document.getElementById('inserter-target');
+            if (inserterTargetEl && configData.inserterDriver.destination) {
+                inserterTargetEl.innerHTML = 'Inserter Goal <br> ' + configData.inserterDriver.destination + ' mm';
+            }
+            
+            // Set widths after content is updated
+            setTimeout(function() {
+                setDriverDetailWidths();
+                setPrimaryTargetLine();
+                setInserterTargetLine();
+                setDriverDetailsContainerLine();
+            }, 100);
+        } else {
+            // Set widths even if no config data
+            setTimeout(function() {
+                setDriverDetailWidths();
+                setPrimaryTargetLine();
+                setInserterTargetLine();
+                setDriverDetailsContainerLine();
+            }, 100);
+        }
+        
+        // Update line positions when window is resized
+        window.addEventListener('resize', function() {
+            setTimeout(function() {
+                setPrimaryTargetLine();
+                setInserterTargetLine();
+                setDriverDetailsContainerLine();
+            }, 100);
+        });
+
+        // Animation controller to manage pause/resume
+        const animationController = {
+            animations: [],
+            isPaused: false,
+            completedCount: 0,
+            totalAnimations: 0,
+            phase: 'primary', // 'primary' or 'inserter'
+            
+            pause: function() {
+                this.isPaused = true;
+                this.animations.forEach(anim => {
+                    if (anim.animationId) {
+                        cancelAnimationFrame(anim.animationId);
+                        anim.animationId = null;
+                    }
+                });
+            },
+            
+            resume: function() {
+                this.isPaused = false;
+                this.animations.forEach(anim => {
+                    if (anim.progress < 1) {
+                        anim.startTime = performance.now() - (anim.progress * anim.duration);
+                        anim.animationId = requestAnimationFrame(anim.update.bind(anim));
+                    }
+                });
+            },
+            
+            addAnimation: function(anim) {
+                this.animations.push(anim);
+                this.totalAnimations++;
+            },
+            
+            onAnimationComplete: function(animType) {
+                this.completedCount++;
+                
+                if (this.phase === 'primary' && this.completedCount === this.totalAnimations) {
+                    // Primary phase animations completed, show first modal
+                    const modal = document.getElementById('completion-modal');
+                    const modalContent = document.getElementById('modal-content-text');
+                    const modalNextBtn = document.getElementById('modal-next-btn');
+                    if (modal && modalContent && modalNextBtn) {
+                        modalContent.textContent = 'Primary driver is now at the targeted position';
+                        modalNextBtn.textContent = 'Next';
+                        modal.classList.add('show');
+                    }
+                    // Stop blinking and make Descend Toward Target pill permanently dark
+                    const descendPill = document.getElementById('pill-descend');
+                    if (descendPill) {
+                        descendPill.classList.remove('blinking');
+                        descendPill.classList.add('completed');
+                    }
+                    // Make first arrow dark
+                    const arrow1 = document.getElementById('arrow-1');
+                    if (arrow1) {
+                        arrow1.classList.add('completed');
+                    }
+                    // Change pause button to green resume
+                    const pauseBtn = document.getElementById('pause-btn');
+                    if (pauseBtn) {
+                        pauseBtn.textContent = '▶ Resume';
+                        pauseBtn.classList.remove('paused');
+                        pauseBtn.classList.add('resume');
+                        // Update button state
+                        if (typeof window.buttonState !== 'undefined') {
+                            window.buttonState = 'resume';
+                            buttonState = 'resume';
+                        }
+                    }
+                } else if (this.phase === 'inserter' && animType === 'inserter-position') {
+                    // Inserter Driver position animation completed, show second modal
+                    const modal = document.getElementById('completion-modal');
+                    const modalContent = document.getElementById('modal-content-text');
+                    const modalNextBtn = document.getElementById('modal-next-btn');
+                    if (modal && modalContent && modalNextBtn) {
+                        modalContent.innerHTML = 'Inserter driver is now at the targeted position, now please gently unscrew the flexible electrode (the small square block) to release it from the holder.<img src="img/release.png" alt="Release instruction">';
+                        modalNextBtn.textContent = 'Completed, start retract.';
+                        modal.classList.add('show');
+                    }
+                    // Stop blinking and make Precise Electrode Insertion pill permanently dark
+                    const precisePill = document.getElementById('pill-precise');
+                    if (precisePill) {
+                        precisePill.classList.remove('blinking');
+                        precisePill.classList.add('completed');
+                    }
+                    // Make second arrow dark
+                    const arrow2 = document.getElementById('arrow-2');
+                    if (arrow2) {
+                        arrow2.classList.add('completed');
+                    }
+                    // Change pause button to green resume
+                    const pauseBtn = document.getElementById('pause-btn');
+                    if (pauseBtn) {
+                        pauseBtn.textContent = '▶ Resume';
+                        pauseBtn.classList.remove('paused');
+                        pauseBtn.classList.add('resume');
+                        // Update button state
+                        if (typeof window.buttonState !== 'undefined') {
+                            window.buttonState = 'resume';
+                            buttonState = 'resume';
+                        }
+                    }
+                } else if (this.phase === 'retract' && animType === 'inserter-retract') {
+                    // Inserter Driver retract animation completed, show third modal
+                    const modal = document.getElementById('completion-modal');
+                    const modalContent = document.getElementById('modal-content-text');
+                    const modalNextBtn = document.getElementById('modal-next-btn');
+                    if (modal && modalContent && modalNextBtn) {
+                        modalContent.textContent = 'Insertor driver successfully retracted.';
+                        modalNextBtn.textContent = 'Next';
+                        modal.classList.add('show');
+                    }
+                    // Stop blinking and make Retract Inserter pill permanently dark
+                    const retractPill = document.getElementById('pill-retract');
+                    if (retractPill) {
+                        retractPill.classList.remove('blinking');
+                        retractPill.classList.add('completed');
+                    }
+                    // Make fourth arrow dark
+                    const arrow4 = document.getElementById('arrow-4');
+                    if (arrow4) {
+                        arrow4.classList.add('completed');
+                    }
+                    // Change pause button to green resume
+                    const pauseBtn = document.getElementById('pause-btn');
+                    if (pauseBtn) {
+                        pauseBtn.textContent = '▶ Resume';
+                        pauseBtn.classList.remove('paused');
+                        pauseBtn.classList.add('resume');
+                        // Update button state
+                        if (typeof window.buttonState !== 'undefined') {
+                            window.buttonState = 'resume';
+                            buttonState = 'resume';
+                        }
+                    }
+                } else if (this.phase === 'return' && (animType === 'primary-position-return' || animType === 'inserter-position-return')) {
+                    // Check if both position animations are completed
+                    // Use setTimeout to ensure the completed flag is set before checking
+                    setTimeout(() => {
+                        const primaryPosAnim = this.animations.find(a => a.animType === 'primary-position-return');
+                        const inserterPosAnim = this.animations.find(a => a.animType === 'inserter-position-return');
+                        
+                        if (primaryPosAnim && primaryPosAnim.completed && inserterPosAnim && inserterPosAnim.completed) {
+                            // Both position animations completed, show fourth modal
+                            const modal = document.getElementById('completion-modal');
+                            const modalContent = document.getElementById('modal-content-text');
+                            const modalNextBtn = document.getElementById('modal-next-btn');
+                            if (modal && modalContent && modalNextBtn) {
+                                modalContent.textContent = 'Experiment Completed!';
+                                modalNextBtn.textContent = 'Back to Home';
+                                modal.classList.add('show');
+                            }
+                            // Stop blinking and make Return to Origin pill permanently dark
+                            const returnPill = document.getElementById('pill-return');
+                            if (returnPill) {
+                                returnPill.classList.remove('blinking');
+                                returnPill.classList.add('completed');
+                            }
+                            // Change pause button to green resume
+                            const pauseBtn = document.getElementById('pause-btn');
+                            if (pauseBtn) {
+                                pauseBtn.textContent = '▶ Resume';
+                                pauseBtn.classList.remove('paused');
+                                pauseBtn.classList.add('resume');
+                                // Update button state
+                                if (typeof window.buttonState !== 'undefined') {
+                                    window.buttonState = 'resume';
+                                    buttonState = 'resume';
+                                }
+                            }
+                        }
+                    }, 0);
+                }
+            },
+            
+            reset: function(phase) {
+                this.completedCount = 0;
+                this.totalAnimations = 0;
+                this.animations = [];
+                this.isPaused = false; // Resume animations when resetting
+                if (phase) {
+                    this.phase = phase;
+                }
+            }
+        };
+
+        // Function to animate number from start to end over duration with pause/resume support
+        function animateNumber(element, prefix, suffix, startValue, endValue, duration, animType) {
+            const difference = endValue - startValue;
+            let startTime = performance.now();
+            let progress = 0;
+            let animationId = null;
+            
+            const anim = {
+                element: element,
+                prefix: prefix,
+                suffix: suffix,
+                startValue: startValue,
+                endValue: endValue,
+                difference: difference,
+                duration: duration,
+                startTime: startTime,
+                progress: 0,
+                animationId: null,
+                completed: false,
+                animType: animType || null,
+                
+                update: function(currentTime) {
+                    if (animationController.isPaused) {
+                        return;
+                    }
+                    
+                    const elapsed = currentTime - this.startTime;
+                    this.progress = Math.min(elapsed / this.duration, 1);
+                    
+                    // Easing function for smooth animation
+                    const easeProgress = this.progress < 0.5 
+                        ? 2 * this.progress * this.progress 
+                        : 1 - Math.pow(-2 * this.progress + 2, 2) / 2;
+                    
+                    const currentValue = this.startValue + (this.difference * easeProgress);
+                    const formattedValue = currentValue.toFixed(2);
+                    
+                    // Use innerHTML if prefix contains <br>, otherwise use textContent
+                    if (this.prefix.includes('<br>')) {
+                        this.element.innerHTML = this.prefix + formattedValue + this.suffix;
+                    } else {
+                        this.element.textContent = this.prefix + formattedValue + this.suffix;
+                    }
+                    
+                    if (this.progress < 1) {
+                        this.animationId = requestAnimationFrame(this.update.bind(this));
+                    } else {
+                        // Ensure final value is exact
+                        if (this.prefix.includes('<br>')) {
+                            this.element.innerHTML = this.prefix + this.endValue.toFixed(2) + this.suffix;
+                        } else {
+                            this.element.textContent = this.prefix + this.endValue.toFixed(2) + this.suffix;
+                        }
+                        this.animationId = null;
+                        this.completed = true;
+                        animationController.onAnimationComplete(this.animType);
+                    }
+                }
+            };
+            
+            animationController.addAnimation(anim);
+            anim.animationId = requestAnimationFrame(anim.update.bind(anim));
+        }
+
+        const pauseBtn = document.getElementById('pause-btn');
+        let buttonState = 'start'; // 'start', 'pause', 'resume'
+        window.buttonState = buttonState; // Make it accessible globally
+
+        pauseBtn.addEventListener('click', function() {
+            if (buttonState === 'start') {
+                // Start button clicked - begin animation
+                this.textContent = '⏸ Pause';
+                this.classList.add('paused');
+                this.classList.remove('resume');
+                buttonState = 'pause';
+                window.buttonState = buttonState;
+                
+                // Animate driver-details-container from top: 283px to top: 612px
+                const driverDetailsContainer = document.querySelector('.driver-details-container');
+                if (driverDetailsContainer) {
+                    driverDetailsContainer.style.top = '612px';
+                }
+                
+                // Animate motor-image from current position to top: 284px
+                const motorImage = document.querySelector('.motor-image');
+                if (motorImage) {
+                    motorImage.style.top = '239px';
+                }
+                
+                // Animate motor-image-2 from current position to top: 239px
+                const motorImage2 = document.querySelector('.motor-image-2');
+                if (motorImage2) {
+                    motorImage2.style.top = '239px';
+                }
+                
+                // Animate motor-image-3 from current position to top: 653px
+                const motorImage3 = document.querySelector('.motor-image-3');
+                if (motorImage3) {
+                    motorImage3.style.top = '653px';
+                }
+                
+                // Start blinking Descend Toward Target pill
+                const descendPill = document.getElementById('pill-descend');
+                if (descendPill) {
+                    descendPill.classList.add('blinking');
+                }
+                
+                // Reset animation controller
+                animationController.reset();
+                
+                if (configData) {
+                    // Animate Primary Driver Current Velocity
+                    const primaryVelocityEl = document.getElementById('primary-velocity');
+                    if (primaryVelocityEl && configData.primaryDriver.velocity) {
+                        const targetVelocity = parseFloat(configData.primaryDriver.velocity);
+                        animateNumber(
+                            primaryVelocityEl,
+                            'Velocity<br>',
+                            ' mm/s',
+                            0.00,
+                            targetVelocity,
+                            5000,
+                            'primary-velocity'
+                        );
+                    }
+                    // Inserter Driver Current Velocity remains 0.00
+                    
+                    // Animate both Current Positions to Primary Driver Target Position
+                    const primaryTargetPosition = parseFloat(configData.primaryDriver.destination);
+                    if (primaryTargetPosition) {
+                        // Animate Primary Driver Current Position
+                        const primaryPositionEl = document.getElementById('primary-position');
+                        if (primaryPositionEl) {
+                            animateNumber(
+                                primaryPositionEl,
+                                'Position: ',
+                                ' mm',
+                                0.00,
+                                primaryTargetPosition,
+                                30000,
+                                'primary-position'
+                            );
+                        }
+                        
+                        // Animate Inserter Driver Current Position
+                        const inserterPositionEl = document.getElementById('inserter-position');
+                        if (inserterPositionEl) {
+                            animateNumber(
+                                inserterPositionEl,
+                                'Position<br>',
+                                ' mm',
+                                0.00,
+                                primaryTargetPosition,
+                                30000,
+                                'inserter-position-primary'
+                            );
+                        }
+                    }
+                }
+            } else if (buttonState === 'pause') {
+                // Pause button clicked - pause all animations
+                animationController.pause();
+                this.textContent = '▶ Resume';
+                this.classList.remove('paused');
+                this.classList.add('resume');
+                buttonState = 'resume';
+            } else if (buttonState === 'resume') {
+                // Resume button clicked - resume all animations
+                animationController.resume();
+                this.textContent = '⏸ Pause';
+                this.classList.remove('resume');
+                this.classList.add('paused');
+                buttonState = 'pause';
+                window.buttonState = buttonState;
+            }
+        });
+
+        // Handle modal Next button click
+        const modalNextBtn = document.getElementById('modal-next-btn');
+        if (modalNextBtn) {
+            modalNextBtn.addEventListener('click', function() {
+                const modalContent = document.getElementById('modal-content-text');
+                const currentModalText = modalContent ? modalContent.textContent : '';
+                
+                // Hide modal
+                const modal = document.getElementById('completion-modal');
+                if (modal) {
+                    modal.classList.remove('show');
+                }
+                
+                // Change resume button back to red pause
+                if (pauseBtn) {
+                    pauseBtn.textContent = '⏸ Pause';
+                    pauseBtn.classList.remove('resume');
+                    pauseBtn.classList.add('paused');
+                    buttonState = 'pause';
+                    window.buttonState = buttonState;
+                }
+                
+                // Check which modal was clicked
+                if (currentModalText.includes('Primary driver is now at the targeted position')) {
+                    // First modal - Start Inserter Driver animations
+                    // Switch timeline-chart from image to video
+                    const timelineChart = document.querySelector('.timeline-chart');
+                    const timelineVideo = document.getElementById('timeline-video');
+                    if (timelineChart && timelineVideo) {
+                        timelineChart.classList.add('show-video');
+                        timelineVideo.play().catch(function(error) {
+                            console.log('Video autoplay failed:', error);
+                        });
+                    }
+                    
+                    // Animate driver-details-container from current position to 693px
+                    const driverDetailsContainer = document.querySelector('.driver-details-container');
+                    if (driverDetailsContainer) {
+                        // Set transition duration to 10s for this animation
+                        driverDetailsContainer.style.transition = 'top 10s ease-in-out';
+                        // Trigger the animation
+                        driverDetailsContainer.style.top = '694px';
+                        
+                        // Listen for animation end, then pause
+                        const handleTransitionEnd = function(e) {
+                            if (e.propertyName === 'top') {
+                                // Pause all animations
+                                animationController.pause();
+                                // Remove the event listener
+                                driverDetailsContainer.removeEventListener('transitionend', handleTransitionEnd);
+                            }
+                        };
+                        driverDetailsContainer.addEventListener('transitionend', handleTransitionEnd);
+                    }
+                    
+                    // Animate motor-image-2 from current position to 322px
+                    const motorImage2 = document.querySelector('.motor-image-2');
+                    if (motorImage2) {
+                        // Set transition duration to 10s for this animation
+                        motorImage2.style.transition = 'top 10s ease-in-out';
+                        // Trigger the animation
+                        motorImage2.style.top = '322px';
+                    }
+                    
+                    // Animate motor-image-3 from current position to 736px
+                    const motorImage3 = document.querySelector('.motor-image-3');
+                    if (motorImage3) {
+                        // Set transition duration to 10s for this animation
+                        motorImage3.style.transition = 'top 10s ease-in-out';
+                        // Trigger the animation
+                        motorImage3.style.top = '736px';
+                        
+                        // Listen for animation end, then show second modal
+                        const handleMotor3TransitionEnd = function(e) {
+                            if (e.propertyName === 'top') {
+                                // Show second modal when motor3 animation completes
+                                const modal = document.getElementById('completion-modal');
+                                const modalContent = document.getElementById('modal-content-text');
+                                const modalNextBtn = document.getElementById('modal-next-btn');
+                                if (modal && modalContent && modalNextBtn) {
+                                    modalContent.innerHTML = 'Inserter driver is now at the targeted position, now please gently unscrew the flexible electrode (the small square block) to release it from the holder.<img src="img/release.png" alt="Release instruction">';
+                                    modalNextBtn.textContent = 'Completed, start retract.';
+                                    modal.classList.add('show');
+                                }
+                                // Stop blinking and make Precise Electrode Insertion pill permanently dark
+                                const precisePill = document.getElementById('pill-precise');
+                                if (precisePill) {
+                                    precisePill.classList.remove('blinking');
+                                    precisePill.classList.add('completed');
+                                }
+                                // Make second arrow dark
+                                const arrow2 = document.getElementById('arrow-2');
+                                if (arrow2) {
+                                    arrow2.classList.add('completed');
+                                }
+                                // Change pause button to green resume
+                                const pauseBtn = document.getElementById('pause-btn');
+                                if (pauseBtn) {
+                                    pauseBtn.textContent = '▶ Resume';
+                                    pauseBtn.classList.remove('paused');
+                                    pauseBtn.classList.add('resume');
+                                    // Update button state
+                                    if (typeof window.buttonState !== 'undefined') {
+                                        window.buttonState = 'resume';
+                                        buttonState = 'resume';
+                                    }
+                                }
+                                // Remove the event listener
+                                motorImage3.removeEventListener('transitionend', handleMotor3TransitionEnd);
+                            }
+                        };
+                        motorImage3.addEventListener('transitionend', handleMotor3TransitionEnd);
+                    }
+                    
+                    // Hide primary-velocity and show inserter-velocity
+                    const primaryVelocityEl = document.getElementById('primary-velocity');
+                    const inserterVelocityEl = document.getElementById('inserter-velocity');
+                    if (primaryVelocityEl) {
+                        primaryVelocityEl.style.display = 'none';
+                    }
+                    if (inserterVelocityEl) {
+                        inserterVelocityEl.style.display = 'block';
+                    }
+                    
+                    // Start blinking Precise Electrode Insertion pill
+                    const precisePill = document.getElementById('pill-precise');
+                    if (precisePill) {
+                        precisePill.classList.add('blinking');
+                    }
+                    
+                    if (configData) {
+                        // Reset animation controller for new animations (inserter phase)
+                        animationController.reset('inserter');
+                        
+                        // Get current Inserter Driver position (should be at Primary Driver target position)
+                        const inserterPositionEl = document.getElementById('inserter-position');
+                        const currentPositionText = inserterPositionEl ? (inserterPositionEl.textContent || inserterPositionEl.innerText) : 'Position<br>0.00 mm';
+                        const currentPosition = parseFloat(currentPositionText.match(/[\d.]+/)?.[0] || '0');
+                        
+                        // Animate Inserter Driver Current Position to Inserter Driver Target Position
+                        const inserterTargetPosition = parseFloat(configData.inserterDriver.destination);
+                        if (inserterPositionEl && inserterTargetPosition) {
+                            animateNumber(
+                                inserterPositionEl,
+                                'Position<br>',
+                                ' mm',
+                                currentPosition,
+                                inserterTargetPosition,
+                                10000,
+                                'inserter-position'
+                            );
+                        }
+                        
+                        // Animate Inserter Driver Current Velocity to Inserter Driver Velocity
+                        const inserterVelocityEl = document.getElementById('inserter-velocity');
+                        const inserterTargetVelocity = parseFloat(configData.inserterDriver.velocity);
+                        if (inserterVelocityEl && inserterTargetVelocity) {
+                            animateNumber(
+                                inserterVelocityEl,
+                                'Velocity<br>',
+                                ' mm/s',
+                                0.00,
+                                inserterTargetVelocity,
+                                5000,
+                                'inserter-velocity'
+                            );
+                        }
+                    }
+                } else if (currentModalText.includes('Inserter driver is now at the targeted position')) {
+                    // Second modal - Start retract animation
+                    // Animate driver-details-container: first jump to 650px instantly, then animate to 567px
+                    const driverDetailsContainer = document.querySelector('.driver-details-container');
+                    if (driverDetailsContainer) {
+                        // First, remove transition to jump instantly
+                        driverDetailsContainer.style.transition = 'none';
+                        driverDetailsContainer.style.top = '650px';
+                        // Force reflow to apply the instant change
+                        driverDetailsContainer.offsetHeight;
+                        // Then set transition and animate to 567px
+                        driverDetailsContainer.style.transition = 'top 10s ease-in-out';
+                        driverDetailsContainer.style.top = '567px';
+                    }
+                    
+                    // Animate motor-image-2 from current position to 239px
+                    const motorImage2 = document.querySelector('.motor-image-2');
+                    if (motorImage2) {
+                        // Set transition duration to 10s for this animation
+                        motorImage2.style.transition = 'top 10s ease-in-out';
+                        // Trigger the animation
+                        motorImage2.style.top = '239px';
+                    }
+                    
+                    // Ensure only inserter-velocity is shown, primary-velocity is hidden
+                    const primaryVelocityEl = document.getElementById('primary-velocity');
+                    const inserterVelocityEl = document.getElementById('inserter-velocity');
+                    if (primaryVelocityEl) {
+                        primaryVelocityEl.style.display = 'none';
+                    }
+                    if (inserterVelocityEl) {
+                        inserterVelocityEl.style.display = 'block';
+                    }
+                    
+                    // Make Release of Electrode pill permanently dark
+                    const releasePill = document.getElementById('pill-release');
+                    if (releasePill) {
+                        releasePill.classList.add('completed');
+                    }
+                    // Make third arrow dark
+                    const arrow3 = document.getElementById('arrow-3');
+                    if (arrow3) {
+                        arrow3.classList.add('completed');
+                    }
+                    
+                    // Start blinking Retract Inserter pill
+                    const retractPill = document.getElementById('pill-retract');
+                    if (retractPill) {
+                        retractPill.classList.add('blinking');
+                    }
+                    
+                    // Update inserter-position: first jump to 190.04 mm instantly, then animate to 172.45 mm
+                    const inserterPositionEl = document.getElementById('inserter-position');
+                    if (inserterPositionEl) {
+                        // First, set to 190.04 mm instantly (no animation)
+                        inserterPositionEl.innerHTML = 'Position<br>190.04 mm';
+                        // Force reflow to apply the instant change
+                        inserterPositionEl.offsetHeight;
+                        // Then animate to 172.45 mm over 10 seconds
+                        animateNumber(
+                            inserterPositionEl,
+                            'Position<br>',
+                            ' mm',
+                            190.04,
+                            172.45,
+                            10000,
+                            'inserter-retract'
+                        );
+                    }
+                    
+                    if (configData) {
+                        // Reset animation controller for retract phase
+                        animationController.reset('retract');
+                    }
+                } else if (currentModalText.includes('Insertor driver successfully retracted')) {
+                    // Third modal - Start return animations
+                    // Animate driver-details-container to top: 237px
+                    const driverDetailsContainer = document.querySelector('.driver-details-container');
+                    if (driverDetailsContainer) {
+                        // Set transition duration to 30s for this animation
+                        driverDetailsContainer.style.transition = 'top 30s ease-in-out';
+                        // Trigger the animation
+                        driverDetailsContainer.style.top = '237px';
+                    }
+                    
+                    // Animate motor-image and motor-image-2 to top: -90px
+                    const motorImage = document.querySelector('.motor-image');
+                    const motorImage2 = document.querySelector('.motor-image-2');
+                    let motorImageCompleted = false;
+                    let motorImage2Completed = false;
+                    
+                    const checkAndShowFourthModal = function() {
+                        if (motorImageCompleted && motorImage2Completed) {
+                            // Both motors have returned to -90px, show fourth modal
+                            const modal = document.getElementById('completion-modal');
+                            const modalContent = document.getElementById('modal-content-text');
+                            const modalNextBtn = document.getElementById('modal-next-btn');
+                            if (modal && modalContent && modalNextBtn) {
+                                modalContent.textContent = 'Experiment Completed!';
+                                modalNextBtn.textContent = 'Back to Home';
+                                modal.classList.add('show');
+                            }
+                            // Stop blinking and make Return to Origin pill permanently dark
+                            const returnPill = document.getElementById('pill-return');
+                            if (returnPill) {
+                                returnPill.classList.remove('blinking');
+                                returnPill.classList.add('completed');
+                            }
+                            // Change pause button to green resume
+                            const pauseBtn = document.getElementById('pause-btn');
+                            if (pauseBtn) {
+                                pauseBtn.textContent = '▶ Resume';
+                                pauseBtn.classList.remove('paused');
+                                pauseBtn.classList.add('resume');
+                                // Update button state
+                                if (typeof window.buttonState !== 'undefined') {
+                                    window.buttonState = 'resume';
+                                    buttonState = 'resume';
+                                }
+                            }
+                        }
+                    };
+                    
+                    if (motorImage) {
+                        // Set transition duration to 30s for this animation
+                        motorImage.style.transition = 'top 30s ease-in-out';
+                        // Trigger the animation
+                        motorImage.style.top = '-90px';
+                        
+                        // Listen for animation end
+                        const handleMotorImageTransitionEnd = function(e) {
+                            if (e.propertyName === 'top') {
+                                motorImageCompleted = true;
+                                checkAndShowFourthModal();
+                                motorImage.removeEventListener('transitionend', handleMotorImageTransitionEnd);
+                            }
+                        };
+                        motorImage.addEventListener('transitionend', handleMotorImageTransitionEnd);
+                    }
+                    if (motorImage2) {
+                        // Set transition duration to 30s for this animation
+                        motorImage2.style.transition = 'top 30s ease-in-out';
+                        // Trigger the animation
+                        motorImage2.style.top = '-90px';
+                        
+                        // Listen for animation end
+                        const handleMotorImage2TransitionEnd = function(e) {
+                            if (e.propertyName === 'top') {
+                                motorImage2Completed = true;
+                                checkAndShowFourthModal();
+                                motorImage2.removeEventListener('transitionend', handleMotorImage2TransitionEnd);
+                            }
+                        };
+                        motorImage2.addEventListener('transitionend', handleMotorImage2TransitionEnd);
+                    }
+                    
+                    // Show only primary-velocity, hide inserter-velocity
+                    const primaryVelocityEl = document.getElementById('primary-velocity');
+                    const inserterVelocityEl = document.getElementById('inserter-velocity');
+                    if (primaryVelocityEl) {
+                        primaryVelocityEl.style.display = 'block';
+                    }
+                    if (inserterVelocityEl) {
+                        inserterVelocityEl.style.display = 'none';
+                    }
+                    
+                    // Start blinking Return to Origin pill
+                    const returnPill = document.getElementById('pill-return');
+                    if (returnPill) {
+                        returnPill.classList.add('blinking');
+                    }
+                    
+                    if (configData) {
+                        // Reset animation controller for return phase
+                        animationController.reset('return');
+                        
+                        // Get current positions
+                        const primaryPositionEl = document.getElementById('primary-position');
+                        const inserterPositionEl = document.getElementById('inserter-position');
+                        const primaryVelocityEl = document.getElementById('primary-velocity');
+                        
+                        const primaryCurrentPositionText = primaryPositionEl ? primaryPositionEl.textContent : 'Current Position: 0.00 mm';
+                        const inserterCurrentPositionText = inserterPositionEl ? (inserterPositionEl.textContent || inserterPositionEl.innerText) : 'Position<br>0.00 mm';
+                        const primaryCurrentPosition = parseFloat(primaryCurrentPositionText.match(/[\d.]+/)?.[0] || '0');
+                        const inserterCurrentPosition = parseFloat(inserterCurrentPositionText.match(/[\d.]+/)?.[0] || '0');
+                        
+                        // Animate Primary Driver Current Position back to 0.00
+                        if (primaryPositionEl) {
+                            animateNumber(
+                                primaryPositionEl,
+                                'Current Position: ',
+                                ' mm',
+                                primaryCurrentPosition,
+                                0.00,
+                                30000,
+                                'primary-position-return'
+                            );
+                        }
+                        
+                        // Animate Inserter Driver Current Position back to 0.00
+                        if (inserterPositionEl) {
+                            animateNumber(
+                                inserterPositionEl,
+                                'Position<br>',
+                                ' mm',
+                                inserterCurrentPosition,
+                                0.00,
+                                30000,
+                                'inserter-position-return'
+                            );
+                        }
+                        
+                        // Animate Primary Driver Current Velocity to preset value
+                        const primaryTargetVelocity = parseFloat(configData.primaryDriver.velocity);
+                        if (primaryVelocityEl && primaryTargetVelocity) {
+                            // Get current velocity value
+                            const currentVelocityText = primaryVelocityEl.textContent || primaryVelocityEl.innerText;
+                            const currentVelocity = parseFloat(currentVelocityText.match(/[\d.]+/)?.[0] || '0');
+                            
+                            animateNumber(
+                                primaryVelocityEl,
+                                'Velocity<br>',
+                                ' mm/s',
+                                currentVelocity,
+                                primaryTargetVelocity,
+                                5000,
+                                'primary-velocity-return'
+                            );
+                        }
+                        
+                        // Inserter Driver Current Velocity remains 0.00 (no animation needed)
+                    }
+                } else if (currentModalText.includes('Experiment Completed!')) {
+                    // Fourth modal - Navigate to assembly.html
+                    window.location.href = 'assembly.html';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
