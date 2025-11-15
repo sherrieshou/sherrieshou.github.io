@@ -67,10 +67,6 @@
             transition: all 0.3s ease;
         }
 
-        .pill.completed {
-            border-color: #6C6C6C;
-        }
-
         .arrow {
             color: #ccc;
             font-size: 20px;
@@ -322,6 +318,14 @@
             background-color: #333;
         }
 
+        .modal-countdown {
+            padding: 12px 32px;
+            font-size: 24px;
+            font-weight: 600;
+            color: #555;
+            text-align: center;
+        }
+
         @media (max-width: 1024px) {
             .content-area {
                 grid-template-columns: 1fr;
@@ -416,6 +420,7 @@
             </div>
             <div class="modal-footer">
                 <button class="modal-next-btn" id="modal-next-btn">Next</button>
+                <div class="modal-countdown" id="modal-countdown" style="display: none;"></div>
             </div>
         </div>
     </div>
@@ -484,6 +489,12 @@
                 
                 if (this.phase === 'primary' && this.completedCount === this.totalAnimations) {
                     // Primary phase animations completed, automatically start inserter phase
+                    // Set primary-velocity to 0.00 mm/s
+                    const primaryVelocityEl = document.getElementById('primary-velocity');
+                    if (primaryVelocityEl) {
+                        primaryVelocityEl.textContent = 'Current Velocity: 0.00 mm/s';
+                    }
+                    
                     // Make Descend Toward Target pill permanently dark
                     const descendPill = document.getElementById('pill-descend');
                     if (descendPill) {
@@ -553,14 +564,100 @@
                         }
                     }, 5000); // 5 second delay
                 } else if (this.phase === 'inserter' && animType === 'inserter-position') {
-                    // Inserter Driver position animation completed, show second modal
+                    // Inserter Driver position animation completed, set inserter-velocity to 0.00 mm/s
+                    const inserterVelocityEl = document.getElementById('inserter-velocity');
+                    if (inserterVelocityEl) {
+                        inserterVelocityEl.textContent = 'Current Velocity: 0.00 mm/s';
+                    }
+                    
+                    // Show second modal with countdown
                     const modal = document.getElementById('completion-modal');
                     const modalContent = document.getElementById('modal-content-text');
                     const modalNextBtn = document.getElementById('modal-next-btn');
-                    if (modal && modalContent && modalNextBtn) {
-                        modalContent.textContent = 'Inserter driver is now at the targeted position, now please gently unscrew the flexible electrode (the small square block) to release it from the holder.';
-                        modalNextBtn.textContent = 'Completed, start retract.';
+                    const modalCountdown = document.getElementById('modal-countdown');
+                    if (modal && modalContent) {
+                        modalContent.innerHTML = 'Inserter driver is now at the targeted position, now please gently unscrew the flexible electrode (the small square block) to release it from the holder.';
+                        // Hide button, show countdown
+                        if (modalNextBtn) {
+                            modalNextBtn.style.display = 'none';
+                        }
+                        if (modalCountdown) {
+                            modalCountdown.style.display = 'block';
+                        }
                         modal.classList.add('show');
+                        
+                        // Start 15 second countdown
+                        let countdown = 15;
+                        const updateCountdown = () => {
+                            if (modalCountdown) {
+                                modalCountdown.textContent = countdown;
+                            }
+                            if (countdown > 0) {
+                                countdown--;
+                                setTimeout(updateCountdown, 1000);
+                            } else {
+                                // Countdown finished, close modal and start retract animation
+                                modal.classList.remove('show');
+                                if (modalNextBtn) {
+                                    modalNextBtn.style.display = 'block';
+                                }
+                                if (modalCountdown) {
+                                    modalCountdown.style.display = 'none';
+                                }
+                                
+                                // Start retract animation
+                                // Make Release of Electrode pill permanently dark
+                                const releasePill = document.getElementById('pill-release');
+                                if (releasePill) {
+                                    releasePill.classList.add('completed');
+                                }
+                                // Make third arrow dark
+                                const arrow3 = document.getElementById('arrow-3');
+                                if (arrow3) {
+                                    arrow3.classList.add('completed');
+                                }
+                                
+                                if (configData) {
+                                    // Reset animation controller for retract phase
+                                    animationController.reset('retract');
+                                    
+                                    // Get current Inserter Driver position (should be at Inserter Driver target position)
+                                    const inserterPositionEl = document.getElementById('inserter-position');
+                                    const currentPositionText = inserterPositionEl ? inserterPositionEl.textContent : 'Current Position: 0.00 mm';
+                                    const currentPosition = parseFloat(currentPositionText.match(/[\d.]+/)?.[0] || '0');
+                                    
+                                    // Animate Inserter Driver Current Position back to Primary Driver Destination
+                                    const primaryTargetPosition = parseFloat(configData.primaryDriver.destination);
+                                    if (inserterPositionEl && primaryTargetPosition) {
+                                        animateNumber(
+                                            inserterPositionEl,
+                                            'Current Position: ',
+                                            ' mm',
+                                            currentPosition,
+                                            primaryTargetPosition,
+                                            30000,
+                                            'inserter-retract'
+                                        );
+                                    }
+                                    
+                                    // Animate Inserter Driver Current Velocity to preset value
+                                    const inserterVelocityEl = document.getElementById('inserter-velocity');
+                                    const inserterTargetVelocity = parseFloat(configData.inserterDriver.velocity);
+                                    if (inserterVelocityEl && inserterTargetVelocity) {
+                                        animateNumber(
+                                            inserterVelocityEl,
+                                            'Current Velocity: ',
+                                            ' mm/s',
+                                            0.00,
+                                            inserterTargetVelocity,
+                                            5000,
+                                            'inserter-velocity-retract'
+                                        );
+                                    }
+                                }
+                            }
+                        };
+                        updateCountdown();
                     }
                     // Make Precise Electrode Insertion pill permanently dark
                     const precisePill = document.getElementById('pill-precise');
@@ -571,18 +668,6 @@
                     const arrow2 = document.getElementById('arrow-2');
                     if (arrow2) {
                         arrow2.classList.add('completed');
-                    }
-                    // Change pause button to green resume
-                    const pauseBtn = document.getElementById('pause-btn');
-                    if (pauseBtn) {
-                        pauseBtn.textContent = '▶ Resume';
-                        pauseBtn.classList.remove('paused');
-                        pauseBtn.classList.add('resume');
-                        // Update button state
-                        if (typeof window.buttonState !== 'undefined') {
-                            window.buttonState = 'resume';
-                            buttonState = 'resume';
-                        }
                     }
                 } else if (this.phase === 'retract' && animType === 'inserter-retract') {
                     // Inserter Driver retract animation completed, automatically start return phase
@@ -601,6 +686,12 @@
                     if (configData) {
                         // Reset animation controller for return phase
                         animationController.reset('return');
+                        
+                        // Set inserter-velocity to 0.00 mm/s at the start of return phase
+                        const inserterVelocityEl = document.getElementById('inserter-velocity');
+                        if (inserterVelocityEl) {
+                            inserterVelocityEl.textContent = 'Current Velocity: 0.00 mm/s';
+                        }
                         
                         // Get current positions
                         const primaryPositionEl = document.getElementById('primary-position');
@@ -668,27 +759,23 @@
                         const modal = document.getElementById('completion-modal');
                         const modalContent = document.getElementById('modal-content-text');
                         const modalNextBtn = document.getElementById('modal-next-btn');
+                        const modalCountdown = document.getElementById('modal-countdown');
                         if (modal && modalContent && modalNextBtn) {
                             modalContent.textContent = 'Experiment Completed!';
                             modalNextBtn.textContent = 'Back to Home';
+                            // Ensure button is visible and countdown is hidden for other modals
+                            if (modalNextBtn) {
+                                modalNextBtn.style.display = 'block';
+                            }
+                            if (modalCountdown) {
+                                modalCountdown.style.display = 'none';
+                            }
                             modal.classList.add('show');
                         }
                         // Make Return to Origin pill permanently dark
                         const returnPill = document.getElementById('pill-return');
                         if (returnPill) {
                             returnPill.classList.add('completed');
-                        }
-                        // Change pause button to green resume
-                        const pauseBtn = document.getElementById('pause-btn');
-                        if (pauseBtn) {
-                            pauseBtn.textContent = '▶ Resume';
-                            pauseBtn.classList.remove('paused');
-                            pauseBtn.classList.add('resume');
-                            // Update button state
-                            if (typeof window.buttonState !== 'undefined') {
-                                window.buttonState = 'resume';
-                                buttonState = 'resume';
-                            }
                         }
                     }
                 }
@@ -851,8 +938,16 @@
                 
                 // Hide modal
                 const modal = document.getElementById('completion-modal');
+                const modalCountdown = document.getElementById('modal-countdown');
                 if (modal) {
                     modal.classList.remove('show');
+                }
+                // Ensure button is visible and countdown is hidden when modal is closed
+                if (modalNextBtn) {
+                    modalNextBtn.style.display = 'block';
+                }
+                if (modalCountdown) {
+                    modalCountdown.style.display = 'none';
                 }
                 
                 // Change resume button back to red pause
@@ -865,43 +960,8 @@
                 }
                 
                 // Check which modal was clicked
-                if (currentModalText.includes('Inserter driver is now at the targeted position')) {
-                    // Second modal - Start retract animation
-                    // Make Release of Electrode pill permanently dark
-                    const releasePill = document.getElementById('pill-release');
-                    if (releasePill) {
-                        releasePill.classList.add('completed');
-                    }
-                    // Make third arrow dark
-                    const arrow3 = document.getElementById('arrow-3');
-                    if (arrow3) {
-                        arrow3.classList.add('completed');
-                    }
-                    
-                    if (configData) {
-                        // Reset animation controller for retract phase
-                        animationController.reset('retract');
-                        
-                        // Get current Inserter Driver position (should be at Inserter Driver target position)
-                        const inserterPositionEl = document.getElementById('inserter-position');
-                        const currentPositionText = inserterPositionEl ? inserterPositionEl.textContent : 'Current Position: 0.00 mm';
-                        const currentPosition = parseFloat(currentPositionText.match(/[\d.]+/)?.[0] || '0');
-                        
-                        // Animate Inserter Driver Current Position back to Primary Driver Destination
-                        const primaryTargetPosition = parseFloat(configData.primaryDriver.destination);
-                        if (inserterPositionEl && primaryTargetPosition) {
-                            animateNumber(
-                                inserterPositionEl,
-                                'Current Position: ',
-                                ' mm',
-                                currentPosition,
-                                primaryTargetPosition,
-                                10000,
-                                'inserter-retract'
-                            );
-                        }
-                    }
-                } else if (currentModalText.includes('Experiment Completed!')) {
+                // Note: The "Inserter driver is now at the targeted position" modal now uses countdown and auto-starts
+                if (currentModalText.includes('Experiment Completed!')) {
                     // Fourth modal - Navigate to assembly.html
                     window.location.href = 'assembly.html';
                 }
